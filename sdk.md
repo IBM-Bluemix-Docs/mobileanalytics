@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-02-21"
+lastupdated: "2017-01-10"
 
 ---
 {:new_window: target="_blank"}
@@ -20,7 +20,7 @@ The {{site.data.keyword.mobileanalytics_full}} SDKs enable you to instrument you
 
 1. Pre-defined data - This category includes generic usage and device information that applies to all applications. Within this category is device metadata (operating system and device model) and usage data (active users and application sessions) that indicates the volume, frequency, or duration of application use. Pre-defined data is collected automatically after you initialize the {{site.data.keyword.mobileanalytics_short}} SDK in your application.
 
-2. Application log messages - This category enables the developer to add lines of code throughout the application that log custom messages to assist in development and debugging. The developer assigns a severity/verbosity level to each log message and can subsequently filter messages by assigned level or preserve storage space by configuring the application to ignore messages that are at a lesser level of a given log level. To collect application log data, you must initialize the {{site.data.keyword.mobileanalytics_short}} SDK within your application, as well as add a line of code for each log message.
+2. Application log messages - This category enables the developer to add lines of code throughout the application that log custom messages to assist in development and debugging. The developer assigns a severity/verbosity level to each log message and can subsequently filter messages by assigned level or preserve storage space by configuring the application to ignore messages that are at a lower level of a given log level. To collect application log data, you must initialize the {{site.data.keyword.mobileanalytics_short}} SDK within your application, as well as add a line of code for each log message.
 
 3. Custom events - This category includes data that you define yourself and that is specific to your app. This data represents events that occur within your app, such as page views, button taps, or in-app purchases. In addition to initializing the {{site.data.keyword.mobileanalytics_short}} SDK in your app, you must add a line of code for each custom event that you want to track. 
 
@@ -134,12 +134,13 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 	{: #android-init-analytics notoc}
 	
 	```Java
+	
 	// In this code example, Analytics is configured to record lifecycle events.
-	Analytics.init(getApplication(), "your_app_name_here", apiKey, hasUserContext, collectLocation, Analytics.DeviceEvent.ALL);
+	Analytics.init(getApplication(), "your_app_name_here", apiKey, hasUserContext, Analytics.DeviceEvent.ALL);
 	```
 	{: codeblock}
 	
-	**Note:** Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts. When `collectLocation` is set to **true**, the Analytics SDK will automatically monitor the user's current location while sending device events.
+	**Note:** Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
 	
 	### iOS
 	{: #ios-initialize-analytics notoc}
@@ -802,14 +803,6 @@ The {{site.data.keyword.mobileanalytics_short}} service saves the following data
 </dl>
   
 -->
-
-## Sending location data
-{: #send-location-data}
-
-You can choose to record information on user location by using the `Analytics.logLocation()` API. Ensure that the following prerequisites are in place before logging the user location.
-
-1. You need to set `collectLocation` in `Analytics.init()` to **true**, to use `logLocation()`.
-2. You need to request for permission from the user using `CLLocationManager` and  `requestWhenInUseAuthorization()`.
 
 
 ## What to do next
