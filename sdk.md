@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-10"
+lastupdated: "2017-07-10"
 
 ---
 {:new_window: target="_blank"}
@@ -16,7 +16,7 @@ lastupdated: "2017-01-10"
 The {{site.data.keyword.mobileanalytics_full}} SDKs enable you to instrument your mobile application.
 {: shortdesc}
 
-{{site.data.keyword.mobileanalytics_short}} enables you to collect two <!--three--> categories of data, and each requires a different degree of instrumentation:
+{{site.data.keyword.mobileanalytics_short}} enables you to collect the following  categories of data, and each requires a different degree of instrumentation:
 
 1. Pre-defined data - This category includes generic usage and device information that applies to all applications. Within this category is device metadata (operating system and device model) and usage data (active users and application sessions) that indicates the volume, frequency, or duration of application use. Pre-defined data is collected automatically after you initialize the {{site.data.keyword.mobileanalytics_short}} SDK in your application.
 
@@ -24,7 +24,7 @@ The {{site.data.keyword.mobileanalytics_full}} SDKs enable you to instrument you
 
 3. Custom events - This category includes data that you define yourself and that is specific to your app. This data represents events that occur within your app, such as page views, button taps, or in-app purchases. In addition to initializing the {{site.data.keyword.mobileanalytics_short}} SDK in your app, you must add a line of code for each custom event that you want to track. 
 
-Currently SDKs are available for Android, iOS, WatchOS, and Cordova.
+Currently SDKs are available for Android, iOS, WatchOS, Cordova and Web.
 
 ## Identifying your Service Credentials API Key value
 {: #analytics-clientkey}
@@ -41,263 +41,307 @@ Identify your **API Key** value before you set up the client SDK. The API Key is
 Initialize your application to enable sending logs to the {{site.data.keyword.mobileanalytics_short}} service.
 
 1. Import the Client SDK.
-
-	### Android
-	{: #android-import notoc}
-
-	Add the following `import` statements to the beginning of your project file:
+	- Android
 	
-	```
-	import com.ibm.mobilefirstplatform.clientsdk.android.core.api.*;
-	import com.ibm.mobilefirstplatform.clientsdk.android.analytics.api.*;
-	import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
-	```
-	{: codeblock}
-  
-	### iOS
-	{: #ios-import notoc}
-	
-	**Note:** The Swift SDK is available for iOS and watchOS.
-	
-	Import the `BMSCore` and `BMSAnalytics` frameworks by adding the following `import` statements to the beginning of your `AppDelegate.swift` project file:
-
-	```Swift
-	import BMSCore
-	import BMSAnalytics
-	```
-	{: codeblock}  
-   
-	### Cordova
-	{: #cordova-import notoc}
+		Add the following `import` statements to the beginning of your project file:
 		
-	Add the Cordova plugin by running the following command from your Cordova application root directory:
+		```
+		import com.ibm.mobilefirstplatform.clientsdk.android.core.api.*;
+		import com.ibm.mobilefirstplatform.clientsdk.android.analytics.api.*;
+		import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
+		```
+		{: codeblock}
+  
+	- iOS
+		
+		The Swift SDK is available for iOS and watchOS.	Import the `BMSCore` and `BMSAnalytics` frameworks by adding the following `import` statements to the beginning of your `AppDelegate.swift` project file:
+	
+		```Swift
+		import BMSCore
+		import BMSAnalytics
+		```
+		{: codeblock}  
+   
+	- Cordova
+			
+		Add the Cordova plugin by running the following command from your Cordova application root directory:
+	
+		```Javascript
+		cordova plugin add bms-core
+		```
+		{: codeblock}  
 
-	```Javascript
-	cordova plugin add bms-core
-	```
-	{: codeblock}  
+	- Web
+			
+		Add the Web plugin by either adding the SDK provided as script to index.html:
+	
+		```Html
+		<script src="/path/to/bms-clientsdk-web-analytics/bmsanalytics.js"></script>
+		```
+		{: codeblock} 	 	
+
+	 	Or, add the Web pluginby using module loader requirejs: 
+	
+	 	```Javascript
+	 	require.config({
+	    'paths': {
+	        'bmsanalytics': '/path/to/bms-clientsdk-web-analytics/bmsanalytics'
+	    	}
+		});
+		require(['bmsanalytics'], function(BMSAnalytics) {
+		 BMSAnalytics.send(); 
+		}
+		``` 	
+		{: codeblock}  
 
 2. Initialize the {{site.data.keyword.mobileanalytics_short}} Client SDK in your application.
 
-	### Android
-	{: #android-init notoc}
+	- Android
+		
+		Initialize the {{site.data.keyword.mobileanalytics_short}} Client SDK in your Android application by adding the initialization code in the `onCreate` method of the main activity in your Android application, or in a location that works best for your project.
 	
-	Initialize the {{site.data.keyword.mobileanalytics_short}} Client SDK in your Android application by adding the initialization code in the `onCreate` method of the main activity in your Android application, or in a location that works best for your project.
-
-	```Java
-	BMSClient.getInstance().initialize(getApplicationContext(), BMSClient.REGION_US_SOUTH); // Make sure that you point to your region
-	```
-	{: codeblock}
-
-	You must initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSClient.REGION_US_SOUTH` and `BMSClient.REGION_UK`. 
-    <!-- , or `BMSClient.REGION_SYDNEY`.--> 
-    
-	### iOS
-	{: #ios-init notoc}
-    
-	First initialize the `BMSClient` class, using the following code. Place the initialization code in the `application(_:didFinishLaunchingWithOptions:)` method of your application delegate, or in a location that works best for your project.
+		```Java
+		BMSClient.getInstance().initialize(getApplicationContext(), BMSClient.REGION_US_SOUTH); // Make sure that you point to your region
+		```
+		{: codeblock}
 	
-	```Swift 
-	BMSClient.sharedInstance.initialize(bluemixRegion: BMSClient.Region.usSouth) // Make sure that you point to your region
-	```
-	{: codeblock}
-
-	You must initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSClient.Region.usSouth` or `BMSClient.Region.unitedKingdom`.
-    <!-- , or `BMSClient.Region.Sydney`. -->
+		You must initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSClient.REGION_US_SOUTH` and `BMSClient.REGION_UK`. 
+	    <!-- , or `BMSClient.REGION_SYDNEY`.--> 
     
-	### Cordova
-	{: #cordova-init notoc}
+	- iOS
+	    
+		First initialize the `BMSClient` class, using the following code. Place the initialization code in the `application(_:didFinishLaunchingWithOptions:)` method of your application delegate, or in a location that works best for your project.
+		
+		```Swift 
+		BMSClient.sharedInstance.initialize(bluemixRegion: BMSClient.Region.usSouth) // Make sure that you point to your region
+		```
+		{: codeblock}
+	
+		You must initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSClient.Region.usSouth` or `BMSClient.Region.unitedKingdom`.
+	    <!-- , or `BMSClient.Region.Sydney`. -->
     
-	Initialize **BMSClient** and **BMSAnalytics**. You will need your [**API Key**](#analytics-clientkey) value.
+	- Cordova
+	  
+		Initialize **BMSClient** and **BMSAnalytics**. You will need your [**API Key**](#analytics-clientkey) value.
+	
+		```Javascript
+		var applicationName = "HelloWorld";
+		var apiKey =  "your_api_key_here";
+		var hasUserContext = true;
+		var deviceEvents = [BMSAnalytics.ALL];
+		BMSClient.initialize(BMSClient.REGION_US_SOUTH); //Make sure you point to your region	
+		BMSAnalytics.initialize(applicationName, apiKey, hasUserContext, deviceEvents)
+		```
+		{: codeblock}
+		
+		To use the {{site.data.keyword.mobileanalytics_short}} Client SDK, you must initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSClient.REGION_US_SOUTH` or `BMSClient.REGION_UK`.
+	    <!-- , or `BMSClient.REGION_SYDNEY`. -->
+    
+	- Web
 
-	```Javascript
-	var applicationName = "HelloWorld";
-	var apiKey =  "your_api_key_here";
-	var hasUserContext = true;
-	var deviceEvents = [BMSAnalytics.ALL];
-
-	BMSClient.initialize(BMSClient.REGION_US_SOUTH); //Make sure you point to your region	
-	BMSAnalytics.initialize(applicationName, apiKey, hasUserContext, deviceEvents)
-	```
-	{: codeblock}
-
-	To use the {{site.data.keyword.mobileanalytics_short}} Client SDK, you must initialize the `BMSClient` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSClient.REGION_US_SOUTH` or `BMSClient.REGION_UK`.
-    <!-- , or `BMSClient.REGION_SYDNEY`. -->
+	    Initialize the Client SDK inside your application code to record usage analytics and application sessions, using your API Key value.
+	    ```javascript
+	    var appName = "your_app_name_here";
+	    var apiKey = "your_api_key_here";
+	    BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
+	    BMSAnalytics.initialize(appName,apiKey,hasUserContext,deviceEvents,instanceId);
+	    ```
+	    {: codeblock}
+		
+		To use the {{site.data.keyword.mobileanalytics_short}} Client SDK, you must initialize the `BMSAnalytics.Client` with the **bluemixRegion** parameter. In the initializer, the **bluemixRegion** value specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSAnalytics.Client..REGION_UK` or `BMSAnalytics.Client..REGION_US_SOUTH`.
+	    <!-- , or `BMSClient.REGION_SYDNEY`. -->
     
 3. Initialize Analytics by using your application object and giving it your application’s name. 
 
 	The name that you select for your application (`your_app_name_here`) displays in the {{site.data.keyword.mobileanalytics_short}} console as the application name. The application name is used as a filter to search for application logs in the dashboard. When you use the same application name across platforms (for example, Android and iOS), you can see all logs from that application under the same name, regardless of which platform the logs were sent from.
 
-	You also need the [**API Key**](#analytics-clientkey) value.
+	You also need the [API Key](#analytics-clientkey) value.
 
-	### Android
-	{: #android-init-analytics notoc}
-	
-	```Java
-	
-	// In this code example, Analytics is configured to record lifecycle events.
-	Analytics.init(getApplication(), "your_app_name_here", apiKey, hasUserContext, Analytics.DeviceEvent.ALL);
-	```
-	{: codeblock}
-	
-	**Note:** Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
-	
-	### iOS
-	{: #ios-initialize-analytics notoc}
-	
-	```Swift 
-	Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, deviceEvents: .lifecycle, .network)
-	```
-	{: codeblock}
- 	
-	### watchOS
-	{: #watchos-initialize-analytics notoc}
-	 	
-	```Swift
-	Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", deviceEvents: .network)
-	```
-	{: codeblock}
- 	
-	An optional `deviceEvents` parameter automatically gathers analytics for device-level events.
-	
-	**Note:** Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If `hasUserContext` is true, each use of [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
-
-	#### watchOS
-	{: #watchos-record-device notoc}
-
-	You can record device events on WatchOS by using the `Analytics.recordApplicationDidBecomeActive()` and `Analytics.recordApplicationWillResignActive()` methods.
-  
-	Add the following line to the `applicationDidBecomeActive()` method of the ExtensionDelegate class:
- 
-	```
-	Analytics.recordApplicationDidBecomeActive()
-	```
-	{: codeblock}
-
-	Add the following line to the `applicationWillResignActive()` method of the ExtensionDelegate class:
- 
-	```
-	Analytics.recordApplicationWillResignActive()
-	```
-	{: codeblock}	
+	- Android
 		
-4. You've now initialized your application to collect analytics. Next, you can [send analytics data](sdk.html#app-monitoring-gathering-analytics) to the {{site.data.keyword.mobileanalytics_short}} service.
+		```Java
+		// In this code example, Analytics is configured to record lifecycle events.
+		Analytics.init(getApplication(), "your_app_name_here", apiKey, hasUserContext, Analytics.DeviceEvent.ALL);
+		```
+		{: codeblock}
+		
+		**Note:** Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+	
+	- iOS
+		
+		```Swift 
+		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, deviceEvents: .lifecycle, .network)
+		```
+		{: codeblock}
+ 	
+	- watchOS
+		 	
+		```Swift
+		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", deviceEvents: .network)
+		```
+		{: codeblock}
+	 	
+		An optional `deviceEvents` parameter automatically gathers analytics for device-level events.
+		
+		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If `hasUserContext` is true, each use of [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+
+	- watchOS
+	
+		You can record device events on WatchOS by using the `Analytics.recordApplicationDidBecomeActive()` and `Analytics.recordApplicationWillResignActive()` methods.
+	  
+		Add the following line to the `applicationDidBecomeActive()` method of the ExtensionDelegate class:
+	 
+		```
+		Analytics.recordApplicationDidBecomeActive()
+		```
+		{: codeblock}
+	
+		Add the following line to the `applicationWillResignActive()` method of the ExtensionDelegate class:
+	 
+		```
+		Analytics.recordApplicationWillResignActive()
+		```
+		{: codeblock}	
+	
+	- Web
+		
+		```Java
+		// In this code example, Analytics is configured to record allevents.
+		BMSAnalytics.initialize(appName, apiKey, hasUserContext, BMSAnalytics.DeviceEvent.ALL);
+		```
+		{: codeblock}
+		
+		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`BMSAnalytics.setUserIdentity("username")`](sdk.html#web-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`BMSAnalytics.setUserIdentity("username")`](sdk.html#web-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.	
+
+4. You have now initialized your application to collect analytics. Next, you can [send analytics data](sdk.html#app-monitoring-gathering-analytics) to the {{site.data.keyword.mobileanalytics_short}} service.
 
 
 ## Gathering usage analytics
 {: #app-monitoring-gathering-analytics}
 
-You can configure the {{site.data.keyword.mobileanalytics_short}} Client SDK to record usage analytics and send the recorded data to the {{site.data.keyword.mobileanalytics_short}} service.
+You can configure the {{site.data.keyword.mobileanalytics_short}} client SDK to record usage analytics and send the recorded data to the {{site.data.keyword.mobileanalytics_short}} service.
 
 Use the following APIs to start recording and sending usage analytics:
 
-
-### Android
-{: #android-usage-api notoc}
+- Android
 	
-```
-// Disable recording of usage analytics (for example, to save disk space)
-// Recording is enabled by default
-Analytics.disable();
-	
-// Enable recording of usage analytics
-Analytics.enable();
+	```
+	// Disable recording of usage analytics (for example, to save disk space)
+	// Recording is enabled by default
+	Analytics.disable();
+	// Enable recording of usage analytics
+	Analytics.enable();
+	// Send recorded usage analytics to the Mobile Analytics Service
+	Analytics.send(new ResponseListener() {
+	            @Override
+	            public void onSuccess(Response response) {
+	                // Handle Analytics send success here.
+	            }
+	            @Override
+	            public void onFailure(Response response, Throwable throwable, JSONObject jsonObject) {
+	                // Handle Analytics send failure here.
+	            }
+	        });
+	```
+	{: codeblock}
 		
-// Send recorded usage analytics to the Mobile Analytics Service
-Analytics.send(new ResponseListener() {
-            @Override
-            public void onSuccess(Response response) {
-                // Handle Analytics send success here.
-            }
+	Sample usage analytics for logging an event:
+		
+	```
+	// Log a custom analytics event
+	JSONObject eventJSONObject = new JSONObject();
+	eventJSONObject.put("customProperty" , "propertyValue");
+	Analytics.log(eventJSONObject);
+	```
+	{: codeblock}
 
-            @Override
-            public void onFailure(Response response, Throwable throwable, JSONObject jsonObject) {
-                // Handle Analytics send failure here.
-            }
-        });
-```
-{: codeblock}
+
+- iOS (Swift)
+
+	```
+	// Disable recording of usage analytics (for example, to save disk space)
+	// Recording is enabled by default
+	Analytics.isEnabled = false
+	// Enable recording of usage analytics
+	Analytics.isEnabled = true
+	// Send recorded usage analytics to the Mobile Analytics Service
+	Analytics.send(completionHandler: { (response: Response?, error: Error?) in
+	    if let response = response {
+	        // Handle Analytics send success here.
+	    }
+	    if let error = error {
+	        // Handle Analytics send failure here.
+	    }
+	})
+	```
+	{: codeblock}
 	
-Sample usage analytics for logging an event:
+	Sample usage analytics for logging an event:
 	
-```
-// Log a custom analytics event
-JSONObject eventJSONObject = new JSONObject();
+	```Swift
+	// Log a custom analytics event
+	let eventObject = ["customProperty": "propertyValue"]
+	Analytics.log(metadata: eventObject)
+	```
+	{: codeblock}
+
+- Cordova
+
+	```JavaScript
+	// Enable usage analytics recording
+	BMSAnalytics.enable();
+	// Disable usage analytics recording
+	BMSAnalytics.disable();
+	// Send recorded usage analytics to the {{site.data.keyword.mobileanalytics_short}} Service
+	BMSAnalytics.send(
+		function(response) {
+			console.log('success: ' + response);
+		},
+		function (err) {
+			console.log('fail: ' + err);
+		});
+	```
+	{: codeblock}
 	
-eventJSONObject.put("customProperty" , "propertyValue");
+	Sample usage analytics for logging an event:
+	
+	```JavaScript
+	// Log a custom analytics event
+	var eventObject = {"customProperty": "propertyValue"}
+	BMSAnalytics.log(eventObject)
+	```
+	{: codeblock}
 
-Analytics.log(eventJSONObject);
-```
-{: codeblock}
-
-
-### iOS - Swift
-{: #ios-usage-api notoc}
-
-```
-// Disable recording of usage analytics (for example, to save disk space)
-// Recording is enabled by default
-Analytics.isEnabled = false
-
-// Enable recording of usage analytics
-Analytics.isEnabled = true
-
-// Send recorded usage analytics to the Mobile Analytics Service
-Analytics.send(completionHandler: { (response: Response?, error: Error?) in
-
-    if let response = response {
-        // Handle Analytics send success here.
-    }
-    if let error = error {
-        // Handle Analytics send failure here.
-    }
-})
-```
-{: codeblock}
-
-Sample usage analytics for logging an event:
-
-```Swift
-// Log a custom analytics event
-let eventObject = ["customProperty": "propertyValue"]
-Analytics.log(metadata: eventObject)
-```
-{: codeblock}
-
-### Cordova
-{: #usage-analytics-cordova notoc}
-
-```JavaScript
-// Enable usage analytics recording
-BMSAnalytics.enable();
-  
-// Disable usage analytics recording
-BMSAnalytics.disable();
-
-// Send recorded usage analytics to the {{site.data.keyword.mobileanalytics_short}} Service
-BMSAnalytics.send(
-	function(response) {
-		console.log('success: ' + response);
-	},
-	function (err) {
-		console.log('fail: ' + err);
-	});
-```
-{: codeblock}
-
-Sample usage analytics for logging an event:
-
-```JavaScript
-// Log a custom analytics event
-var eventObject = {"customProperty": "propertyValue"}
-BMSAnalytics.log(eventObject)
-```
-{: codeblock}
-
-**Note:** When you are developing Cordova applications, use the native API to enable application lifecycle event recording.
+	When you are developing Cordova applications, use the native API to enable application lifecycle event recording.
+ 
+- Web
+		
+	```
+	// Disable recording of usage analytics (for example, to save disk space)
+	// Recording is enabled by default
+	BMSAnalytics.disable();
+	// Enable recording of usage analytics
+	BMSAnalytics.enable();
+	// Send recorded usage analytics to the Mobile Analytics Service
+	BMSAnalytics.send().then(function(result) {
+         	//Handle Success here
+        }, function(err) {
+          statusText.innerHTML = "Analytics Data Send Failed ";  
+                //Handle Failure here
+        });;
+	```
+	{: codeblock}
+		
+	Sample usage analytics for logging an event:
+		
+	```JavaScript
+	// Log a custom analytics event
+	var eventObject = {"customProperty": "propertyValue"}
+	BMSAnalytics.log(eventObject)
+	```
+	{: codeblock}
   
 ## Enabling, configuring, and using Logger
-{: #app-monitoring-logger}
 
 The {{site.data.keyword.mobileanalytics_full}} Client SDK provides a logging framework that is similar to other log frameworks that you might be familiar with, such as `java.util.logging` or `log4j`. The logging framework supports multiple per-package logger instances, different log levels, capturing of stack traces for an application crash, and more.
 
@@ -331,134 +375,131 @@ When the logger level is set `DEBUG`, you also get Mobile Analytics Client SDK l
  
 The following code snippets show sample Logger usage:
 
-
-#### Android
-{: #android-logger-sample notoc}
-
-```
-// Configure Logger to save logs to the device so that they 
-// can later be sent to the Mobile Analytics service
-// Disabled by default; set to true to enable
-Logger.storeLogs(true);
-
-// Change the minimum log level (optional)
-// The default setting is Logger.LEVEL.DEBUG
-Logger.setLogLevel(Logger.LEVEL.INFO);
-
-// Create two logger instances
-// You can create multiple log instances to organize your logs
-Logger logger1 = Logger.getLogger("logger1");
-Logger logger2 = Logger.getLogger("logger2");
-
-// Log messages with different levels
-// Debug message for feature 1
-// Info message for feature 2
-logger1.debug("debug message"); 
-//the logger1.debug message is not logged because the logLevelFilter is set to Info
-logger2.info("info message");
-
-// Send logs to the Mobile Analytics Service
-Logger.send(new ResponseListener() {
-	@Override
-	public void onSuccess(Response response) {
-		// Handle Logger send success here.
-	}
-
-	@Override
-	public void onFailure(Response response, Throwable throwable, JSONObject jsonObject) {
-		// Handle Logger send failure here.
-	}
-});        
-```
-{: codeblock}
+- Android
+	
+	```
+	// Configure Logger to save logs to the device so that they 
+	// can later be sent to the Mobile Analytics service
+	// Disabled by default; set to true to enable
+	Logger.storeLogs(true);
+	// Change the minimum log level (optional)
+	// The default setting is Logger.LEVEL.DEBUG
+	Logger.setLogLevel(Logger.LEVEL.INFO);
+	// Create two logger instances
+	// You can create multiple log instances to organize your logs
+	Logger logger1 = Logger.getLogger("logger1");
+	Logger logger2 = Logger.getLogger("logger2");
+	// Log messages with different levels
+	// Debug message for feature 1
+	// Info message for feature 2
+	logger1.debug("debug message"); 
+	//the logger1.debug message is not logged because the logLevelFilter is set to Info
+	logger2.info("info message");
+	// Send logs to the Mobile Analytics Service
+	Logger.send(new ResponseListener() {
+		@Override
+		public void onSuccess(Response response) {
+			// Handle Logger send success here.
+		}
+		@Override
+		public void onFailure(Response response, Throwable throwable, JSONObject jsonObject) {
+			// Handle Logger send failure here.
+		}
+	});        
+	```
+	{: codeblock}
 
 
-#### iOS - Swift
-{: #ios-logger-sample-swift2 notoc}
+- iOS (Swift)
+	
+	```
+	// Configure Logger to save logs to the device so that they 
+	// can later be sent to the Mobile Analytics service
+	// Disabled by default; set to true to enable
+	Logger.isLogStorageEnabled = true
+	// Change the minimum log level (optional)
+	// The default setting is LogLevel.debug
+	Logger.logLevelFilter = LogLevel.info
+	// Create two logger instances
+	// You can create multiple log instances to organize your logs
+	let logger1 = Logger.logger(name: "feature1Logger")
+	let logger2 = Logger.logger(name: "feature2Logger")
+	// Log messages with different levels
+	logger1.debug(message: "debug message for feature 1") 
+	// The logger1.debug message is not logged because the 
+	// logLevelFilter is set to info
+	logger2.info(message: "info message for feature 2")
+	// Send logs to the Mobile Analytics Service
+	Logger.send(completionHandler: { (response: Response?, error: Error?) in
+	        if let response = response {
+	        logger.debug(message: "Status code: \(response.statusCode)")
+	        logger.debug(message: "Response: \(response.responseText)")
+	    }
+	    if let error = error {
+	        logger.error(message: "Error: \(error)")
+	    }
+	})
+	```
+	{: codeblock}
 
-```
-// Configure Logger to save logs to the device so that they 
-// can later be sent to the Mobile Analytics service
-// Disabled by default; set to true to enable
-Logger.isLogStorageEnabled = true
-
-// Change the minimum log level (optional)
-// The default setting is LogLevel.debug
-Logger.logLevelFilter = LogLevel.info
-
-// Create two logger instances
-// You can create multiple log instances to organize your logs
-let logger1 = Logger.logger(name: "feature1Logger")
-let logger2 = Logger.logger(name: "feature2Logger")
-
-// Log messages with different levels
-logger1.debug(message: "debug message for feature 1") 
-// The logger1.debug message is not logged because the 
-// logLevelFilter is set to info
-logger2.info(message: "info message for feature 2")
-
-// Send logs to the Mobile Analytics Service
-Logger.send(completionHandler: { (response: Response?, error: Error?) in
-    
-    if let response = response {
-        logger.debug(message: "Status code: \(response.statusCode)")
-        logger.debug(message: "Response: \(response.responseText)")
-    }
-    if let error = error {
-        logger.error(message: "Error: \(error)")
-    }
-})
-```
-{: codeblock}
-
-**Tip:** For privacy concerns, you can disable Logger output for applications that are built in release mode. By default, the Logger class prints logs to the Xcode console. In the build settings for your target, add a `-D RELEASE_BUILD` flag to the **Other Swift Flags** section of the release build configuration.
+	**Tip:** For privacy concerns, you can disable Logger output for applications that are built in release mode. By default, the Logger class prints logs to the Xcode console. In the build settings for your target, add a `-D RELEASE_BUILD` flag to the **Other Swift Flags** section of the release build configuration.
     
 
-#### Cordova
-{: #enable-logger-sample-cordova notoc}
+- Cordova
 
-```
-// Enable persisting logs
-BMSLogger.storeLogs(true);
+	```
+	// Enable persisting logs
+	BMSLogger.storeLogs(true);
+	// Set the minimum log level to be printed and persisted
+	BMSLogger.setLogLevel(BMSLogger.INFO);
+	var logger1 = BMSLogger.getLogger("logger1");
+	var logger2 = BMSLogger.getLogger("logger2");   
+	// Log messages with different levels
+	logger1.debug ("debug message");
+	logger2.info ("info message");
+	// Send persisted logs to the {{site.data.keyword.mobileanalytics_short}} Service
+	BMSLogger.send();
+	BMSAnalytics.send();
+	```
+	{: codeblock}
 
-// Set the minimum log level to be printed and persisted
-BMSLogger.setLogLevel(BMSLogger.INFO);
+- Web
 
-var logger1 = BMSLogger.getLogger("logger1");
-var logger2 = BMSLogger.getLogger("logger2");   
-
-// Log messages with different levels
-logger1.debug ("debug message");
-logger2.info ("info message");
-
-// Send persisted logs to the {{site.data.keyword.mobileanalytics_short}} Service
-BMSLogger.send();
-BMSAnalytics.send();
-```
-{: codeblock}
-
+	```
+	// Enable persisting logs
+	BMSAnalytics.Logger.storeLogs(true);
+	// Set the minimum log level to be printed and persisted   
+	// log levels in descending verbose level trace,debug,log,info,warn,error,fatal,analytics  
+	BMSAnalytics.Logger.setLogLevel('error');
+	// Log messages with different levels
+	BMSAnalytics.Logger.debug ("debug message");
+	BMSAnalytics.Logger.info ("info message");
+	// Send persisted logs to the {{site.data.keyword.mobileanalytics_short}} Service
+	BMSAnalytics.Logger.send();
+	BMSAnalytics.send().then(function(result) {
+		//Handle Success here
+        }, function(err) {
+         	//Handle Failure here
+	 });;
+	```
+	{: codeblock}
 
 <!--## Enabling the {{site.data.keyword.mobileanalytics_short}} Client SDK internal logs
 {: #enable-logger-sdklogs notoc}
 
 The {{site.data.keyword.mobileanalytics_short}} Client SDK provides a better development experience by not unnecessarily increasing the console output with its internal debug messages. Therefore, by default, internal log messages that are produced by the {{site.data.keyword.mobileanalytics_short}} SDK with the DEBUG level are not printed. You can enable printing of all internal log messages of the {{site.data.keyword.mobileanalytics_short}} Client SDK with the following API:
 
-#### Android
-{: #enable-logger-print-android notoc}
+- Android
+	```
+	Logger.setSDKDebugLoggingEnabled(true);
+	```
+	{: codeblock}
 
-```
-{: codeblock}
-Logger.setSDKDebugLoggingEnabled(true);
-```
-{: codeblock}
-
-#### iOS - Swift
-{: #enable-logger-print-swift notoc}
-
-```
-Logger.sdkDebugLoggingEnabled = true
-```
-{: codeblock}
+- iOS - Swift
+	```
+	Logger.sdkDebugLoggingEnabled = true
+	```
+	{: codeblock}
 -->
 
 ## Making a network request
@@ -488,7 +529,7 @@ public void makeGetCall(){
     thread.start();
 }
 ```
-{: codeblock}
+	{: codeblock}
 
 -->
 
@@ -510,7 +551,7 @@ public void makeGetCall(){
 	}
 	request.send(completionHandler: callBack)
  ```
- {: codeblock}
+	{: codeblock}
  
  -->
 
@@ -534,7 +575,7 @@ urlSession.dataTask(with: request) { (data: Data?, response: URLResponse?, error
     }
 }.resume()
 ```
-{: codeblock}
+	{: codeblock}
 -->
 
 <!--
@@ -555,7 +596,7 @@ urlSession.dataTask(with: request) { (data: Data?, response: URLResponse?, error
 	}
 	request.send(completionHandler: callBack)
  ```
- {: codeblock}
+	{: codeblock}
 -->
 <!--
 ```
@@ -577,7 +618,7 @@ urlSession.dataTaskWithRequest(request) { (data: NSData?, response: NSURLRespons
     }
 }.resume()
 ```
-{: codeblock}
+	{: codeblock}
 -->
 <!--
 #### Cordova
@@ -593,7 +634,7 @@ var success = function(data){
  var request = new BMSRequest("<your application route>", BMSRequest.GET);
  request.send(success, failure);
 ```
-{: codeblock}
+	{: codeblock}
 
 -->
 
@@ -608,32 +649,31 @@ The `Analytics.send()` method populates the **Crash Overview** and **Crashes** t
 The `Logger.send()` method populates the the **Crash Summary** and **Crash Details** tables on the **Troubleshooting** page. You must enable your application to store and send logs to populate the charts in this section, by adding an additional statement in your application code:
 
 
-### Android
-{: #android-crash-statement notoc}
+- Android
 
-* `Logger.storeLogs(true);`
-<!-- * `Logger.setLogLevel(Logger.LEVEL.FATAL); // or greater` -->
-
-See [sample logger usage](sdk.html#android-logger-sample).
-
-
-### iOS
-{: #ios-crash-statement notoc}
-
-* `Logger.isLogStorageEnabled = true`
-<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
-
-See [sample logger usage](sdk.html##ios-logger-sample-swift2).
+	`Logger.storeLogs(true);`
+	<!-- * `Logger.setLogLevel(Logger.LEVEL.FATAL); // or greater` -->
+	
+	See [sample logger usage](sdk.html#android-logger-sample).
 
 
-### Cordova
-{: #cordova-crash-statement notoc}
+- iOS
 
-* `BMSLogger.storeLogs(true);`
-<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
+	`Logger.isLogStorageEnabled = true`
+	<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
+	
+	See [sample logger usage](sdk.html##ios-logger-sample-swift2).
+
+
+- Cordova
+
+	 `BMSLogger.storeLogs(true);`
+	<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
 
 See [sample logger usage](sdk.html##ios-logger-sample-swift2).
 
+- Web
+	BMSAnalytics.storeLogs(true);
 
 ## Tracking active users
 {: #trackingusers}
@@ -643,53 +683,59 @@ If your application can recognize unique users on a device, you can optionally t
 Enable user tracking by initializing {{site.data.keyword.mobileanalytics_short}} with `hasUserContext=true`. Otherwise, {{site.data.keyword.mobileanalytics_short}} captures only one user per device. 
 
 
-### Android
-{: #android-tracking-users notoc}
+- Android
 
-Add the following code to track when the user logs in:
+	Add the following code to track when the user logs in:
+	
+	```
+	Analytics.setUserIdentity("username");
+	```
+	{: codeblock}
+	
+	<!--Add the following code for when the user logs out:
+	
+	```
+	Analytics.clearUserIdentity();
+	```
+	{: codeblock}
+	-->
 
-```
-Analytics.setUserIdentity("username");
-```
-{: codeblock}
+- iOS (Swift)
 
-<!--Add the following code for when the user logs out:
-
-```
-Analytics.clearUserIdentity();
-```
-{: codeblock}
--->
-
-### iOS - Swift
-{: #ios-tracking-users notoc}
-
-Add the following code to track when the user logs in:
-
-```
-Analytics.userIdentity = "username"
-```
-{: codeblock}
-
-<!--
-Add the following code for when the user logs out:
-
-```
-Analytics.userIdentity = nil
-```
-{: codeblock}
--->
+	Add the following code to track when the user logs in:
+	
+	```
+	Analytics.userIdentity = "username"
+	```
+	{: codeblock}
+	
+	<!--
+	Add the following code for when the user logs out:
+	
+	```
+	Analytics.userIdentity = nil
+	```
+	{: codeblock}
+	-->
 
 
-### Cordova
-{: #cordova-tracking-users notoc}
+- Cordova
+	
+	Add the following code to track when the user logs in:
+	
+	```
+	BMSAnalytics.setUserIdentity("username");
+	```
+	{: codeblock}
 
-Add the following code to track when the user logs in:
+- Web
 
-```
-BMSAnalytics.setUserIdentity("username");
-```
-{: codeblock}
+	Add the following code to track when the user logs in:
+	
+	```
+	BMSAnalytics.setUserIdentity("username");
+	```
+	{: codeblock}
 
 
 <!--## Configuring MobileFirst Platform Foundation servers to use the {{site.data.keyword.mobileanalytics_short}} service (optional)
