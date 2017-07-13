@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2017
-lastupdated: "2017-07-10"
+lastupdated: "2017-07-13"
 
 ---
 {:new_window: target="_blank"}
@@ -25,6 +25,10 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 1. After you create an instance <!--[create an instance](https://console.{DomainName}/docs/services/reqnsi.html#req_instance)-->of the {{site.data.keyword.mobileanalytics_short}} service, you can access the {{site.data.keyword.mobileanalytics_short}} Console by clicking your tile in the **Services** section of the {{site.data.keyword.Bluemix}} Dashboard. A **demo mode** option is available in the {{site.data.keyword.mobileanalytics_short}} console, whereby the views and charts display *demo data*. Demo mode is the default mode of the console when it initially launches after the service is instantiated. When you have your own applications and analytics data populated into the service, you can toggle *off* the demo mode to view your applications' data in the different charts. The {{site.data.keyword.mobileanalytics_short}} console is read-only when in demo mode, therefore you will not be able to create new alert definitions.
 
 2. Install the {{site.data.keyword.mobileanalytics_short}} [Client SDKs](/docs/services/mobileanalytics/install-client-sdk.html). You can optionally use the {{site.data.keyword.mobileanalytics_short}} [REST API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobile-analytics-dashboard.{DomainName}/analytics-service/){:new_window}.
+	
+	- Web App Service Configuration
+	
+		For Web SDK, to configure your service instance to allows an app server, you need to provide the URL of your app server through the Service Confiuration REST API through Swagger UI. POST, GET, PUT and DELETE methods are provided for CRUD operations of the service configuration which is a list of allowed URL's. To GET and DELETE configurations of your service instance, use your API key. To create and update the service configuration, use POST and PUT methods with allowed URLs listed as body  {"allowedUrls":["http://abc.com","https://www.xyz.com"]}. If you are accessing from a browser in the same system as that of the web server, provide "http://localhost" as the allowed URL.
 
 3. Import the Client SDKs and initialize them with the following code snippet to record usage analytics:
 
@@ -37,7 +41,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 	    import com.ibm.mobilefirstplatform.clientsdk.android.analytics.api.*;
 	    import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
 	    ```
-		{: codeblock}
+		 {: codeblock}
 
 	- iOS
 		
@@ -49,7 +53,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		import BMSCore
 		import BMSAnalytics
 		```
-		{: codeblock}
+		 {: codeblock}
    
 	- Cordova
 			
@@ -58,7 +62,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		```Javascript
 		cordova plugin add bms-core
 		```
-	    {: codeblock}
+		 {: codeblock}
    
 	- Web
 	
@@ -67,9 +71,9 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		```Html
 		<script src="bms-clientsdk-web-analytics/bmsanalytics.js"></script>
 		```
-	 	{: codeblock}
+		 {: codeblock}
 
-	 	Or by using module loader requirejs: 
+	 	Or by using module loader requirejs. The name used as reference API is same as the argument name (`BMSAnalytics`) used. 
 	
 	 	```Javascript
 	 	require.config({
@@ -81,9 +85,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		    BMSAnalytics.send();
 		}
 		```
-		{: codeblock}
-
-		The name used as reference API is same as the argument name (`BMSAnalytics`) used.
+		 {: codeblock}
 		  
 
 4. Initialize the {{site.data.keyword.mobileanalytics_short}} Client SDK in your application code to record usage analytics and application sessions, using your [API Key](/docs/services/mobileanalytics/sdk.html#analytics-clientkey) value.	
@@ -94,7 +96,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		BMSClient.getInstance().initialize(getApplicationContext(), BMSClient.REGION_US_SOUTH); // You can change the region
 		Analytics.init(getApplication(), "your_app_name_here", "your_api_key_here", hasUserContext, Analytics.DeviceEvent.ALL);
 		```
-		{: codeblock}
+		 {: codeblock}
 	    
 		The **bluemixRegion** parameter specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSClient.REGION_US_SOUTH` and `BMSClient.REGION_UK`. 
 	    <!-- , or `BMSClient.Region.Sydney`.-->
@@ -109,7 +111,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		BMSClient.sharedInstance.initialize(bluemixRegion: BMSClient.Region.usSouth) // You can change the region
 		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, deviceEvents: deviceEvents: .lifecycle, .network)
 		```
-		{: codeblock}
+		 {: codeblock}
 				
 		The **bluemixRegion** parameter specifies which Bluemix deployment you are using, for example, `BMSClient.Region.usSouth` or `BMSClient.Region.unitedKingdom`.
 		<!-- , or `BMSClient.REGION_SYDNEY`. -->
@@ -126,7 +128,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		BMSClient.initialize(BMSClient.REGION_US_SOUTH); // You can change the region
 		BMSAnalytics.initialize(appName, apiKey, false, [BMSAnalytics.ALL])
 		```
-		{: codeblock}
+		 {: codeblock}
     
 	- Web
 		
@@ -137,12 +139,10 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		var apiKey = "your_api_key_here";
 		BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
 		BMSAnalytics.initialize(appName,apiKey,hasUserContext,BMSAnalytics.DeviceEvents.ALL,instanceId);
-		```
-		{: codeblock}
+		``` 
+		 {: codeblock}
 
-		The `bluemixRegion` parameter specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSAnalytics.Client.REGION_US_SOUTH` and `BMSAnalytics.Client.REGION_UK`. 
-		Set the value for `hasUserContext` to `true` or `false`. If false (default value), each device is counted as an active user.
-		Set the `instanceId` to your service instanceId, its a alphanumeric string which you get from the browser url for your service instance after the string "...mobile-analytics_Prod/"  and upto "/". 
+		The `bluemixRegion` parameter specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSAnalytics.Client.REGION_US_SOUTH` and `BMSAnalytics.Client.REGION_UK`. Set the value for `hasUserContext` to `true` or `false`. If false (default value), each device is counted as an active user.Set the `instanceId` to your service instanceId, its a alphanumeric string which you get from the browser url for your service instance after the string "...mobile-analytics_Prod/"  and upto "/". 
 
 		Note that the name that you select for your application (`your_app_name_here`) displays in the {{site.data.keyword.mobileanalytics_short}} console as the application name. The application name is used as a filter to search for application logs in the dashboard. When you use the same application name across platforms (for example, Android and iOS), you can see all logs from that application under the same name, regardless of which platform the logs were sent from.
 
@@ -154,43 +154,21 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 	
 		You can insert `Analytics.send()` anywhere.
 	
-		```
-		Analytics.send();
-		```
-		{: codeblock}
-
 	- iOS
 	
 		Use the `Analytics.send` method to send analytics data to the server. You can place the `Analytics.send` method anywhere in the `application(_:didFinishLaunchingWithOptions:)` method of your application delegate, or in a location that works best for your project. 
-	
-		```
-		Analytics.send()
-		```
-		{: codeblock}
 	
 	- Cordova
 		
 		Use the `BMSAnalytics.send` method to send analytics data to the server. Place the `BMSAnalytics.send` method in a location that works best for your project.
 		
-		```
-		BMSAnalytics.send()
-		```
-		{: codeblock}
-	
 	- Web
 		
-		Use the `BMSAnalytics.send` method to send analytics data to the server. Place the `BMSAnalytics.send` method in a location that works best for your project.
-		
-		```
-		BMSAnalytics.send()
-		```
-		{: codeblock}
-	
-		Read the [Instrumenting your application](/docs/services/mobileanalytics/sdk.html) topic to learn about additional {{site.data.keyword.mobileanalytics_short}} capabilities, such as [logging](/docs/services/mobileanalytics/sdk.html#app-monitoring-logger), [network requests](/docs/services/mobileanalytics/sdk.html#network-requests), and [crash analytics](/docs/services/mobileanalytics/sdk.html#report-crash-analytics).
+		Use the `BMSAnalytics.send` method to send analytics data to the server. Place the `BMSAnalytics.send` method in a location that works best for your project. Go through the [Instrumenting your application](/docs/services/mobileanalytics/sdk.html) topic to learn about additional {{site.data.keyword.mobileanalytics_short}} capabilities, such as [logging](/docs/services/mobileanalytics/sdk.html#app-monitoring-logger), [network requests](/docs/services/mobileanalytics/sdk.html#network-requests), and [crash analytics](/docs/services/mobileanalytics/sdk.html#report-crash-analytics).
 	
 6. Compile and run the application on your emulator or device.
 
-7. Go to the {{site.data.keyword.mobileanalytics_short}} Console to see usage analytics for your application. You can also monitor your application by <!--[creating custom charts](app-monitoring.html#custom-charts),-->[setting alerts](/docs/services/mobileanalytics/app-monitoring.html#alerts) and [monitoring app crashes](/docs/services/mobileanalytics/app-monitoring.html#monitor-app-crash).
+7. Go to the {{site.data.keyword.mobileanalytics_short}} console to see usage analytics for your application. You can also monitor your application by <!--[creating custom charts](app-monitoring.html#custom-charts),-->[setting alerts](/docs/services/mobileanalytics/app-monitoring.html#alerts) and [monitoring app crashes](/docs/services/mobileanalytics/app-monitoring.html#monitor-app-crash).
 
 # Related Links
 {: #rellinks notoc}

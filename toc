@@ -12,7 +12,8 @@ Mobile Analytics
     Related links
         [Android SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics)
         [iOS SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics)
-        [Cordova Plugin Core SDK](https://www.npmjs.com/package/bms-core)
+        [Cordova SDK](https://www.npmjs.com/package/bms-core)
+		[Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics/)
     {: .navgroup-end}
 
     {: .navgroup id="reference"}

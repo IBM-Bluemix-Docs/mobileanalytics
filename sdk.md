@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-07-10"
+lastupdated: "2017-07-11"
 
 ---
 {:new_window: target="_blank"}
@@ -18,11 +18,12 @@ The {{site.data.keyword.mobileanalytics_full}} SDKs enable you to instrument you
 
 {{site.data.keyword.mobileanalytics_short}} enables you to collect the following  categories of data, and each requires a different degree of instrumentation:
 
-1. Pre-defined data - This category includes generic usage and device information that applies to all applications. Within this category is device metadata (operating system and device model) and usage data (active users and application sessions) that indicates the volume, frequency, or duration of application use. Pre-defined data is collected automatically after you initialize the {{site.data.keyword.mobileanalytics_short}} SDK in your application.
 
-2. Application log messages - This category enables the developer to add lines of code throughout the application that log custom messages to assist in development and debugging. The developer assigns a severity/verbosity level to each log message and can subsequently filter messages by assigned level or preserve storage space by configuring the application to ignore messages that are at a lower level of a given log level. To collect application log data, you must initialize the {{site.data.keyword.mobileanalytics_short}} SDK within your application, as well as add a line of code for each log message.
+- Pre-defined data - This category includes generic usage and device information that applies to all applications. Within this category is device metadata (operating system and device model) and usage data (active users and application sessions) that indicates the volume, frequency, or duration of application use. Pre-defined data is collected automatically after you initialize the {{site.data.keyword.mobileanalytics_short}} SDK in your application.
 
-3. Custom events - This category includes data that you define yourself and that is specific to your app. This data represents events that occur within your app, such as page views, button taps, or in-app purchases. In addition to initializing the {{site.data.keyword.mobileanalytics_short}} SDK in your app, you must add a line of code for each custom event that you want to track. 
+- Application log messages - This category enables the developer to add lines of code throughout the application that log custom messages to assist in development and debugging. The developer assigns a severity/verbosity level to each log message and can subsequently filter messages by assigned level or preserve storage space by configuring the application to ignore messages that are at a lower level of a given log level. To collect application log data, you must initialize the {{site.data.keyword.mobileanalytics_short}} SDK within your application, as well as add a line of code for each log message.
+
+- Custom events - This category includes data that you define yourself and that is specific to your app. This data represents events that occur within your app, such as page views, button taps, or in-app purchases. In addition to initializing the {{site.data.keyword.mobileanalytics_short}} SDK in your app, you must add a line of code for each custom event that you want to track. 
 
 Currently SDKs are available for Android, iOS, WatchOS, Cordova and Web.
 
@@ -32,7 +33,7 @@ Currently SDKs are available for Android, iOS, WatchOS, Cordova and Web.
 Identify your **API Key** value before you set up the client SDK. The API Key is required for initializing the client SDK.
 
 1. Open your {{site.data.keyword.mobileanalytics_short}} service dashboard.
-2. Expand **View Credentials** to reveal your API Key value. You will need the API Key value when you initialize the {{site.data.keyword.mobileanalytics_short}} Client SDK.
+1. Expand **View Credentials** to reveal your API Key value. You will need the API Key value when you initialize the {{site.data.keyword.mobileanalytics_short}} Client SDK.
 
 
 ## Initializing your application to collect analytics
@@ -326,7 +327,6 @@ Use the following APIs to start recording and sending usage analytics:
 	BMSAnalytics.send().then(function(result) {
          	//Handle Success here
         }, function(err) {
-          statusText.innerHTML = "Analytics Data Send Failed ";  
                 //Handle Failure here
         });;
 	```
@@ -654,7 +654,7 @@ The `Logger.send()` method populates the the **Crash Summary** and **Crash Detai
 	`Logger.storeLogs(true);`
 	<!-- * `Logger.setLogLevel(Logger.LEVEL.FATAL); // or greater` -->
 	
-	See [sample logger usage](sdk.html#android-logger-sample).
+	See the Android [sample logger usage](sdk.html##sample-logger-usage).
 
 
 - iOS
@@ -662,7 +662,7 @@ The `Logger.send()` method populates the the **Crash Summary** and **Crash Detai
 	`Logger.isLogStorageEnabled = true`
 	<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
 	
-	See [sample logger usage](sdk.html##ios-logger-sample-swift2).
+	See the iOS [sample logger usage](sdk.html##sample-logger-usage).
 
 
 - Cordova
@@ -670,10 +670,11 @@ The `Logger.send()` method populates the the **Crash Summary** and **Crash Detai
 	 `BMSLogger.storeLogs(true);`
 	<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
 
-See [sample logger usage](sdk.html##ios-logger-sample-swift2).
+	See the Cordova [sample logger usage](sdk.html##sample-logger-usage).
 
 - Web
-	BMSAnalytics.storeLogs(true);
+
+	`BMSAnalytics.Logger.storeLogs(true);`
 
 ## Tracking active users
 {: #trackingusers}
