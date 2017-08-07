@@ -244,12 +244,12 @@ Data is available for the following measurements:
 * Round Trip Time - defines the length of time, measured in ms, that it takes for your app to make network requests.
 * Request Count - displays how often an app makes network requests. Data also displays as an average.
 
-## Exporting data to Db2 Warehouse on Cloud
+## Exporting data to Db2 Warehouse 
 {: #dashdb}
 
-The metrics you see in the {{site.data.keyword.mobileanalytics_short}} console are just a sample of the insights that you can glean from your mobile data. You can automatically pipe your mobile data to the {{site.data.keyword.IBM}} Db2 Warehouse on Cloud, where you can customize your analyses, aggregate your data with other public and private data sources, and apply leading-edge analytics to derive deep, detailed, and sophisticated insights to help you understand and drive your business.
+The metrics you see in the {{site.data.keyword.mobileanalytics_short}} console are just a sample of the insights that you can glean from your mobile data. You can automatically pipe your mobile data to the {{site.data.keyword.IBM}} Db2 Warehouse, where you can customize your analyses, aggregate your data with other public and private data sources, and apply leading-edge analytics to derive deep, detailed, and sophisticated insights to help you understand and drive your business.
 
-Set up Db2 Warehouse on Cloud in the {{site.data.keyword.mobileanalytics_short}} console by clicking **Db2 Warehouse on Cloud** on the **Export** page. After you complete the setup, new data that is sent to {{site.data.keyword.mobileanalytics_short}} is also forwarded to Db2 Warehouse on Cloud within 1-2 hours. 
+Set up Db2 Warehouse in the {{site.data.keyword.mobileanalytics_short}} console by clicking **Db2 Warehouse on Cloud** on the **Export** page. After you complete the setup, new data that is sent to {{site.data.keyword.mobileanalytics_short}} is also forwarded to Db2 Warehouse within 1-2 hours. 
 
 <!--
 If you have existing Db2 Warehouse on Cloud instances, those instances will no longer accept new data because the incoming data no longer matches the schema. Manually add columns for the new data to resume incoming data. Modifying {{site.data.keyword.mobileanalytics_short}} collection tables by adding new columns also breaks the stream of incoming data.
