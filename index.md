@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2017
-lastupdated: "2017-07-13"
+lastupdated: "2017-07-14"
 
 ---
 {:new_window: target="_blank"}
@@ -36,15 +36,15 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 	
 		Add the following `import` statements to the beginning of your project file:
 		
-	    ```
-	    import com.ibm.mobilefirstplatform.clientsdk.android.core.api.*;
-	    import com.ibm.mobilefirstplatform.clientsdk.android.analytics.api.*;
-	    import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
-	    ```
-		 {: codeblock}
+		```
+		import com.ibm.mobilefirstplatform.clientsdk.android.core.api.*;
+		import com.ibm.mobilefirstplatform.clientsdk.android.analytics.api.*;
+		import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
+		```
+		{: codeblock}
 
 	- iOS
-		
+
 		The Swift SDK is available for iOS and watchOS.
 		
 		Import the `BMSCore` and `BMSAnalytics` frameworks by adding the following `import` statements to the beginning of your `AppDelegate.swift` project file:
@@ -53,7 +53,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		import BMSCore
 		import BMSAnalytics
 		```
-		 {: codeblock}
+		{: codeblock}
    
 	- Cordova
 			
@@ -62,7 +62,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		```Javascript
 		cordova plugin add bms-core
 		```
-		 {: codeblock}
+		{: codeblock}
    
 	- Web
 	
@@ -71,9 +71,9 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		```Html
 		<script src="bms-clientsdk-web-analytics/bmsanalytics.js"></script>
 		```
-		 {: codeblock}
+		{: codeblock}
 
-	 	Or by using module loader requirejs. The name used as reference API is same as the argument name (`BMSAnalytics`) used. 
+		Or by using module loader requirejs. The name used as reference API is same as the argument name (`BMSAnalytics`) used. 
 	
 	 	```Javascript
 	 	require.config({
@@ -85,9 +85,8 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		    BMSAnalytics.send();
 		}
 		```
-		 {: codeblock}
-		  
-
+		{: codeblock}
+		
 4. Initialize the {{site.data.keyword.mobileanalytics_short}} Client SDK in your application code to record usage analytics and application sessions, using your [API Key](/docs/services/mobileanalytics/sdk.html#analytics-clientkey) value.	
 	
 	- Android
@@ -96,7 +95,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		BMSClient.getInstance().initialize(getApplicationContext(), BMSClient.REGION_US_SOUTH); // You can change the region
 		Analytics.init(getApplication(), "your_app_name_here", "your_api_key_here", hasUserContext, Analytics.DeviceEvent.ALL);
 		```
-		 {: codeblock}
+		{: codeblock}
 	    
 		The **bluemixRegion** parameter specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSClient.REGION_US_SOUTH` and `BMSClient.REGION_UK`. 
 	    <!-- , or `BMSClient.Region.Sydney`.-->
@@ -111,7 +110,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		BMSClient.sharedInstance.initialize(bluemixRegion: BMSClient.Region.usSouth) // You can change the region
 		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, deviceEvents: deviceEvents: .lifecycle, .network)
 		```
-		 {: codeblock}
+		{: codeblock}
 				
 		The **bluemixRegion** parameter specifies which Bluemix deployment you are using, for example, `BMSClient.Region.usSouth` or `BMSClient.Region.unitedKingdom`.
 		<!-- , or `BMSClient.REGION_SYDNEY`. -->
@@ -128,7 +127,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		BMSClient.initialize(BMSClient.REGION_US_SOUTH); // You can change the region
 		BMSAnalytics.initialize(appName, apiKey, false, [BMSAnalytics.ALL])
 		```
-		 {: codeblock}
+		{: codeblock}
     
 	- Web
 		
@@ -140,7 +139,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
 		BMSAnalytics.initialize(appName,apiKey,hasUserContext,BMSAnalytics.DeviceEvents.ALL,instanceId);
 		``` 
-		 {: codeblock}
+		{: codeblock}
 
 		The `bluemixRegion` parameter specifies which {{site.data.keyword.Bluemix_notm}} deployment you are using, for example, `BMSAnalytics.Client.REGION_US_SOUTH` and `BMSAnalytics.Client.REGION_UK`. Set the value for `hasUserContext` to `true` or `false`. If false (default value), each device is counted as an active user.Set the `instanceId` to your service instanceId, its a alphanumeric string which you get from the browser url for your service instance after the string "...mobile-analytics_Prod/"  and upto "/". 
 
