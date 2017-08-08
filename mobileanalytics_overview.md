@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-06"
+lastupdated: "2017-08-08"
 
 ---
 {:new_window: target="_blank"}
@@ -87,6 +87,7 @@ All data that is collected by the analytics service can be visualized through t
 		<dd>As a Mobile Application Product Manager, you can see how many people use your application (user metrics) and when they are using it (session metrics). This information is presented as a time series and updated in real time so you can see the effect of changes you make to your application. You can filter to see specific application versions or operating systems to make deprecation and prioritization decisions. </dd>
 		<dd>As a Mobile Application Marketer, you can use user and session metrics to monitor engagement, manage churn, and evaluate the effectiveness of mobile application marketing efforts by observing changes over time and correlating to your event dates.</dd>
 		<dd>As a Mobile Application Developer, you can use crash metrics to discover and resolve mobile application performance issues before they frustrate users and damage the reputation of the application. You can monitor both crash count and crash rate from the analytics console, and you can prioritize crashes affecting the most users. You can set alerts to send notifications or take automated actions when crashes exceed a given threshold, and you can troubleshoot by drilling down on crash instances to see device logs and application stack traces.</dd>
+		<dd>Ensure that you do not share any personal information using {{site.data.keyword.mobileanalytics_short}}.</dd>
 	<dt>Do I need data analyst skills to use Mobile Analytics?</dt>
 		<dd>No, {{site.data.keyword.mobileanalytics_short}} offers a ready-to-use analytics console for business stakeholders and application developers. No query skills are required.</dd>
 	<dt>Can I perform custom queries on my analytics data?</dt>
