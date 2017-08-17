@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-07-11"
+lastupdated: "2017-08-16"
 
 ---
 {:new_window: target="_blank"}
@@ -208,7 +208,7 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 		
 		```Java
 		// In this code example, Analytics is configured to record allevents.
-		BMSAnalytics.initialize(appName, apiKey, hasUserContext, BMSAnalytics.DeviceEvent.ALL);
+		BMSAnalytics.initialize(appName, apiKey, hasUserContext, BMSAnalytics.DeviceEvents.ALL);
 		```
 		{: codeblock}
 		
