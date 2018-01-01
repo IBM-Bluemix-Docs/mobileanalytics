@@ -112,7 +112,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		```
 		{: codeblock}
 				
-		The **bluemixRegion** parameter specifies which Bluemix deployment you are using, for example, `BMSClient.Region.usSouth` or `BMSClient.Region.unitedKingdom`.
+		The **bluemixRegion** parameter specifies which IBM Cloud deployment you are using, for example, `BMSClient.Region.usSouth` or `BMSClient.Region.unitedKingdom`.
 		<!-- , or `BMSClient.REGION_SYDNEY`. -->
 	 
 		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user.
