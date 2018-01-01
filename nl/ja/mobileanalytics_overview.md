@@ -93,7 +93,7 @@ lastupdated: "2017-01-13"
 		<dd>{{site.data.keyword.mobileanalytics_short}} ではカスタム・クエリーは使用できませんが、将来この機能を使用できるように検討中です。</dd>
 	<dt>どのようにしてアプリケーションを {{site.data.keyword.mobileanalytics_short}} に接続するのですか?</dt>
 		<dd>[iOS または Android の場合はオープン・ソース SDK をダウンロード](install-client-sdk.html)し、他のプラットフォームの場合は {{site.data.keyword.mobileanalytics_short}} [REST API](https://mobile-analytics-dashboard.{DomainName}/analytics-service/) を使用します。</dd>
-	<dt>{{site.data.keyword.mobileanalytics_short}} はどの Bluemix 地域で使用できますか?</dt>
+	<dt>{{site.data.keyword.mobileanalytics_short}} はどの IBM Cloud 地域で使用できますか?</dt>
 		<dd>現在のところ、Mobile Analytics は米国南部と英国で利用可能です。他の地域で使用可能にすることも計画中ですが、その時期は未定です。</dd>
 	<dt>このサービスのコストを教えてください。</dt>
 		<dd>各月に収集される最初の 1 億イベントは無料です。その後のイベントについては、100 万イベントごとに $1 の費用がかかります。</dd>
@@ -117,7 +117,7 @@ lastupdated: "2017-01-13"
 	<dt>{{site.data.keyword.mobileanalytics_full}} と MobileFirst Platform Foundation のモバイル分析にはどんな違いがありますか?</dt>
 		<dd>これらの 2 つのコンソールのユーザーやセッションはよく似ていますが、MobileFirst Platform Foundation の分析のほうには、クライアントがオンプレミスで独自の分析クラスターを管理できるように、追加のメトリックや設定が含まれています。また、MobileFirst Platform Foundation 分析コンソールでは、アダプターやアダプター・プロシージャー用のメトリックを細分化できます。一方、{{site.data.keyword.mobileanalytics_short}} サービスでは、これらのメトリックはネットワーク要求のグラフや表に統合されています。</dd>
 	<dt>MobileFirst Platform Foundation をオンプレミスで使用してアプリを開発していますが、独自の分析クラスターをホストしたくありません。代わりに、{{site.data.keyword.mobileanalytics_full}} を使用できますか?</dt>
-		<dd>はい。選択肢がいくつかあります。MobileFirst Platform Foundation 7.x または 8.0 を使用していて、アプリを MobileFirst Platform SDK で装備している場合は、分析データを {{site.data.keyword.mobileanalytics_short}} for {{site.data.keyword.Bluemix_notm}} にレポートするように MobileFirst サーバーを構成できます。詳しくは、[Configuring Mobile Analytics and Mobile Foundation Bluemix services ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://mobilefirstplatform.ibmcloud.com/blog/2016/07/11/analytics-bm-service/){: new_window} のブログ投稿を参照してください。また、{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.mobileanalytics_short}} SDK を使用してアプリを計装し、{{site.data.keyword.mobileanalytics_short}} サービスに直接レポートすることもできます。</dd>
+		<dd>はい。選択肢がいくつかあります。MobileFirst Platform Foundation 7.x または 8.0 を使用していて、アプリを MobileFirst Platform SDK で装備している場合は、分析データを {{site.data.keyword.mobileanalytics_short}} for {{site.data.keyword.Bluemix_notm}} にレポートするように MobileFirst サーバーを構成できます。詳しくは、[Configuring Mobile Analytics and Mobile Foundation IBM Cloud services ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://mobilefirstplatform.ibmcloud.com/blog/2016/07/11/analytics-bm-service/){: new_window} のブログ投稿を参照してください。また、{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.mobileanalytics_short}} SDK を使用してアプリを計装し、{{site.data.keyword.mobileanalytics_short}} サービスに直接レポートすることもできます。</dd>
 	<!-- <dt>My instance of  {{site.data.keyword.mobileanalytics_short}} does not look like the screen shots in the catalog. What's going on?</dt> -->
 		<!-- <dd>Most likely you are using the Classic view interface for {{site.data.keyword.Bluemix_notm}}. Classic view is deprecated, so {{site.data.keyword.mobileanalytics_short}} runs best in the new {{site.data.keyword.Bluemix_notm}} interface. If you are in Classic view, you will see a link in the {{site.data.keyword.Bluemix_notm}} header that says <strong>Try the new {{site.data.keyword.Bluemix_notm}}</strong>. Click that link to use the new interface.</dd> -->
 </dl>

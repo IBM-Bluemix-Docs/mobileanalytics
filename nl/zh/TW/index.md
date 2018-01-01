@@ -92,7 +92,7 @@ import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
 		```
 	{: codeblock}
 			
-	**bluemixRegion** 參數指定您所使用的 Bluemix 部署（例如，`BMSClient.Region.usSouth` 或 `BMSClient.Region.unitedKingdom`）。
+	**bluemixRegion** 參數指定您所使用的 IBM Cloud 部署（例如，`BMSClient.Region.usSouth` 或 `BMSClient.Region.unitedKingdom`）。
 	<!-- , or `BMSClient.REGION_SYDNEY`. -->
  
 	將 `hasUserContext` 的值設為 **true** 或 **false**。如果是 false（預設值），每一個裝置即視為作用中使用者。

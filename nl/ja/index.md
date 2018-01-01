@@ -92,7 +92,7 @@ import com.ibm.mobilefirstplatform.clientsdk.android.core.api.*;
 		```
 	{: codeblock}
 			
-	**bluemixRegion** パラメーターは、使用する Bluemix デプロイメント (例: `BMSClient.Region.usSouth` や `BMSClient.Region.unitedKingdom` など) を指定します。
+	**bluemixRegion** パラメーターは、使用する IBM Cloud デプロイメント (例: `BMSClient.Region.usSouth` や `BMSClient.Region.unitedKingdom` など) を指定します。
 	<!-- , or `BMSClient.REGION_SYDNEY`. -->
  
 	`hasUserContext` の値を **true** または **false** に設定します。false (デフォルト値) の場合、各デバイスがアクティブ・ユーザーとしてカウントされます。

@@ -93,7 +93,7 @@ lastupdated: "2017-01-13"
 		<dd>{{site.data.keyword.mobileanalytics_short}} 不允许定制查询，但未来考虑要实现此功能。</dd>
 	<dt>如何将我的应用程序连接到 {{site.data.keyword.mobileanalytics_short}}？</dt>
 		<dd>[下载开放式源代码 SDK for iOS 或 Android](install-client-sdk.html)，也可以将 {{site.data.keyword.mobileanalytics_short}} [REST API](https://mobile-analytics-dashboard.{DomainName}/analytics-service/) 用于其他平台。</dd>
-	<dt>{{site.data.keyword.mobileanalytics_short}} 在哪些 Bluemix 地区可用？</dt>
+	<dt>{{site.data.keyword.mobileanalytics_short}} 在哪些 IBM Cloud 地区可用？</dt>
 		<dd>当前，Mobile Analytics 在美国南部和英国可用。此产品未来计划在其他地区上市，但具体时间表尚未确定。</dd>
 	<dt>此服务成本是多少？</dt>
 		<dd>每个月收集的前 1 亿个事件是免费的，此后，每 1 百万个事件需要支付 $1。</dd>
@@ -117,7 +117,7 @@ lastupdated: "2017-01-13"
 	<dt>{{site.data.keyword.mobileanalytics_full}} 与 MobileFirst Platform Foundation 中的移动分析有什么差别？</dt>
 		<dd>在这两种控制台中，用户和会话非常相似，但 MobileFirst Platform Foundation 随附的分析中还包含其他度量值和设置，客户机可以使用这些功能来管理自己的内部部署分析集群。此外，MobileFirst Platform Foundation 分析控制台将度量值零散提供给适配器和适配器程序，而在 {{site.data.keyword.mobileanalytics_short}} 服务中，这些度量值集成到网络请求图表和表中。</dd>
 	<dt>我要在内部部署中使用 MobileFirst Platform Foundation 来开发应用程序，但不想托管自己的分析集群。我可以改为使用 {{site.data.keyword.mobileanalytics_full}} 吗？</dt>
-		<dd>可以。您有两个选项：如果要使用 MobileFirst Platform Foundation 7.x 或 8.0，并且您的应用程序受 MobileFirst Platform SDK 检测，那么您可以配置 MobileFirst 服务器使其将分析数据报告给 {{site.data.keyword.mobileanalytics_short}} for {{site.data.keyword.Bluemix_notm}}。请阅读[配置 Mobile Analytics 和 Mobile Foundation Bluemix 服务 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://mobilefirstplatform.ibmcloud.com/blog/2016/07/11/analytics-bm-service/){: new_window} 博客帖子以了解详细信息。或者，您也可以使用 {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.mobileanalytics_short}} SDK 来检测您的应用程序，并直接报告给 {{site.data.keyword.mobileanalytics_short}} 服务。</dd>
+		<dd>可以。您有两个选项：如果要使用 MobileFirst Platform Foundation 7.x 或 8.0，并且您的应用程序受 MobileFirst Platform SDK 检测，那么您可以配置 MobileFirst 服务器使其将分析数据报告给 {{site.data.keyword.mobileanalytics_short}} for {{site.data.keyword.Bluemix_notm}}。请阅读[配置 Mobile Analytics 和 Mobile Foundation IBM Cloud 服务 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://mobilefirstplatform.ibmcloud.com/blog/2016/07/11/analytics-bm-service/){: new_window} 博客帖子以了解详细信息。或者，您也可以使用 {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.mobileanalytics_short}} SDK 来检测您的应用程序，并直接报告给 {{site.data.keyword.mobileanalytics_short}} 服务。</dd>
 	<!-- <dt>My instance of  {{site.data.keyword.mobileanalytics_short}} does not look like the screen shots in the catalog. What's going on?</dt> -->
 		<!-- <dd>Most likely you are using the Classic view interface for {{site.data.keyword.Bluemix_notm}}. Classic view is deprecated, so {{site.data.keyword.mobileanalytics_short}} runs best in the new {{site.data.keyword.Bluemix_notm}} interface. If you are in Classic view, you will see a link in the {{site.data.keyword.Bluemix_notm}} header that says <strong>Try the new {{site.data.keyword.Bluemix_notm}}</strong>. Click that link to use the new interface.</dd> -->
 </dl>

@@ -93,7 +93,7 @@ import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
 	```
 	{: codeblock}
 			
-	O parâmetro **bluemixRegion** especifica qual implementação do Bluemix você está usando, por exemplo, `BMSClient.Region.usSouth` ou `BMSClient.Region.unitedKingdom`.
+	O parâmetro **bluemixRegion** especifica qual implementação do IBM Cloud você está usando, por exemplo, `BMSClient.Region.usSouth` ou `BMSClient.Region.unitedKingdom`.
 	<!-- , or `BMSClient.REGION_SYDNEY`. -->
  
 	Configure o valor para `hasUserContext` como **true** ou **false**. Se false (valor padrão), cada dispositivo será contado como um usuário ativo.

@@ -92,7 +92,7 @@ lastupdated: "2017-01-20"
 	```
 	{: codeblock}
 			
-	**bluemixRegion** 매개변수는 사용 중인 Bluemix 배치(예: `BMSClient.Region.usSouth` 또는 `BMSClient.Region.unitedKingdom`)를 지정합니다. 
+	**bluemixRegion** 매개변수는 사용 중인 IBM Cloud 배치(예: `BMSClient.Region.usSouth` 또는 `BMSClient.Region.unitedKingdom`)를 지정합니다. 
 	<!-- , or `BMSClient.REGION_SYDNEY`. -->
  
 	`hasUserContext`의 값을 **true** 또는 **false**로 설정하십시오. False(기본값)인 경우 각 디바이스는 활성 사용자로 계수됩니다. 

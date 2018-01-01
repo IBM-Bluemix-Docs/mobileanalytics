@@ -92,7 +92,7 @@ import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
 		```
 	{: codeblock}
 			
-	**bluemixRegion** 参数指定您使用的是哪一个 Bluemix 部署，例如 `BMSClient.Region.usSouth` 或 `BMSClient.Region.unitedKingdom`。
+	**bluemixRegion** 参数指定您使用的是哪一个 IBM Cloud 部署，例如 `BMSClient.Region.usSouth` 或 `BMSClient.Region.unitedKingdom`。
 	<!-- , or `BMSClient.REGION_SYDNEY`. -->
  
 	将 `hasUserContext` 的值设置为 **true** 或 **false**。如果是 false（缺省值），那么在计数时，每个设备都会被计为活动用户。

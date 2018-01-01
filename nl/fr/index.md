@@ -98,7 +98,7 @@ avec votre valeur de [clé d'API](/docs/services/mobileanalytics/sdk.html#analyt
 	```
 	{: codeblock}
 			
-	Le paramètre **bluemixRegion** spécifie le déploiement Bluemix que vous utilisez, par exemple `BMSClient.Region.usSouth` ou `BMSClient.Region.unitedKingdom`.
+	Le paramètre **bluemixRegion** spécifie le déploiement IBM Cloud que vous utilisez, par exemple `BMSClient.Region.usSouth` ou `BMSClient.Region.unitedKingdom`.
 	<!-- , or `BMSClient.REGION_SYDNEY`. -->
  
 	Définissez la valeur **true** ou **false** pour `hasUserContext`. Si la valeur est false
