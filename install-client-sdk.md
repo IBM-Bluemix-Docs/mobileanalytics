@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-14"
+lastupdated: "2017-01-13"
 
 ---
 {:new_window: target="_blank"}
@@ -42,11 +42,13 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with G
 
 4. Synchronize your project with Gradle by clicking **Tools &gt; Android &gt; Sync Project with Gradle Files**.
 
-5. Open the `AndroidManifest.xml` file for your Android project. You can find this file in **app > manifests**. Add internet access permission under the `<manifest>` element:
+5. Open the `AndroidManifest.xml` file for your Android project. You can find this file in **app > manifests**. Add internet access and location access permission under the `<manifest>` element:
 
 	```
 	 <uses-permission android:name="android.permission.INTERNET" />
-   ```
+	 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	```
    {: codeblock}
    
 6. You have now installed the Android Client SDK. Next, [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.   
@@ -62,6 +64,9 @@ The {{site.data.keyword.mobileanalytics_full}} SDK enables you to instrument you
 {: #before-you-begin-ios notoc}
 
 Make sure that you correctly set up Xcode. To learn how to set up your iOS development environment, see the [Apple Developer website ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.apple.com/support/xcode/){: new_window}. Read about the [Xcode requirements ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics/tree/development#requirements){: new_window} for Client SDK Swift Analytics.
+
+#### Enable Location Api 
+To enable the location api correct working you need to add a property in Info.plist file in the project folder of your app i.e.  `Privacy - Location Usage Description`  and as value give proper justification to adding the location api as "The app requires location service to be enabled" or so .
 
 The {{site.data.keyword.mobileanalytics_short}} SDK is distributed with [CocoaPods ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cocoapods.org/){: new_window} and [Carthage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/Carthage/Carthage#getting-started){: new_window}, which are dependency managers for Cocoa projects. CocoaPods and Carthage automatically download artifacts from repositories and makes them available to your application. Select CocoaPods or Carthage:
 
@@ -80,6 +85,7 @@ If you are not using using CocoaPods, you can add frameworks to your project usi
 1. Follow the [Carthage installation instructions ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics/tree/development#carthage){: new_window} on GitHub to install `BMSAnalytics`.
 
 2. After you have installed the iOS Client SDK,  [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.
+
 
 ## Installing the Cordova plugin
 {: #installing-sdk-cordova}
@@ -144,6 +150,8 @@ The {{site.data.keyword.mobileanalytics_full}} Cordova plugin enables you to ins
 7. [Configure your Android and iOS environment ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/bms-core#4-configuring-your-platform){: new_window}.
 
 8. You have now installed the Cordova plugin and configured your environments. Next, [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.
+
+9. For Cordova-ios to enable the location api correct working you need to add a property in Info.plist file in the project folder of your app i.e.  `Privacy - Location Usage Description`  and as value give proper justification to adding the location api as "The app requires location service to be enabled" or so .
 
 
 ## Installing the Web plugin
