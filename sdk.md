@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-16"
+lastupdated: "2017-07-11"
 
 ---
 {:new_window: target="_blank"}
@@ -126,12 +126,7 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 		Initialize **BMSClient** and **BMSAnalytics**. You will need your [**API Key**](#analytics-clientkey) value.
 	
 		```Javascript
-		var applicationName = "HelloWorld";
-		var apiKey =  "your_api_key_here";
-		var hasUserContext = true;
-		var deviceEvents = [BMSAnalytics.ALL];
 		BMSClient.initialize(BMSClient.REGION_US_SOUTH); //Make sure you point to your region	
-		BMSAnalytics.initialize(applicationName, apiKey, hasUserContext, deviceEvents)
 		```
 		{: codeblock}
 		
@@ -142,10 +137,7 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 
 	    Initialize the Client SDK inside your application code to record usage analytics and application sessions, using your API Key value.
 	    ```javascript
-	    var appName = "your_app_name_here";
-	    var apiKey = "your_api_key_here";
 	    BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
-	    BMSAnalytics.initialize(appName,apiKey,hasUserContext,deviceEvents,instanceId);
 	    ```
 	    {: codeblock}
 		
@@ -162,29 +154,33 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 		
 		```Java
 		// In this code example, Analytics is configured to record lifecycle events.
-		Analytics.init(getApplication(), "your_app_name_here", apiKey, hasUserContext, Analytics.DeviceEvent.ALL);
+		Analytics.init(getApplication(), "your_app_name_here", apiKey, hasUserContext, collectLocation, Analytics.DeviceEvent.ALL);
 		```
 		{: codeblock}
 		
 		**Note:** Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+		The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
+		
+		
 	
 	- iOS
 		
 		```Swift 
-		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, deviceEvents: .lifecycle, .network)
+		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, collectLocation: true, deviceEvents: .lifecycle, .network)
 		```
 		{: codeblock}
  	
 	- watchOS
 		 	
 		```Swift
-		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", deviceEvents: .network)
+		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here",collectLocation: true, deviceEvents: .network)
 		```
 		{: codeblock}
 	 	
 		An optional `deviceEvents` parameter automatically gathers analytics for device-level events.
 		
 		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If `hasUserContext` is true, each use of [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+		The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
 
 	- watchOS
 	
@@ -203,12 +199,22 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 		Analytics.recordApplicationWillResignActive()
 		```
 		{: codeblock}	
+		
+	- Cordova
+		
+		```
+		Analytics.initialize(appName, apiKey,  hasUserContext, collectLocation, [BMSAnalytics.ALL])
+		```
+		{: codeblock}	
+		
+		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The `Analytics.setUserIdentity("username")` method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of `Analytics.setUserIdentity("username")`(sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+		The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
 	
 	- Web
 		
 		```Java
 		// In this code example, Analytics is configured to record allevents.
-		BMSAnalytics.initialize(appName, apiKey, hasUserContext, BMSAnalytics.DeviceEvents.ALL);
+		BMSAnalytics.initialize(appName, apiKey, hasUserContext, BMSAnalytics.DeviceEvent.ALL);
 		```
 		{: codeblock}
 		
@@ -501,6 +507,26 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK provides a better dev
 	```
 	{: codeblock}
 -->
+
+## Location Data Logging 
+{: #location-logging}
+
+Location of the mobile device may be logged from the app through this api provided.
+```
+Analytics.logLocation();
+ 
+``` 
+This api enables the app to send its location as latitude , longitude to the server in between appsession . Other than this explicit calls to location-logging api sdk sends device location for every App-Session , both for initial AppSession context and userswitch AppSession (i.e. switch of user between a app session ) context. The location api needs to be enabled in the initialization of sdk as mentioned earlier.
+
+**Note:**  To call this location logging api set `collectLocation` parameter to true in sdk initialization as shown below.
+```
+Analytics.initialize(appName, apiKey,  hasUserContext, collectLocation, [BMSAnalytics.ALL])
+		
+```
+
+
+
+
 
 ## Making a network request
 {: #network-requests}

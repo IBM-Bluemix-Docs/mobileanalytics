@@ -93,7 +93,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 	
 		```
 		BMSClient.getInstance().initialize(getApplicationContext(), BMSClient.REGION_US_SOUTH); // You can change the region
-		Analytics.init(getApplication(), "your_app_name_here", "your_api_key_here", hasUserContext, Analytics.DeviceEvent.ALL);
+		Analytics.init(getApplication(), "your_app_name_here", "your_api_key_here", hasUserContext, collectLocation, Analytics.DeviceEvent.ALL);
 		```
 		{: codeblock}
 	    
@@ -101,6 +101,8 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 	    <!-- , or `BMSClient.Region.Sydney`.-->
 	    
 		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user.
+		
+		Set the value for `collectLocation` to **true** or **false**. If true the device location data will be sent as part of the Appsession log. 
 
 	- iOS
 	  
@@ -108,7 +110,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		
 		```Swift
 		BMSClient.sharedInstance.initialize(bluemixRegion: BMSClient.Region.usSouth) // You can change the region
-		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, deviceEvents: deviceEvents: .lifecycle, .network)
+		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, collectLocation: true, deviceEvents: deviceEvents: .lifecycle, .network)
 		```
 		{: codeblock}
 				
@@ -116,6 +118,8 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		<!-- , or `BMSClient.REGION_SYDNEY`. -->
 	 
 		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user.
+		
+		Set the value for `collectLocation` to **true** or **false**. If true the device location data will be sent as part of the Appsession log. 
 	
 	- Cordova
 		
@@ -125,9 +129,15 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		var appName = "your_app_name_here";
 		var apiKey = "your_api_key_here";
 		BMSClient.initialize(BMSClient.REGION_US_SOUTH); // You can change the region
-		BMSAnalytics.initialize(appName, apiKey, false, [BMSAnalytics.ALL])
+		BMSAnalytics.initialize(appName, apiKey, hasUserContext, collectLocation, [BMSAnalytics.ALL])
 		```
 		{: codeblock}
+		
+		The **bluemixRegion** parameter specifies which IBM Cloud deployment you are using, for example, `BMSClient.REGION_US_SOUTH` or `BMSClient.REGION_UK`.
+		<!-- , or `BMSClient.REGION_SYDNEY`. -->
+		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user.
+		
+		Set the value for `collectLocation` to **true** or **false**. If true the device location data will be sent as part of the Appsession log.
     
 	- Web
 		
@@ -163,7 +173,10 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		
 	- Web
 		
-		Use the `BMSAnalytics.send` method to send analytics data to the server. Place the `BMSAnalytics.send` method in a location that works best for your project. Go through the [Instrumenting your application](/docs/services/mobileanalytics/sdk.html) topic to learn about additional {{site.data.keyword.mobileanalytics_short}} capabilities, such as [logging](/docs/services/mobileanalytics/sdk.html#app-monitoring-logger), [network requests](/docs/services/mobileanalytics/sdk.html#network-requests), and [crash analytics](/docs/services/mobileanalytics/sdk.html#report-crash-analytics).
+		Use the `BMSAnalytics.send` method to send analytics data to the server. Place the `BMSAnalytics.send` method in a location that works best for your project. 
+		
+		
+		Go through the [Instrumenting your application](/docs/services/mobileanalytics/sdk.html) topic to learn about additional {{site.data.keyword.mobileanalytics_short}} capabilities, such as [logging](/docs/services/mobileanalytics/sdk.html#app-monitoring-logger), [network requests](/docs/services/mobileanalytics/sdk.html#network-requests), [location logging](/docs/services/mobileanalytics/sdk.html#location-logging) and [crash analytics](/docs/services/mobileanalytics/sdk.html#report-crash-analytics).
 	
 6. Compile and run the application on your emulator or device.
 
