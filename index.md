@@ -176,11 +176,11 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		Use the `BMSAnalytics.send` method to send analytics data to the server. Place the `BMSAnalytics.send` method in a location that works best for your project. 
 		
 		
-		Go through the [Instrumenting your application](/docs/services/mobileanalytics/sdk.html) topic to learn about additional {{site.data.keyword.mobileanalytics_short}} capabilities, such as [logging](/docs/services/mobileanalytics/sdk.html#app-monitoring-logger), [network requests](/docs/services/mobileanalytics/sdk.html#network-requests), [location logging](/docs/services/mobileanalytics/sdk.html#location-logging) and [crash analytics](/docs/services/mobileanalytics/sdk.html#report-crash-analytics).
+6. Go through the [Instrumenting your application](/docs/services/mobileanalytics/sdk.html) topic to learn about additional {{site.data.keyword.mobileanalytics_short}} capabilities, such as [logging](/docs/services/mobileanalytics/sdk.html#app-monitoring-logger), [network requests](/docs/services/mobileanalytics/sdk.html#network-requests), [location logging](/docs/services/mobileanalytics/sdk.html#location-logging) and [crash analytics](/docs/services/mobileanalytics/sdk.html#report-crash-analytics).
 	
-6. Compile and run the application on your emulator or device.
+7. Compile and run the application on your emulator or device.
 
-7. Go to the {{site.data.keyword.mobileanalytics_short}} console to see usage analytics for your application. You can also monitor your application by <!--[creating custom charts](app-monitoring.html#custom-charts),-->[setting alerts](/docs/services/mobileanalytics/app-monitoring.html#alerts) and [monitoring app crashes](/docs/services/mobileanalytics/app-monitoring.html#monitor-app-crash).
+8. Go to the {{site.data.keyword.mobileanalytics_short}} console to see usage analytics for your application. You can also monitor your application by <!--[creating custom charts](app-monitoring.html#custom-charts),-->[setting alerts](/docs/services/mobileanalytics/app-monitoring.html#alerts) and [monitoring app crashes](/docs/services/mobileanalytics/app-monitoring.html#monitor-app-crash).
 
 # Related Links
 {: #rellinks notoc}
