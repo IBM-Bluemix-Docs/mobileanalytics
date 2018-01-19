@@ -175,7 +175,6 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 		
 		Use the `BMSAnalytics.send` method to send analytics data to the server. Place the `BMSAnalytics.send` method in a location that works best for your project. 
 		
-		
 6. Go through the [Instrumenting your application](/docs/services/mobileanalytics/sdk.html) topic to learn about additional {{site.data.keyword.mobileanalytics_short}} capabilities, such as [logging](/docs/services/mobileanalytics/sdk.html#app-monitoring-logger), [network requests](/docs/services/mobileanalytics/sdk.html#network-requests), [location logging](/docs/services/mobileanalytics/sdk.html#location-logging) and [crash analytics](/docs/services/mobileanalytics/sdk.html#report-crash-analytics).
 	
 7. Compile and run the application on your emulator or device.
