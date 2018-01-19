@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-07-11"
+lastupdated: "2018-01-18"
 
 ---
 {:new_window: target="_blank"}
@@ -150,75 +150,75 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 
 	You also need the [API Key](#analytics-clientkey) value.
 
-	- Android
+- Android
 		
-		```Java
+	```Java
 		// In this code example, Analytics is configured to record lifecycle events.
 		Analytics.init(getApplication(), "your_app_name_here", apiKey, hasUserContext, collectLocation, Analytics.DeviceEvent.ALL);
-		```
-		{: codeblock}
+	```
+    {: codeblock}
 		
-		**Note:** Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
-		The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
+	**Note:** Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+	The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
 		
 		
 	
-	- iOS
+- iOS
 		
-		```Swift 
+	```Swift 
 		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, collectLocation: true, deviceEvents: .lifecycle, .network)
-		```
-		{: codeblock}
+	```
+    {: codeblock}
  	
-	- watchOS
+- watchOS
 		 	
-		```Swift
+	```Swift
 		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here",collectLocation: true, deviceEvents: .network)
-		```
-		{: codeblock}
+	```
+    {: codeblock}
 	 	
-		An optional `deviceEvents` parameter automatically gathers analytics for device-level events.
+    An optional `deviceEvents` parameter automatically gathers analytics for device-level events.
 		
-		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If `hasUserContext` is true, each use of [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
-		The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
+    Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If `hasUserContext` is true, each use of [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+    The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
 
-	- watchOS
+- watchOS
 	
-		You can record device events on WatchOS by using the `Analytics.recordApplicationDidBecomeActive()` and `Analytics.recordApplicationWillResignActive()` methods.
+    You can record device events on WatchOS by using the `Analytics.recordApplicationDidBecomeActive()` and `Analytics.recordApplicationWillResignActive()` methods.
 	  
-		Add the following line to the `applicationDidBecomeActive()` method of the ExtensionDelegate class:
+    Add the following line to the `applicationDidBecomeActive()` method of the ExtensionDelegate class:
 	 
-		```
+	```Javascript
 		Analytics.recordApplicationDidBecomeActive()
-		```
-		{: codeblock}
+	```
+    {: codeblock}
 	
-		Add the following line to the `applicationWillResignActive()` method of the ExtensionDelegate class:
+    Add the following line to the `applicationWillResignActive()` method of the ExtensionDelegate class:
 	 
-		```
+	```Javascript
 		Analytics.recordApplicationWillResignActive()
-		```
-		{: codeblock}	
+	```
+    {: codeblock}	
 		
-	- Cordova
+- Cordova
 		
-		```
-		Analytics.initialize(appName, apiKey,  hasUserContext, collectLocation, [BMSAnalytics.ALL])
-		```
-		{: codeblock}	
+	```Javascript
+	Analytics.initialize(appName, apiKey,  hasUserContext, collectLocation, [BMSAnalytics.ALL])
+	```
+    {: codeblock}	
 		
-		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The `Analytics.setUserIdentity("username")` method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of `Analytics.setUserIdentity("username")`(sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
-		The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
+    Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The `Analytics.setUserIdentity("username")` method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of `Analytics.setUserIdentity("username")`(sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+    The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
 	
-	- Web
+- Web
 		
-		```Java
+	```Java		
 		// In this code example, Analytics is configured to record allevents.
 		BMSAnalytics.initialize(appName, apiKey, hasUserContext, BMSAnalytics.DeviceEvent.ALL);
-		```
-		{: codeblock}
+	```
+    {: codeblock}
 		
-		Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`BMSAnalytics.setUserIdentity("username")`](sdk.html#web-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`BMSAnalytics.setUserIdentity("username")`](sdk.html#web-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.	
+    Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`BMSAnalytics.setUserIdentity("username")`](sdk.html#web-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`BMSAnalytics.setUserIdentity("username")`](sdk.html#web-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.	
 
 4. You have now initialized your application to collect analytics. Next, you can [send analytics data](sdk.html#app-monitoring-gathering-analytics) to the {{site.data.keyword.mobileanalytics_short}} service.
 
