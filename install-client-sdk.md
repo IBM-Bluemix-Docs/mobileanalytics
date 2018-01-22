@@ -163,21 +163,21 @@ The {{site.data.keyword.mobileanalytics_full}} SDK enables you to instrument you
 2. Create a new web app or use a existing one and put this [WebSDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics/) within you project to be accessed by the app code . 
 3. Add the web plugin by either adding this script in the `index.html` file of web app:
 	
-		```Html
+	```Html
 		<script src="bms-clientsdk-web-analytics/bmsanalytics.js"></script>
-		```
-		{: codeblock}
+	```
+	{: codeblock}
 
-		Or by using module loader requirejs. The name used as reference API is same as the argument name (`BMSAnalytics`) used. 
+	Or by using module loader requirejs. The name used as reference API is same as the argument name (`BMSAnalytics`) used. 
 	
-	 	```Javascript
+	```Javascript
 	 	require.config({
 	    'paths': {
 	        'bmsanalytics': 'bms-clientsdk-web-analytics/bmsanalytics'
 	    	}
 		});
-		```
-		{: codeblock}
+	```
+	{: codeblock}
 
 
 
