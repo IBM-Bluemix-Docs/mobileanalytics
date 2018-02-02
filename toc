@@ -25,3 +25,10 @@ Mobile Analytics
     sdk.md
     app-monitoring.md
     {: .navgroup-end}
+	
+    {: .navgroup id="help"}
+    {: .topicgroup}
+    Developer community
+	    [StackOverflow](https://stackoverflow.com/questions/tagged/ibm-mobile-services)
+        [IBM developerWorks](https://developer.ibm.com/answers/topics/bluemix-mobile-services/)
+    {: .navgroup-end}
