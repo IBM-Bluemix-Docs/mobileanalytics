@@ -10,8 +10,11 @@ lastupdated: "2017-01-13"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Install the {{site.data.keyword.mobileanalytics_short}} Client SDKs
+# Install the SDK
+
 {: #mobileanalytics_sdk}
+
+## Install the {{site.data.keyword.mobileanalytics_short}} Client SDKs
 
 The {{site.data.keyword.mobileanalytics_short}}
 Client SDKs are currently available for Android, iOS, WatchOS, Cordova and Web.
