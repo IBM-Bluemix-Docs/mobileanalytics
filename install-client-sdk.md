@@ -10,7 +10,7 @@ lastupdated: "2017-01-13"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Installing the {{site.data.keyword.mobileanalytics_short}} Client SDKs
+# Install the {{site.data.keyword.mobileanalytics_short}} Client SDKs
 {: #mobileanalytics_sdk}
 
 The {{site.data.keyword.mobileanalytics_short}}
