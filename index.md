@@ -10,7 +10,7 @@ lastupdated: "2017-07-14"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Getting started with {{site.data.keyword.mobileanalytics_short}}
+# Getting started tutorial
 
 {: #gettingstartedtemplate}
 
