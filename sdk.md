@@ -10,7 +10,7 @@ lastupdated: "2018-01-18"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Instrument your application
+# Instrument the application
 {: #mobileanalytics_sdk}
 
 ## Instrument your application to use the {{site.data.keyword.mobileanalytics_short}} client SDKs

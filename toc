@@ -27,6 +27,8 @@ Mobile Analytics
     {: .navgroup-end}
 	
     {: .navgroup id="help"}
+    app_faq.md
+	
     {: .topicgroup}
     Developer community
 	    [StackOverflow](https://stackoverflow.com/questions/tagged/ibm-mobile-services)
