@@ -10,8 +10,7 @@ lastupdated: "2017-01-13"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Install the SDK
-
+#Install the SDK
 {: #mobileanalytics_sdk}
 
 ## Install the {{site.data.keyword.mobileanalytics_short}} Client SDKs
@@ -52,6 +51,22 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with G
 	 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 	 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 	```
+   If you're using sdk version greater than >= 1.2  then you need to put this below part under the `<application>` element of the `AndroidManifest.xml` file.
+   	```
+	 <activity
+            android:name="com.ibm.mobilefirstplatform.clientsdk.android.ui.UIActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+	
+	```
+   	
+	
+	
    {: codeblock}
    
 6. You have now installed the Android Client SDK. Next, [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.   
@@ -154,8 +169,30 @@ The {{site.data.keyword.mobileanalytics_full}} Cordova plugin enables you to ins
 
 8. You have now installed the Cordova plugin and configured your environments. Next, [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.
 
-9. For Cordova-ios to enable the location api correct working you need to add a property in Info.plist file in the project folder of your app i.e.  `Privacy - Location Usage Description`  and as value give proper justification to adding the location api as "The app requires location service to be enabled" or so .
+#### Location Service Enablement ahead of cordova bms-core plugin version (>2.4.+).
+9. For Cordova-ios app to enable the location api correct working you need to add a property in Info.plist file in the project folder of your app i.e.  `Privacy - Location Usage Description`  and as value give proper justification to adding the location api as "The app requires location service to be enabled" or so .
 
+10. For Cordova-android app to enable the location api correct working put the following  in app AndroidManifest.xml file. 
+	```
+	 <uses-permission android:name="android.permission.INTERNET" />
+	 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	```
+	{: codeblock}
+	
+   Then you need to put this below part under the `<application>` element of the `AndroidManifest.xml` file.
+   	```
+	 <activity
+            android:name="com.ibm.mobilefirstplatform.clientsdk.android.ui.UIActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+	```
+	{: codeblock}
 
 ## Installing the Web plugin
 {: #web-sdk-cordova}
@@ -167,20 +204,33 @@ The {{site.data.keyword.mobileanalytics_full}} SDK enables you to instrument you
 3. Add the web plugin by either adding this script in the `index.html` file of web app:
 	
 	```Html
-		<script src="bms-clientsdk-web-analytics/bmsanalytics.js"></script>
+  	<script src="bms-clientsdk-web-analytics/bmsanalytics.js"></script>
 	```
 	{: codeblock}
+Or by using module loader requirejs. The name used as reference API is same as the argument name (`BMSAnalytics`) used. 
+	
+   ```Javascript
+	  require.config({
+	   'paths': {
+	   'bmsanalytics': 'bms-clientsdk-web-analytics/bmsanalytics'
+	}
+	});
+
+		<script src="bms-clientsdk-web-analytics/bmsanalytics.js"></script>
+    ```
+ 	    {: codeblock}
 
 	Or by using module loader requirejs. The name used as reference API is same as the argument name (`BMSAnalytics`) used. 
 	
-	```Javascript
+	  ```Javascript
 	 	require.config({
 	    'paths': {
 	        'bmsanalytics': 'bms-clientsdk-web-analytics/bmsanalytics'
 	    	}
 		});
-	```
+	  ```
 	{: codeblock}
+
 
 
 
