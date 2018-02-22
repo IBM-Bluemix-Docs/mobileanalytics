@@ -9,7 +9,7 @@ Mobile Analytics
     mobileanalytics_overview.md
 
     {: .topicgroup}
-    Related links
+    SDKs
         [Android SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics)
         [iOS SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics)
         [Cordova SDK](https://www.npmjs.com/package/bms-core)
