@@ -10,7 +10,7 @@ lastupdated: "2017-08-08"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# About 
+# About {{site.data.keyword.mobileanalytics_short}} 
 {: aboutmobileanalytics}
 
 {: shortdesc}
