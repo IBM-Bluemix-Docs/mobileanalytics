@@ -55,8 +55,9 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with G
 	 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 	```
    If you're using sdk version greater than >= 1.2  then you need to put this below part under the `<application>` element of the `AndroidManifest.xml` file.
-   	```
-	 <activity
+   	
+    ```
+	    <activity
             android:name="com.ibm.mobilefirstplatform.clientsdk.android.ui.UIActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask">
@@ -65,7 +66,6 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with G
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-	
 	```
    	
 	
