@@ -37,10 +37,13 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with G
 	```
       dependencies {
         compile 'com.ibm.mobilefirstplatform.clientsdk.android:analytics:1.+'
+		compile 'com.google.android.gms:play-services-location:10.0.1'
     	// other dependencies  
       }
   	```
   	{: codeblock}
+	
+	The first dependency is for the Mobile Analytics Service clientsdk and the second one is for the client-side location logging. The second dependency is only required if you enable the client side location collection.	
 
 4. Synchronize your project with Gradle by clicking **Tools &gt; Android &gt; Sync Project with Gradle Files**.
 
