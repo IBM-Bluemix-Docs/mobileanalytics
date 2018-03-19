@@ -10,62 +10,66 @@ lastupdated: "2017-08-08"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# About {{site.data.keyword.mobileanalytics_short}} 
+# About {{site.data.keyword.mobileanalytics_short}}  
 {: aboutmobileanalytics}
 
 {: shortdesc}
 The {{site.data.keyword.mobileanalytics_full}} service provides key application usage and performance insights for mobile application developers and application owners. By using {{site.data.keyword.mobileanalytics_short}} application owners and developers can understand what is happening on the user side, and they can use this insight to build better applications that are hyper-relevant to users and that stand out in the veritable sea of mobile applications. 
 
 {: #overview}  
-The service includes the {{site.data.keyword.mobileanalytics_short}} Console where developers and application owners can monitor mobile application performance, see usage statistics, and search device logs.  {{site.data.keyword.mobileanalytics_short}}  provides client SDKs for iOS 8+ (Swift only) and Android 4+.
+The service includes the {{site.data.keyword.mobileanalytics_short}} Console where developers and application owners can monitor mobile application performance, see usage statistics, and search device logs.  {{site.data.keyword.mobileanalytics_short}}  provides platform specific client Software Development Kits (SDKs) to simplify application development.
+
+<!-- Mobile Analytics Server SDKs - set of server SDKs to protect resources that are-->
+<!--hosted on {{site.data.keyword.Bluemix_notm}}. Currently supported runtimes are-->
+<!--Node.js and Java for Liberty.-->
+
+<!-- and includes the following capabilities: -->
+<!-- * Near real-time analytics for client activity. Exp -->
+<!--* Network latency analytics. GA only -->
+<!-- * Client log search and download. Exp -->
+<!--* Server log search and download. GA only -->
+<!-- Crash and stack trace search. Exp -->
+
+## Reasons to use the service
+{: #reasons}
 
 With the {{site.data.keyword.mobileanalytics_short}} service you can:
+{: shortdesc}
 
-<dl>
-	<dt>Gain immediate insight</dt>
-		<dd>See performance and usage metrics in real time.</dd>
-	<dt>Implement in minutes</dt>
-		<dd>Create a service instance in {{site.data.keyword.Bluemix}}, add the SDK to your project, paste two lines of code into your application and you are ready to collect dozens of pre-defined metrics.</dd>
-	<dt>Collect any data you want</dt>
-		<dd>Instrument apps with custom events, discover how users are interacting with your app, track purchases, and monitor app activity.  
-</dd>
-<dt>See metrics for all of your applications at-a-glance</dt>
-	<dd>The {{site.data.keyword.mobileanalytics_short}} console offers <!-- both --> ready-made <!--and custom--> charts, without the need to write queries.</dd>
-<dt>Focus on what is important to you</dt>
-	<dd>Filter metrics by time, adapter, application, application version, OS, OS version, or device model.</dd>
-<dt>Rapidly discover issues</dt>
-	<dd>Monitor crash status. Set alert triggers on critical metrics and route alerts to any REST endpoint. </dd>
-<dt>Troubleshoot to root cause</dt>
-	<dd>Use custom logging in your application and automatically upload the logs and search them from the console. Drill down on crash events to see stack traces. </dd>
-</dl>
- 
-
-## Using metrics and events
-{: #usingmetrics}
-
-With **pre-defined metrics** you can answer questions like:
-
-* How many new users do I have?  
-* How many people are actively using my application?  
-* How frequently are people using my application? 
-* What time of day are people using my application?  
-* What device models do my users prefer? 
-* When should I deprecate support for legacy operating systems? 
-* Which applications are experiencing performance issues?  
-
-By adding your own **custom events** you can answer questions like: 
-
-* What features are used most and least?  
-* Where are users entering and leaving my app?  
-* What activities are users viewing most?  
-* Are users completing workflows in the app (for example, conversion funnels)?   
-
-Client-side logs and usage data are gathered automatically and sent to the Mobile Analytics service on demand. Developers and administrators can use the {{site.data.keyword.mobileanalytics_short}} service dashboard to view data that is gathered by the client SDK.
-
-## Data visualization
-{: data-visualization notoc}
-
-All data that is collected by the analytics service can be visualized through the {{site.data.keyword.mobileanalytics_short}} dashboard which is accessible from your {{site.data.keyword.Bluemix_notm}} dashboard by clicking your IBM {{site.data.keyword.mobileanalytics_short}} service tile instance. <!--You can also create custom charts, based on data that is collected by the analytics service in the dashboard.--> In addition to an at-a-glance view of your mobile analytics, the analytics feature includes the capability to perform a raw search against client logs, captured client crash data, and any extra data that you explicitly provide through client API function calls that feed into the {{site.data.keyword.mobileanalytics_short}} service. 
+<table>
+  <tr>
+    <th> Scenario </th>
+    <th> Reason </th>
+  </tr>
+  <tr>
+    <td> Gain immediate insight </td>
+    <td> See performance and usage metrics in real time. </td>
+  </tr>
+  <tr>
+    <td> Implement in minutes </td>
+    <td> Create a service instance in {{site.data.keyword.Bluemix}}, add the SDK to your project, paste two lines of code into your application and you are ready to collect dozens of pre-defined metrics. </td>
+  </tr>
+  <tr>
+    <td> Collect any data you want </td>
+    <td> Instrument apps with custom events, discover how users are interacting with your app, track purchases, and monitor app activity.  </td>
+  </tr>
+  <tr>
+    <td> See metrics for all of your applications at-a-glance </td>
+    <td> The {{site.data.keyword.mobileanalytics_short}} console offers <!-- both --> ready-made <!--and custom--> charts, without the need to write queries. </td>
+  </tr>
+  <tr>
+    <td> Focus on what is important to you </td>
+    <td> PFilter metrics by time, adapter, application, application version, OS, OS version, or device model.  </td>
+  </tr>
+  <tr>
+    <td> Rapidly discover issues </td>
+    <td> Monitor crash status. Set alert triggers on critical metrics and route alerts to any REST endpoint.  </td>
+  </tr>
+  <tr>
+    <td> Troubleshoot to root cause </td>
+    <td> Use custom logging in your application and automatically upload the logs and search them from the console. Drill down on crash events to see stack traces.  </td>
+  </tr>  
+</table>
 
 # Related Links
 {: #rellinks notoc}

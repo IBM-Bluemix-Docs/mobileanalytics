@@ -7,26 +7,31 @@ Mobile Analytics
     {: .navgroup id="learn"}
     index.md
     mobileanalytics_overview.md
-
+    available-client-sdk.md
+		
     {: .topicgroup}
-    SDKs
-        [Android SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics)
-        [iOS SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics)
-        [Cordova SDK](https://www.npmjs.com/package/bms-core)
-		[Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics/)
+    Basic steps
+        app-prerequisites.md
+        app-instrument.md
+        [Get the App Data](app-monitoring-metrics.html)
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     [REST API](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
+    app_faq.md
+    troubleshooting.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     install-client-sdk.md
     sdk.md
-    app-monitoring.md
-    {: .navgroup-end}
-	
-    {: .navgroup id="help"}
-    app_faq.md
-    troubleshooting.md
+    
+    {: .topicgroup}
+    Monitor the Applications
+        app-monitoring-metrics.md
+        app-alerts.md
+        app-monitoring-crash.md
+        app-monitoring-network.md
+        app-monitoring-export.md
+        app-monitoring-sentiment.md	
     {: .navgroup-end}

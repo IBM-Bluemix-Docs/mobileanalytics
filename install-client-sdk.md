@@ -37,13 +37,14 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with G
 	```
       dependencies {
         compile 'com.ibm.mobilefirstplatform.clientsdk.android:analytics:1.+'
-		compile 'com.google.android.gms:play-services-location:10.0.1'
+        compile 'com.google.android.gms:play-services-location:10.0.1'
     	// other dependencies  
       }
   	```
   	{: codeblock}
 	
-	The first dependency is for the Mobile Analytics Service clientsdk and the second one is for the client-side location logging. The second dependency is only required if you enable the client side location collection.	
+	The first dependency is for the Mobile Analytics Service clientsdk and the second one is for the client-side location logging. The second dependency is only required if you enable the client side location collection.
+    	
 
 4. Synchronize your project with Gradle by clicking **Tools &gt; Android &gt; Sync Project with Gradle Files**.
 
@@ -57,7 +58,7 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with G
    If you're using sdk version greater than >= 1.2  then you need to put this below part under the `<application>` element of the `AndroidManifest.xml` file.
    	
     ```
-	    <activity
+	 <activity
             android:name="com.ibm.mobilefirstplatform.clientsdk.android.ui.UIActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask">
@@ -67,12 +68,10 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with G
             </intent-filter>
         </activity>
 	```
-   	
-	
-	
-   {: codeblock}
+   	{: codeblock}
    
-6. You have now installed the Android Client SDK. Next, [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.   
+
+You have now installed the Android Client SDK. Next, [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.   
 
 ## Installing the Swift SDK
 {: #installing-sdk-ios}
