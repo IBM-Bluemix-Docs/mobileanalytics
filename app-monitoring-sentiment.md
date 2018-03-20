@@ -72,7 +72,7 @@ It would take a minimum of 6 hours for the feedback data to reflect in the {{sit
 Currently, the sentiment analysis feature is available on `IBM Cloud - US South Region` and is applicable on `iOS platform`.
 
 
-**Note**: The feature is enabled only for users who have opted the `Advanced Pricing Plan`. Select **Plan** in the {{site.data.keyword.mobilepushshort}} service console to [upgrade](https://console-tok02-red.cdn.s-bluemix.net/docs/account/change-plan.html#changing)
+**Note**: The feature is enabled only for users who have opted the `Advanced Pricing Plan`. Select **Plan** in the {{site.data.keyword.mobileanalytics_short}} service console to [upgrade](https://console-tok02-red.cdn.s-bluemix.net/docs/account/change-plan.html#changing)
 
 
 
