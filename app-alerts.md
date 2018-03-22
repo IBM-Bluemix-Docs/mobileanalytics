@@ -13,6 +13,8 @@ lastupdated: "2017-08-06"
 # Setting alerts
 {: #alerts}
 
+## Setting alerts with Mobile Analytics 
+
 You can set thresholds in alert definitions in the {{site.data.keyword.mobileanalytics_short}} console to better monitor your activities.
 
 You can configure thresholds, which if exceeded, trigger alerts to notify the {{site.data.keyword.mobileanalytics_short}} console monitor. The triggered alerts can be visualized on the console, or the alerts can be handled by a custom webhook. <!-- This feature provides a proactive means of detecting app log errors, server log errors, extended periods of network latency, and authentication failures.--> This feature provides a proactive means of detecting application log errors and application crashes server log errors. Reactive thresholds and alerts keep you from having to sift through your data and set thresholds at a wide spectrum of granularity.

@@ -20,6 +20,7 @@ Mobile Analytics
     [REST API](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
     app_faq.md
     troubleshooting.md
+    upgrading.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -33,5 +34,6 @@ Mobile Analytics
         app-monitoring-crash.md
         app-monitoring-network.md
         app-monitoring-export.md
-        app-monitoring-sentiment.md	
+        app-monitoring-inapp.md
+        app-monitoring-sentiment.md
     {: .navgroup-end}

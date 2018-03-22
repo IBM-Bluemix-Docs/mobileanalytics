@@ -766,7 +766,26 @@ Enable user tracking by initializing {{site.data.keyword.mobileanalytics_short}}
 	```
 	{: codeblock}
 
+## In-App Feedback Analysis
+{: #In-App}
 
+In-App Feedback Analysis enables **users and testers** to provide rich contextual feedback to app owners. **App owners** get real time feedback from its users based on app usage. **Developers** implement changes based on real time insights.
+
+Invoke the below API to instrument your mobile app to enter the feedback-mode. 
+
+- Android
+
+    ```
+    ImageButton feedback =(ImageButton)findViewById(R.id.Feedback);
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Analytics.triggerFeedbackMode();
+            }
+        });
+    ```	
+	{: codeblock}
+	
 <!--## Configuring MobileFirst Platform Foundation servers to use the {{site.data.keyword.mobileanalytics_short}} service (optional)
 {: #configmfp notoc}
   If you are using MobileFirst Platform Foundation Server V7 and higher, you can configure it to use the {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.mobileanalytics_short}} service to store analytics and logged data. 

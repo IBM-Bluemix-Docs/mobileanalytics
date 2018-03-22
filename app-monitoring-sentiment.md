@@ -13,7 +13,7 @@ lastupdated: "2017-08-06"
 # Sentiment Analysis
 {: #sentimentanalysis}
 
-## Sentiment Analysis with {{site.data.keyword.mobileanalytics_full}}
+## Sentiment Analysis with Mobile Analytics
 
 Through {{site.data.keyword.mobileanalytics_short}} you can gather and analyze the ratings that the users give to your app.
 
@@ -24,7 +24,7 @@ The Sentiment Analysis capability -
  - Sentiment score patterns/variations can be visualized using charts
  - Picks keywords from the user feedbacks, keywords give a hint on what the ratings are inclined towards
  
-##Configuring Sentiment Analysis
+## Configuring Sentiment Analysis
 
 To enable sentiment analysis on your application, complete the below steps:
 
@@ -46,7 +46,7 @@ You have now configured you application for Sentiment Analysis.
 
 ![sentiment](images/sentiment_analysis.png)
 
-##Analyzing the App Data
+## Analyzing the App Data
 
 The amount of available data you can view depends on the user feedbacks given to your app. Statistical data can be viewed only when the users have given a feedback with comments.
 

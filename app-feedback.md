@@ -10,7 +10,7 @@ lastupdated: "2017-08-06"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Monitoring applications with {{site.data.keyword.mobileanalytics_short}}
+# Monitoring applications with Mobile Analytics
 {: #monitoringapps}
 
 The {{site.data.keyword.mobileanalytics_full}} provides monitoring and analytics for your mobile applications. You can record application logs and monitor data with the {{site.data.keyword.mobileanalytics_short}} Client SDK. Developers can control when to send this data to the {{site.data.keyword.mobileanalytics_short}} Service. When data is delivered to {{site.data.keyword.mobileanalytics_short}}, you can use the {{site.data.keyword.mobileanalytics_short}} console to get analytics insights about your mobile applications, devices, and application logs.

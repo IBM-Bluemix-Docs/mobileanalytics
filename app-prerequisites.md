@@ -16,7 +16,7 @@ Last updated: 18 January 2018
 {: .last-updated}
 
 
-## Creating a {{site.data.keyword.mobileanalytics_short}} service instance
+## Creating a Mobile Analytics service instance
 {: #prerequisites_1}
 
 1. In the [IBM Cloud Catalog](https://console.ng.bluemix.net/catalog/), click **Mobile** > **Mobile Analytics**.

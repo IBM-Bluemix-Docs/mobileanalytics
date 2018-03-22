@@ -10,7 +10,7 @@ copyright:
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# SDKs for {{site.data.keyword.mobileanalytics_short}}
+# SDKs for Mobile Analytics
 {: #install-sdk}
 Last updated: 18 January 2018
 {: .last-updated}
