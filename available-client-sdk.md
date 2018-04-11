@@ -21,22 +21,22 @@ Refer the [document](install-client-sdk.html) for detailed information on instal
 
 {: shortdesc}
 
-## SDK for Android
+## SDKs for Android
 
    Installing the [Android Client SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics)
 
 
-## SDK for iOS
+## SDKs for iOS
 
    Installing the [iOS Client SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics)
 
    
-## SDK for Cordova
+## SDKs for Cordova
 
    Installing the [Cordova Client SDK](https://www.npmjs.com/package/bms-core)
    
-## SDK for Web
+## SDKs for Web
 
    Installing the [Web Client SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics/)
    
-**Note** : For Web SDK, you need to configure your Mobile Analutics service instance to allow an app server. Provide the URL of your app server through the Service Confiuration REST API through Swagger UI. POST, GET, PUT and DELETE methods are provided for CRUD operations of the service configuration which is a list of allowed URL's. To GET and DELETE configurations of your service instance, use your API key. To create and update the service configuration, use POST and PUT methods with allowed URLs listed as body {"allowedUrls":["http://abc.com","https://www.xyz.com"]}. If you are accessing from a browser in the same system as that of the web server, provide "http://localhost" as the allowed URL.
+**Note** : For Web SDK, you need to configure your Mobile Analytics service instance to allow an app server. Provide the URL of your app server through the Service Confiuration REST API through Swagger UI. POST, GET, PUT and DELETE methods are provided for CRUD operations of the service configuration which is a list of allowed URL's. To GET and DELETE configurations of your service instance, use your API key. To create and update the service configuration, use POST and PUT methods with allowed URLs listed as body {"allowedUrls":["http://abc.com","https://www.xyz.com"]}. If you are accessing from a browser in the same system as that of the web server, provide "http://localhost" as the allowed URL.

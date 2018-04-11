@@ -7,7 +7,6 @@ Mobile Analytics
     {: .navgroup id="learn"}
     index.md
     mobileanalytics_overview.md
-    available-client-sdk.md
 		
     {: .topicgroup}
     Basic steps
@@ -17,10 +16,20 @@ Mobile Analytics
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
+    available-client-sdk.md
     [REST API](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
-    app_faq.md
-    troubleshooting.md
     upgrading.md
+	
+    {: .topicgroup} 
+    Troubleshooting and FAQs	
+        app_faq.md
+        troubleshooting.md	
+		
+    {: .topicgroup}
+    Tutorials
+        [Create a Swift App with Analytics and Push](https://console.bluemix.net/docs/tutorials/ios-mobile-push-analytics.html#ios-mobile-application-with-push-and-analytics)
+        [Create an Android App with Analytics and Push](https://console.bluemix.net/docs/tutorials/android-mobile-push-analytics.html#android-native-mobile-application-with-push-and-analytics)	
+        [Create a Hybrid App with Analytics and Push](https://console.bluemix.net/docs/tutorials/hybrid-mobile-push-analytics.html#hybrid-mobile-application-with-push-and-analytics)		
     {: .navgroup-end}
 
     {: .navgroup id="howto"}

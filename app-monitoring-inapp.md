@@ -10,8 +10,8 @@ lastupdated: "2017-08-06"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# In-app Feedback Analysis
-{: #sentimentanalysis}
+# In-App Feedback Analysis
+{: #In-App}
 
 ## In-app Feedback Analysis with Mobile Analytics
 
