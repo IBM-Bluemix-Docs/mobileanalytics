@@ -21,7 +21,7 @@ Mobile Analytics
     upgrading.md
 	
     {: .topicgroup} 
-    Troubleshooting and FAQs	
+    FAQs and Support
         app_faq.md
         troubleshooting.md	
 		
