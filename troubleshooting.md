@@ -12,8 +12,8 @@ copyright:
 {:pre: .pre}
 {:tip: .tip}
 
-## Getting help and support
-{: #gettinghelp}
+# Getting help and support
+
 Last updated: 18 January 2018
 {: .last-updated}
 
