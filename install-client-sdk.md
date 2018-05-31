@@ -195,6 +195,7 @@ The {{site.data.keyword.mobileanalytics_full}} Cordova plugin enables you to ins
         </activity>
 	```
 	{: codeblock}
+	
 
 ## Installing the Web plugin
 {: #web-sdk-cordova}

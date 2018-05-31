@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-10"
+lastupdated: "2018-01-18"
 
 ---
 {:new_window: target="_blank"}
@@ -10,21 +10,24 @@ lastupdated: "2017-01-10"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# 检测应用程序以使用 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK
+# 检测应用程序
 {: #mobileanalytics_sdk}
+
+## 检测应用程序以使用 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK
 
 使用 {{site.data.keyword.mobileanalytics_full}} SDK，您可以检测移动应用程序。
 {: shortdesc}
 
-使用 {{site.data.keyword.mobileanalytics_short}}，您可以收集两种<!--three-->类别的数据，每一种需要不同程度的检测：
+使用 {{site.data.keyword.mobileanalytics_short}}，您可以收集以下类别的数据，每一种需要不同程度的检测：
 
-1. 预定义的数据：这种类别包含适用于所有应用程序的通用使用情况和设备信息。在这种类别中存在设备元数据（操作系统和设备模型）和使用情况数据（活动用户和应用程序会话），可指示应用程序使用的数量、频率和持续时间。当您在应用程序中初始化 {{site.data.keyword.mobileanalytics_short}} SDK 之后，会自动收集预定义的数据。
 
-2. 应用程序日志消息：这种类别使得开发人员可以在整个应用程序中添加记录定制消息的代码行，以协助开发和调试。开发人员会为每一则日志消息分配严重性/详细程度级别，这样就可以根据所分配的级别对消息进行过滤，或者通过将应用程序配置为忽略低于给定日志级别的消息来保留存储空间。要收集应用程序日志数据，您必须在应用程序内初始化 {{site.data.keyword.mobileanalytics_short}} SDK，并对每一则日志消息，添加一行代码。
+- 预定义的数据：这种类别包含适用于所有应用程序的通用使用情况和设备信息。在这种类别中存在设备元数据（操作系统和设备模型）和使用情况数据（活动用户和应用程序会话），可指示应用程序使用的数量、频率和持续时间。当您在应用程序中初始化 {{site.data.keyword.mobileanalytics_short}} SDK 之后，会自动收集预定义的数据。
 
-3. 定制事件 - 这种类别包含您自行定义且特定于您应用程序的数据。此数据代表您应用程序中发生的事件，如查看页面、点击按钮或应用程序内采购。除了在您的应用程序中初始化 {{site.data.keyword.mobileanalytics_short}} SDK 之外，您还必须对要跟踪的每一个定制事件，添加一行代码。 
+- 应用程序日志消息：这种类别使得开发人员可以在整个应用程序中添加记录定制消息的代码行，以协助开发和调试。开发人员会为每一则日志消息分配严重性/详细程度级别，这样就可以根据所分配的级别对消息进行过滤，或者通过将应用程序配置为忽略低于给定日志级别的消息来保留存储空间。要收集应用程序日志数据，您必须在应用程序内初始化 {{site.data.keyword.mobileanalytics_short}} SDK，并对每一则日志消息，添加一行代码。
 
-目前，Android、iOS、WatchOS 和 Cordova 可以使用 SDK。
+- 定制事件 - 这种类别包含您自行定义且特定于您应用程序的数据。此数据代表您应用程序中发生的事件，如查看页面、点击按钮或应用程序内采购。除了在您的应用程序中初始化 {{site.data.keyword.mobileanalytics_short}} SDK 之外，您还必须对要跟踪的每一个定制事件，添加一行代码。 
+
+目前，Android、iOS、WatchOS、Cordova 和 Web 可以使用 SDK。
 
 ## 识别服务凭证 API 密钥值
 {: #analytics-clientkey}
@@ -32,7 +35,7 @@ lastupdated: "2017-01-10"
 在设置客户端 SDK 之前，先识别您的 **API 密钥**值。初始化客户端 SDK 时，需要 API 密钥。
 
 1. 打开 {{site.data.keyword.mobileanalytics_short}} 服务仪表板。
-2. 展开**查看凭证**以显示 API 密钥值。当您初始化 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK 时，将需要 API 密钥值。
+1. 展开**查看凭证**以显示 API 密钥值。当您初始化 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK 时，将需要 API 密钥值。
 
 
 ## 初始化应用程序以收集分析
@@ -41,144 +44,181 @@ lastupdated: "2017-01-10"
 初始化应用程序以启用发送日志到 {{site.data.keyword.mobileanalytics_short}} 服务。
 
 1. 导入客户端 SDK。
-
-	### Android
-	{: #android-import notoc}
-
-	将以下 `import` 语句添加到项目文件的开头：
+	- Android
 	
-	```
-	  import com.ibm.mobilefirstplatform.clientsdk.android.core.api.*;
+		将以下 `import` 语句添加到项目文件的开头：
+		
+		```
+		  import com.ibm.mobilefirstplatform.clientsdk.android.core.api.*;
 import com.ibm.mobilefirstplatform.clientsdk.android.analytics.api.*;
 import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
   ```
-	{: codeblock}
+		{: codeblock}
   
-	### iOS
-	{: #ios-import notoc}
-	
-	**注释：**iOS 和 watchOS 可以使用 Swift SDK。
-	
-	通过将以下 `import` 语句添加到 `AppDelegate.swift` 项目文件的开头，导入 `BMSCore` 和 `BMSAnalytics` 框架：
-
-	```Swift
-	import BMSCore
-	import BMSAnalytics
-	```
-	{: codeblock}  
-   
-	### Cordova
-	{: #cordova-import notoc}
+	- iOS
 		
-	从 Cordova 应用程序根目录运行以下命令来添加 Cordova 插件：
+		iOS 和 watchOS 可以使用 Swift SDK。通过将以下 `import` 语句添加到 `AppDelegate.swift` 项目文件的开头，导入 `BMSCore` 和 `BMSAnalytics` 框架：
+	
+		```Swift
+		import BMSCore
+		import BMSAnalytics
+		```
+		{: codeblock}  
+   
+	- Cordova
+			
+		从 Cordova 应用程序根目录运行以下命令来添加 Cordova 插件：
+	
+		```Javascript
+		cordova plugin add bms-core
+		```
+		{: codeblock}  
 
-	```Javascript
-	cordova plugin add bms-core
-	```
-	{: codeblock}  
+	- Web
+			
+		通过将作为脚本提供的 SDK 添加到 index.html 来添加 Web 插件：
+	
+		```Html
+		<script src="/path/to/bms-clientsdk-web-analytics/bmsanalytics.js"></script>
+		```
+		{: codeblock} 	 	
+
+	 	或者，使用模块装入程序 requirejs 添加 Web 插件： 
+	
+	 	```Javascript
+	 	require.config({
+	    'paths': {
+	        'bmsanalytics': '/path/to/bms-clientsdk-web-analytics/bmsanalytics'
+	    	}
+		});
+		require(['bmsanalytics'], function(BMSAnalytics) {
+		 BMSAnalytics.send(); 
+		}
+		``` 	
+		{: codeblock}  
 
 2. 初始化您应用程序中的 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK。
 
-	### Android
-	{: #android-init notoc}
+	- Android
+		
+		通过在 Android 应用程序主要活动的 `onCreate` 方法中，或者在适合您项目的位置，添加初始化代码，以在 Android 应用程序中初始化 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK。
 	
-	通过在 Android 应用程序主要活动的 `onCreate` 方法中，或者在适合您项目的位置，添加初始化代码，以在 Android 应用程序中初始化 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK。
-
-	```Java
-	BMSClient.getInstance().initialize(getApplicationContext(), BMSClient.REGION_US_SOUTH); // Make sure that you point to your region
-	```
-	{: codeblock}
-
-	您必须使用 **bluemixRegion** 参数，初始化 `BMSClient`。在初始化程序中，**bluemixRegion** 值指定您使用的是哪一个 {{site.data.keyword.Bluemix_notm}} 部署，例如 `BMSClient.REGION_US_SOUTH` 和 `BMSClient.REGION_UK`。<!-- , or `BMSClient.REGION_SYDNEY`.--> 
-    
-	### iOS
-	{: #ios-init notoc}
-    
-	先使用以下代码，初始化 `BMSClient` 类。将初始化代码置于应用程序代表的 `application(_:didFinishLaunchingWithOptions:)` 方法中，或者置于适合您项目的位置。
+		```Java
+		BMSClient.getInstance().initialize(getApplicationContext(), BMSClient.REGION_US_SOUTH); // Make sure that you point to your region
+		```
+		{: codeblock}
 	
-	```Swift 
-    BMSClient.sharedInstance.initialize(bluemixRegion: BMSClient.Region.usSouth) // Make sure that you point to your region
-    ```
-	{: codeblock}
-
-	您必须使用 **bluemixRegion** 参数，初始化 `BMSClient`。在初始化程序中，**bluemixRegion** 值指定您使用的是哪一个 {{site.data.keyword.Bluemix_notm}} 部署，例如 `BMSClient.Region.usSouth` 或 `BMSClient.Region.unitedKingdom`。
-    <!-- , or `BMSClient.Region.Sydney`. -->
+		您必须使用 **bluemixRegion** 参数，初始化 `BMSClient`。在初始化程序中，**bluemixRegion** 值指定您使用的是哪一个 {{site.data.keyword.Bluemix_notm}} 部署，例如 `BMSClient.REGION_US_SOUTH` 和 `BMSClient.REGION_UK`。 
+	    <!-- , or `BMSClient.REGION_SYDNEY`.--> 
     
-	### Cordova
-	{: #cordova-init notoc}
+	- iOS
+	    
+		先使用以下代码，初始化 `BMSClient` 类。将初始化代码置于应用程序代表的 `application(_:didFinishLaunchingWithOptions:)` 方法中，或者置于适合您项目的位置。
+		
+		```Swift
+		BMSClient.sharedInstance.initialize(bluemixRegion: BMSClient.Region.usSouth) // 确保指向您的区域
+		```
+		{: codeblock}
+	
+		您必须使用 **bluemixRegion** 参数，初始化 `BMSClient`。在初始化程序中，**bluemixRegion** 值指定您使用的是哪一个 {{site.data.keyword.Bluemix_notm}} 部署，例如 `BMSClient.Region.usSouth` 或 `BMSClient.Region.unitedKingdom`。
+	    <!-- , or `BMSClient.Region.Sydney`. -->
     
-	初始化 **BMSClient** 和 **BMSAnalytics**。您将需要 [**API 密钥**](#analytics-clientkey)值。
+	- Cordova
+	  
+		初始化 **BMSClient** 和 **BMSAnalytics**。您将需要 [**API 密钥**](#analytics-clientkey)值。
+	
+		```Javascript
+		BMSClient.initialize(BMSClient.REGION_US_SOUTH); // 确保指向您的区域	
+		```
+		{: codeblock}
+		
+		要使用 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK，您必须使用 **bluemixRegion** 参数，初始化 `BMSClient`。在初始化程序中，**bluemixRegion** 值指定您使用的是哪一个 {{site.data.keyword.Bluemix_notm}} 部署，例如 `BMSClient.REGION_US_SOUTH` 或 `BMSClient.REGION_UK`。
+	    <!-- , or `BMSClient.REGION_SYDNEY`. -->
+    
+	- Web
 
-	```Javascript
-  var applicationName = "HelloWorld";
-  var apiKey =  "your_api_key_here";
-  var hasUserContext = true;
-  var deviceEvents = [BMSAnalytics.ALL];
-
-  BMSClient.initialize(BMSClient.REGION_US_SOUTH); //Make sure you point to your region	
-  BMSAnalytics.initialize(applicationName, apiKey, hasUserContext, deviceEvents)
-  ```
-	{: codeblock}
-
-	要使用 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK，您必须使用 **bluemixRegion** 参数，初始化 `BMSClient`。在初始化程序中，**bluemixRegion** 值指定您使用的是哪一个 {{site.data.keyword.Bluemix_notm}} 部署，例如 `BMSClient.REGION_US_SOUTH` 或 `BMSClient.REGION_UK`。
-    <!-- , or `BMSClient.REGION_SYDNEY`. -->
+	    使用 API 密钥值在应用程序代码内部初始化客户端 SDK，以记录使用情况分析和应用程序会话。
+	    ```javascript
+	    BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
+	    ```
+	    {: codeblock}
+		
+		要使用 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK，您必须使用 **bluemixRegion** 参数来初始化 `BMSAnalytics.Client`。在初始化程序中，**bluemixRegion** 值指定您使用的是哪一个 {{site.data.keyword.Bluemix_notm}} 部署，例如 `BMSAnalytics.Client..REGION_UK` 或 `BMSAnalytics.Client..REGION_US_SOUTH`。
+	    <!-- , or `BMSClient.REGION_SYDNEY`. -->
     
 3. 使用应用程序对象并为其提供应用程序名称，来初始化 Analytics。 
 
 	您针对应用程序选择的名称 (`your_app_name_here`) 会在 {{site.data.keyword.mobileanalytics_short}} Console 中显示为应用程序名称。应用程序名称用作过滤器，在仪表板中搜索应用程序日志。当您跨平台（例如 Android 和 iOS）使用相同的应用程序名称时，您可以在相同的名称下，查看该应用程序的所有日志，而无论日志发自哪个平台。
 
-	您还需要 [**API 密钥**](#analytics-clientkey)值。
+	您还需要 [API 密钥](#analytics-clientkey)值。
 
-	### Android
-	{: #android-init-analytics notoc}
-	
-	```Java
-	// In this code example, Analytics is configured to record lifecycle events.
-	Analytics.init(getApplication(), "your_app_name_here", apiKey, hasUserContext, Analytics.DeviceEvent.ALL);
-	```
-	{: codeblock}
-	
-	**注**：将 `hasUserContext` 的值设置为 **true** 或 **false**。如果是 false（缺省值），那么在计数时，每个设备都会被计为活动用户。通过 [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) 方法，您可以跟踪当前使用应用程序的每个装置的用户数，但是当 `hasUserContext` 为 false 时无法使用。如果是 true，那么每次使用 [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) 都会在计数时被计为活动用户。当 `hasUserContext` 为 true 时，没有缺省用户身份，因此必须设置该身份以填充活动用户图表。
-	
-	### iOS
-	{: #ios-initialize-analytics notoc}
-	
-	```Swift 
-	Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, deviceEvents: .lifecycle, .network)
- 	```
-	{: codeblock}
- 	
-	### watchOS
-	{: #watchos-initialize-analytics notoc}
-	 	
-	```Swift
- 	Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", deviceEvents: .network)
- 	```
-	{: codeblock}
- 	
-	可选 `deviceEvents` 参数会自动收集设备级别事件的分析。
-	
-	**注**：将 `hasUserContext` 的值设置为 **true** 或 **false**。如果是 false（缺省值），那么在计数时，每个设备都会被计为活动用户。通过 [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) 方法，您可以跟踪当前使用应用程序的每个装置的用户数，但是当 `hasUserContext` 为 false 时无法使用。如果 `hasUserContext` 为 true，那么每次使用 [`Analytics.userIdentity="username"`](sdk.html#ios-tracking-users) 都会在计数时被计为活动用户。当 `hasUserContext` 为 true 时，没有缺省用户身份，因此必须设置该身份以填充活动用户图表。
-
-	#### watchOS
-	{: #watchos-record-device notoc}
-
-	您可以使用 `Analytics.recordApplicationDidBecomeActive()` 和 `Analytics.recordApplicationWillResignActive()` 方法，来记录 WatchOS 上的设备事件。
-  
-	将下列一行添加到 ExtensionDelegate 类的 `applicationDidBecomeActive()` 方法中：
- 
-	```
-	Analytics.recordApplicationDidBecomeActive()
-	```
-	{: codeblock}
-
-	将下列一行添加到 ExtensionDelegate 类的 `applicationWillResignActive()` 方法中：
- 
-	```
-	Analytics.recordApplicationWillResignActive()
-	```
-	{: codeblock}	
+- Android
 		
+	```Java
+		// 在此代码示例中，Analytics 配置为记录生命周期事件。
+		Analytics.init(getApplication(), "your_app_name_here", apiKey, hasUserContext, collectLocation, Analytics.DeviceEvent.ALL);
+	```
+    {: codeblock}
+		
+	**注**：将 `hasUserContext` 的值设置为 **true** 或 **false**。如果是 false（缺省值），那么在计数时，每个设备都会被计为活动用户。通过 [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) 方法，您可以跟踪当前使用应用程序的每个装置的用户数，但是当 `hasUserContext` 为 false 时无法使用。如果是 true，那么每次使用 [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) 都会在计数时被计为活动用户。当 `hasUserContext` 为 true 时，没有缺省用户身份，因此必须设置该身份以填充活动用户图表。如果 `collectLocation` 设置为 true，`Analytics.logLocation()` 方法将生效，用于支持应用程序发送设备位置。 
+		
+		
+	
+- iOS
+		
+	```Swift 
+		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here", hasUserContext: false, collectLocation: true, deviceEvents: .lifecycle, .network)
+	```
+    {: codeblock}
+ 	
+- watchOS
+		 	
+	```Swift
+		Analytics.initialize(appName: "your_app_name_here", apiKey: "your_api_key_here",collectLocation: true, deviceEvents: .network)
+	```
+    {: codeblock}
+	 	
+    可选 `deviceEvents` 参数会自动收集设备级别事件的分析。
+		
+    将 `hasUserContext` 的值设置为 **true** 或 **false**。如果是 false（缺省值），那么在计数时，每个设备都会被计为活动用户。通过 [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) 方法，您可以跟踪当前使用应用程序的每个装置的用户数，但是当 `hasUserContext` 为 false 时无法使用。如果 `hasUserContext` 为 true，那么每次使用 [`Analytics.userIdentity="username"`](sdk.html#ios-tracking-users) 都会在计数时被计为活动用户。当 `hasUserContext` 为 true 时，没有缺省用户身份，因此必须设置该身份以填充活动用户图表。如果 `collectLocation` 设置为 true，`Analytics.logLocation()` 方法将生效，用于支持应用程序发送设备位置。 
+
+- watchOS
+	
+    您可以使用 `Analytics.recordApplicationDidBecomeActive()` 和 `Analytics.recordApplicationWillResignActive()` 方法，来记录 WatchOS 上的设备事件。
+	  
+    将下列一行添加到 ExtensionDelegate 类的 `applicationDidBecomeActive()` 方法中：
+	 
+	```Javascript
+		Analytics.recordApplicationDidBecomeActive()
+	```
+    {: codeblock}
+	
+    将下列一行添加到 ExtensionDelegate 类的 `applicationWillResignActive()` 方法中：
+	 
+	```Javascript
+		Analytics.recordApplicationWillResignActive()
+	```
+    {: codeblock}	
+		
+- Cordova
+		
+	```Javascript
+	Analytics.initialize(appName, apiKey,  hasUserContext, collectLocation, [BMSAnalytics.ALL])
+	```
+    {: codeblock}	
+		
+    将 `hasUserContext` 的值设置为 **true** 或 **false**。如果是 false（缺省值），那么在计数时，每个设备都会被计为活动用户。通过 `Analytics.setUserIdentity("username")` 方法，您可以跟踪当前使用应用程序的每个装置的用户数，但是当 `hasUserContext` 为 false 时无法使用。如果是 true，那么每次使用 `Analytics.setUserIdentity("username")` (sdk.html#android-tracking-users) 都会在计数时被计为活动用户。当 `hasUserContext` 为 true 时，没有缺省用户身份，因此必须设置该身份以填充活动用户图表。如果 `collectLocation` 设置为 true，`Analytics.logLocation()` 方法将生效，用于支持应用程序发送设备位置。 
+	
+- Web
+		
+	```Java
+		// 在此代码示例中，Analytics 配置为记录所有事件。
+		BMSAnalytics.initialize(appName, apiKey, hasUserContext, BMSAnalytics.DeviceEvent.ALL);
+	```
+    {: codeblock}
+		
+    将 `hasUserContext` 的值设置为 **true** 或 **false**。如果是 false（缺省值），那么在计数时，每个设备都会被计为活动用户。`hasUserContext` 为 false 时，[`BMSAnalytics.setUserIdentity("username")`](sdk.html#web-tracking-users) 方法不会生效，即不支持跟踪当前使用应用程序的每个设备的用户数。如果为 true，那么每次使用 [`BMSAnalytics.setUserIdentity("username")`](sdk.html#web-tracking-users) 都会在计数时被计为活动用户。当 `hasUserContext` 为 true 时，没有缺省用户身份，因此必须设置该身份以填充活动用户图表。	
+
 4. 您现在已经初始化应用程序以收集分析。接下来，您可以[发送分析数据](sdk.html#app-monitoring-gathering-analytics)至 {{site.data.keyword.mobileanalytics_short}} 服务。
 
 
@@ -189,21 +229,17 @@ import com.ibm.mobilefirstplatform.clientsdk.android.logger.api.*;
 
 使用下列 API，开始记录和发送使用情况分析：
 
-
-### Android
-{: #android-usage-api notoc}
+- Android
 	
-```
-// 禁用记录使用情况分析（例如，节省磁盘空间）
-// 缺省情况下会启用记录
-Analytics.disable();
-	
-// 启用记录使用情况分析
-Analytics.enable();
-	
-// Send recorded usage analytics to the Mobile Analytics Service
-Analytics.send(new ResponseListener() {
-            @Override
+	```
+	// 禁用记录使用情况分析（例如，为了节省磁盘空间）
+	// 缺省情况下会启用记录
+	Analytics.disable();
+	// 启用记录使用情况分析
+	Analytics.enable();
+	// 将记录的使用情况分析发送到 Mobile Analytics 服务
+	Analytics.send(new ResponseListener() {
+	            @Override
             public void onSuccess(Response response) {
                 // Handle Analytics send success here.
             }
@@ -213,90 +249,106 @@ Analytics.send(new ResponseListener() {
                 // Handle Analytics send failure here.
             }
         });
-```
-{: codeblock}
-	
-记录事件的使用情况分析示例：
-	
-```
-// Log a custom analytics event
-JSONObject eventJSONObject = new JSONObject();
-	
-eventJSONObject.put("customProperty" , "propertyValue");
-
-Analytics.log(eventJSONObject);
-	
-```
-{: codeblock}
+	```
+	{: codeblock}
+		
+	记录事件的使用情况分析示例：
+		
+	```
+	// 记录定制分析事件
+	JSONObject eventJSONObject = new JSONObject();
+	eventJSONObject.put("customProperty" , "propertyValue");
+	Analytics.log(eventJSONObject);
+	```
+	{: codeblock}
 
 
-### iOS - Swift
-{: #ios-usage-api notoc}
+- iOS (Swift)
 
-```
-// Disable recording of usage analytics (for example, to save disk space)
-// Recording is enabled by default
-Analytics.isEnabled = false
+	```
+	// 禁用记录使用情况分析（例如，为了节省磁盘空间）
+	// 缺省情况下会启用记录
+	Analytics.isEnabled = false
+	// 启用记录使用情况分析
+	Analytics.isEnabled = true
+	// 将记录的使用情况分析发送到 Mobile Analytics 服务
+	Analytics.send(completionHandler: { (response: Response?, error: Error?) in
+	    if let response = response {
+	        // Handle Analytics send success here.
+            }
 
-// Enable recording of usage analytics
-Analytics.isEnabled = true
-
-// Send recorded usage analytics to the Mobile Analytics Service
-Analytics.send(completionHandler: { (response: Response?, error: Error?) in
-
-    if let response = response {
-        // Handle Analytics send success here.
-    }
-    if let error = error {
+            if let error = error {
         // Handle Analytics send failure here.
-    }
-})
-```
-{: codeblock}
+            }
+        })
+	```
+	{: codeblock}
+	
+	记录事件的使用情况分析示例：
+	
+	```Swift
+	// 记录定制分析事件
+	let eventObject = ["customProperty": "propertyValue"]
+	Analytics.log(metadata: eventObject)
+	```
+	{: codeblock}
 
-记录事件的使用情况分析示例：
+- Cordova
 
-```Swift
-// Log a custom analytics event
-let eventObject = ["customProperty": "propertyValue"]
-Analytics.log(metadata: eventObject)
-```
-{: codeblock}
-
-### Cordova
-{: #usage-analytics-cordova notoc}
-
-```JavaScript
-  // Enable usage analytics recording
-  BMSAnalytics.enable();
-  
-  // Disable usage analytics recording
-  BMSAnalytics.disable();
-
-  // Send recorded usage analytics to the {{site.data.keyword.mobileanalytics_short}} Service
-  BMSAnalytics.send(
-	function(response) {
-		console.log('success: ' + response);
+	```JavaScript
+	// 启用使用情况分析记录
+	BMSAnalytics.enable();
+	// 禁用使用情况分析记录
+	BMSAnalytics.disable();
+	// 将记录的使用情况分析发送到 {{site.data.keyword.mobileanalytics_short}} 服务
+	BMSAnalytics.send(
+		function(response) {
+			console.log('success: ' + response);
 		},
 	function (err) {
 		console.log('fail: ' + err);
 		});
   ```
-{: codeblock}
+	{: codeblock}
+	
+	记录事件的使用情况分析示例：
+	
+	```JavaScript
+	// 记录定制分析事件
+	var eventObject = {"customProperty": "propertyValue"}
+	BMSAnalytics.log(eventObject)
+	```
+	{: codeblock}
 
-记录事件的使用情况分析示例：
-
-```JavaScript
-// Log a custom analytics event
-var eventObject = {"customProperty": "propertyValue"}
-BMSAnalytics.log(eventObject)
-```
-{: codeblock}
-
-**注释：**开发 Cordova 应用程序时，使用本机 API 启用应用程序生命周期事件记录。
+	开发 Cordova 应用程序时，请使用本机 API 来启用应用程序生命周期事件记录。
+ 
+- Web
+		
+	```
+	// 禁用记录使用情况分析（例如，为了节省磁盘空间）
+	// 缺省情况下会启用记录
+	BBMSAnalytics.disable();
+	// 启用记录使用情况分析
+	BMSAnalytics.enable();
+	// 将记录的使用情况分析发送到 Mobile Analytics 服务
+	BMSAnalytics.send().then(function(result) {
+         	// 在此句柄成功
+        }, function(err) {
+                // 在此句柄失败
+        });;
+	```
+	{: codeblock}
+		
+	记录事件的使用情况分析示例：
+		
+	```JavaScript
+	// 记录定制分析事件
+	var eventObject = {"customProperty": "propertyValue"}
+	BMSAnalytics.log(eventObject)
+	```
+	{: codeblock}
   
 ## 启用、配置和使用记录器
-{: #app-monitoring-logger}
 
 {{site.data.keyword.mobileanalytics_full}} 客户端 SDK 提供了一种日志记录框架，与您可能熟悉的其他日志框架（如 `java.util.logging` 或 `log4j`）类似。此日志记录框架支持每个数据包多个记录器实例，支持不同的日志级别，支持捕获对应用程序崩溃的堆栈跟踪，等等。
 
@@ -330,34 +382,29 @@ BMSAnalytics.log(eventObject)
  
 以下代码片段显示了样本记录器用法：
 
-
-#### Android
-{: #android-logger-sample notoc}
-
-```
-// 配置记录器以将日志保存到设备，这样稍后
-// 就可以将其发送到 Mobile Analytics 服务
-// 缺省情况下，处于禁用状态；设置为 true 可启用
-Logger.storeLogs(true);
-
-// 更改最低日志级别（可选）
-// 缺省设置为 Logger.LEVEL.DEBUG
-Logger.setLogLevel(Logger.LEVEL.INFO);
-
-// 创建两个记录器实例
-// 您可以创建多个日志实例，以组织您的日志
-Logger logger1 = Logger.getLogger("logger1");
-Logger logger2 = Logger.getLogger("logger2");
-
-// 具有不同级别的日志消息
-// 功能 1 的调试消息
-// 功能 2 的信息消息
-logger1.debug("debug message");
-// 未记录 logger1.debug 消息，因为 logLevelFilter 设置为 Info
-logger2.info("info message");
-// Send logs to the Mobile Analytics Service
-        Logger.send(new ResponseListener() {
-                    @Override
+- Android
+	
+	```
+	// 将记录器配置为将日志保存到设备，以便日后
+	// 可以将日志发送到 Mobile Analytics 服务
+	// 缺省情况下会禁用；设置为 true 以启用
+	Logger.storeLogs(true);
+	// 更改最低日志级别（可选）
+	// 缺省设置为 Logger.LEVEL.DEBUG
+	Logger.setLogLevel(Logger.LEVEL.INFO);
+	// 创建两个记录器实例
+	// 可以创建多个日志实例来组织日志
+	Logger logger1 = Logger.getLogger("logger1");
+	Logger logger2 = Logger.getLogger("logger2");
+	// 具有不同级别的日志消息
+	// 功能 1 的调试消息
+	// 功能 2 的调试消息
+	logger1.debug("debug message");
+	// 未记录 logger1.debug 消息，因为 logLevelFilter 设置为 Info
+	logger2.info("info message");
+	// 将日志发送到 Mobile Analytics 服务
+	Logger.send(new ResponseListener() {
+		@Override
             public void onSuccess(Response response) {
                 // Handle Logger send success here.
                     }
@@ -367,97 +414,123 @@ logger2.info("info message");
                 // Handle Logger send failure here.
                     }
                 });        
-```
-{: codeblock}
+	```
+	{: codeblock}
 
 
-#### iOS - Swift
-{: #ios-logger-sample-swift2 notoc}
-
-```
-// Configure Logger to save logs to the device so that they 
-// can later be sent to the Mobile Analytics service
-// Disabled by default; set to true to enable
-Logger.isLogStorageEnabled = true
-
-// Change the minimum log level (optional)
-// The default setting is LogLevel.debug
-Logger.logLevelFilter = LogLevel.info
-
-// Create two logger instances
-// You can create multiple log instances to organize your logs
-let logger1 = Logger.logger(name: "feature1Logger")
-let logger2 = Logger.logger(name: "feature2Logger")
-
-// 具有不同级别的日志消息
-logger1.debug(message: "debug message for feature 1")
-// The logger1.debug message is not logged because the 
+- iOS (Swift)
+	
+	```
+	// 将记录器配置为将日志保存到设备，以便日后
+	// 可以将日志发送到 Mobile Analytics 服务
+	// 缺省情况下会禁用；设置为 true 以启用
+	Logger.isLogStorageEnabled = true
+	// 更改最低日志级别（可选）
+	// 缺省设置为 LogLevel.debug
+	Logger.logLevelFilter = LogLevel.info
+	// 创建两个记录器实例
+	// 可以创建多个日志实例来组织日志
+	let logger1 = Logger.logger(name: "feature1Logger")
+	let logger2 = Logger.logger(name: "feature2Logger")
+	// 具有不同级别的日志消息
+	logger1.debug(message: "debug message for feature 1")
+	// The logger1.debug message is not logged because the 
 // logLevelFilter is set to info
 logger2.info(message: "info message for feature 2")
 
 // Send logs to the Mobile Analytics Service
 Logger.send(completionHandler: { (response: Response?, error: Error?) in
-    
-    if let response = response {
-        logger.debug(message: "Status code: \(response.statusCode)")
+	        if let response = response {
+	        logger.debug(message: "Status code: \(response.statusCode)")
         logger.debug(message: "Response: \(response.responseText)")
     }
     if let error = error {
         logger.error(message: "Error: \(error)")
-    }
-})
-```
-{: codeblock}
+	    }
+	})
+	```
+	{: codeblock}
 
-**提示**：出于隐私考虑，您可以对在发布方式下构建的应用程序，禁用记录器输出。缺省情况下，记录器类会将日志打印到 Xcode 控制台。在目标的构建设置中，将 `-D RELEASE_BUILD` 标记添加到发布构建配置的**其他 Swift 标记**部分。
+	**提示**：出于隐私考虑，您可以对在发布方式下构建的应用程序，禁用记录器输出。缺省情况下，记录器类会将日志打印到 Xcode 控制台。在目标的构建设置中，将 `-D RELEASE_BUILD` 标记添加到发布构建配置的**其他 Swift 标记**部分。
     
 
-#### Cordova
-{: #enable-logger-sample-cordova notoc}
+- Cordova
 
-```
-  // Enable persisting logs
-  BMSLogger.storeLogs(true);
+	```
+	// 启用持久存储日志
+	BMSLogger.storeLogs(true);
+	// 设置要打印和持久存储的最低日志级别
+	BMSLogger.setLogLevel(BMSLogger.INFO);
+	var logger1 = BMSLogger.getLogger("logger1");
+	var logger2 = BMSLogger.getLogger("logger2");   
+	// 具有不同级别的日志消息
+	logger1.debug ("debug message");
+	logger2.info ("info message");
+	// 将持久存储的日志发送到 {{site.data.keyword.mobileanalytics_short}} 服务
+	BMSLogger.send();
+	BMSAnalytics.send();
+	```
+	{: codeblock}
 
-  // Set the minimum log level to be printed and persisted
-  BMSLogger.setLogLevel(BMSLogger.INFO);
+- Web
 
-  var logger1 = BMSLogger.getLogger("logger1");
-  var logger2 = BMSLogger.getLogger("logger2");   
-
-  // Log messages with different levels
-  logger1.debug ("debug message");
-  logger2.info ("info message");
-
-  // Send persisted logs to the {{site.data.keyword.mobileanalytics_short}} Service
-  BMSLogger.send();
-  BMSAnalytics.send();
-  ```
-{: codeblock}
-
+	```
+	// 启用持久存储日志
+	BMSAnalytics.Logger.storeLogs(true);
+	// 设置要打印和持久存储的最低日志级别   
+	// 按降序详细级别列出的日志级别：trace,debug,log,info,warn,error,fatal,analytics  
+	BMSAnalytics.Logger.setLogLevel('error');
+	// 具有不同级别的日志消息
+	BMSAnalytics.Logger.debug ("debug message");
+	BMSAnalytics.Logger.info ("info message");
+	// 将持久存储的日志发送到 {{site.data.keyword.mobileanalytics_short}} 服务
+	BMSAnalytics.Logger.send();
+	BMSAnalytics.send().then(function(result) {
+		// 在此句柄成功
+        }, function(err) {
+         	// 在此句柄失败
+	 });;
+	```
+	{: codeblock}
 
 <!--## Enabling the {{site.data.keyword.mobileanalytics_short}} Client SDK internal logs
 {: #enable-logger-sdklogs notoc}
 
 The {{site.data.keyword.mobileanalytics_short}} Client SDK provides a better development experience by not unnecessarily increasing the console output with its internal debug messages. Therefore, by default, internal log messages that are produced by the {{site.data.keyword.mobileanalytics_short}} SDK with the DEBUG level are not printed. You can enable printing of all internal log messages of the {{site.data.keyword.mobileanalytics_short}} Client SDK with the following API:
 
-#### Android
-{: #enable-logger-print-android notoc}
+- Android
+	```
+	Logger.setSDKDebugLoggingEnabled(true);
+	```
+	{: codeblock}
 
-```
-{: codeblock}
-Logger.setSDKDebugLoggingEnabled(true);
-```
-{: codeblock}
-
-#### iOS - Swift
-{: #enable-logger-print-swift notoc}
-
-```
-Logger.sdkDebugLoggingEnabled = true
-```
-{: codeblock}
+- iOS - Swift
+	```
+	Logger.sdkDebugLoggingEnabled = true
+	```
+	{: codeblock}
 -->
+
+## 位置数据日志记录 
+{: #location-logging}
+
+移动设备的位置可能会在应用程序中通过提供的此 API 进行日志记录。
+```
+Analytics.logLocation();
+ 
+``` 
+此 API 支持应用程序在 Appsession 之间将其位置作为纬度和经度发送到服务器。除了对位置日志记录 API SDK 的显式调用会发送每个 App-Session 的设备位置外，还会发送初始 AppSession 上下文和 userswitch AppSession（即在应用程序会话之间切换用户）上下文的设备位置。位置 API 需要在前面提到的 SDK 初始化中启用。
+
+
+**注**：要调用此位置日志记录 API，请在 SDK 初始化中将 `collectLocation` 参数设置为 true，如下所示。
+```
+Analytics.initialize(appName, apiKey,  hasUserContext, collectLocation, [BMSAnalytics.ALL])
+		
+```
+
+
+
+
 
 ## 发起网络请求
 {: #network-requests}
@@ -486,7 +559,7 @@ public void makeGetCall(){
     thread.start();
 }
 ```
-{: codeblock}
+	{: codeblock}
 
 -->
 
@@ -508,7 +581,7 @@ public void makeGetCall(){
 	}
 	request.send(completionHandler: callBack)
  ```
- {: codeblock}
+	{: codeblock}
  
  -->
 
@@ -532,7 +605,7 @@ urlSession.dataTask(with: request) { (data: Data?, response: URLResponse?, error
     }
 }.resume()
 ```
-{: codeblock}
+	{: codeblock}
 -->
 
 <!--
@@ -553,7 +626,7 @@ urlSession.dataTask(with: request) { (data: Data?, response: URLResponse?, error
 	}
 	request.send(completionHandler: callBack)
  ```
- {: codeblock}
+	{: codeblock}
 -->
 <!--
 ```
@@ -575,7 +648,7 @@ urlSession.dataTaskWithRequest(request) { (data: NSData?, response: NSURLRespons
     }
 }.resume()
 ```
-{: codeblock}
+	{: codeblock}
 -->
 <!--
 #### Cordova
@@ -591,7 +664,7 @@ var success = function(data){
  var request = new BMSRequest("<your application route>", BMSRequest.GET);
  request.send(success, failure);
 ```
-{: codeblock}
+	{: codeblock}
 
 -->
 
@@ -606,32 +679,32 @@ var success = function(data){
 `Logger.send()` 方法会在**故障诊断**页面填充**崩溃摘要**和**崩溃详细信息**表。您必须使您的应用程序能够储存和发送日志，才能通过在应用程序代码中添加额外的语句，来填充本部分的图表。
 
 
-### Android
-{: #android-crash-statement notoc}
+- Android
 
-* `Logger.storeLogs(true);`
-<!-- * `Logger.setLogLevel(Logger.LEVEL.FATAL); // or greater` -->
-
-查看[样本记录器用法](sdk.html#android-logger-sample)。
-
-
-### iOS
-{: #ios-crash-statement notoc}
-
-* `Logger.isLogStorageEnabled = true`
-<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
-
-查看[样本记录器用法](sdk.html##ios-logger-sample-swift2)。
+	`Logger.storeLogs(true);`
+	<!-- * `Logger.setLogLevel(Logger.LEVEL.FATAL); // or greater` -->
+	
+	查看 Android [样本记录器用法](sdk.html##sample-logger-usage)。
 
 
-### Cordova
-{: #cordova-crash-statement notoc}
+- iOS
 
-* `BMSLogger.storeLogs(true);`
-<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
+	`Logger.isLogStorageEnabled = true`
+	<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
+	
+	查看 iOS [样本记录器用法](sdk.html##sample-logger-usage)。
 
-查看[样本记录器用法](sdk.html##ios-logger-sample-swift2)。
 
+- Cordova
+
+	 `BMSLogger.storeLogs(true);`
+	<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
+
+	查看 Cordova [样本记录器用法](sdk.html##sample-logger-usage)。
+
+- Web
+
+	`BMSAnalytics.Logger.storeLogs(true);`
 
 ## 跟踪活动用户
 {: #trackingusers}
@@ -641,55 +714,80 @@ var success = function(data){
 通过使用 `hasUserContext=true` 初始化 {{site.data.keyword.mobileanalytics_short}} 来启用用户跟踪。否则，{{site.data.keyword.mobileanalytics_short}} 仅会从每个设备捕获一个用户。 
 
 
-### Android
-{: #android-tracking-users notoc}
+- Android
 
-添加下列代码，以在用户登录时进行跟踪：
-
+	添加下列代码，以在用户登录时进行跟踪：
+	
+	```
+	Analytics.setUserIdentity("username");
 ```
-Analytics.setUserIdentity("username");
+	{: codeblock}
+	
+	<!--Add the following code for when the user logs out:
+	
+	```
+	Analytics.clearUserIdentity();
+	```
+	{: codeblock}
+	-->
+
+- iOS (Swift)
+
+	添加下列代码，以在用户登录时进行跟踪：
+	
+	```
+	Analytics.userIdentity = "username"
 ```
-{: codeblock}
+	{: codeblock}
+	
+	<!--
+	Add the following code for when the user logs out:
+	
+	```
+	Analytics.userIdentity = nil
+	```
+	{: codeblock}
+	-->
 
-<!--Add the following code for when the user logs out:
 
+- Cordova
+	
+	添加下列代码，以在用户登录时进行跟踪：
+	
+	```
+	BMSAnalytics.setUserIdentity("username");
 ```
-Analytics.clearUserIdentity();
+	{: codeblock}
+
+- Web
+
+	添加下列代码，以在用户登录时进行跟踪：
+	
+	```
+	BMSAnalytics.setUserIdentity("username");
 ```
-{: codeblock}
--->
+	{: codeblock}
 
-### iOS - Swift
-{: #ios-tracking-users notoc}
+## 应用程序内反馈分析
+{: #In-App}
 
-添加下列代码，以在用户登录时进行跟踪：
+应用程序内反馈分析支持**用户和测试者**向应用程序所有者提供丰富的上下文反馈。**应用程序所有者**从其用户那里获取基于应用程序使用情况的实时反馈。**开发者**根据实时洞察来实施更改。
 
-```
-Analytics.userIdentity = "username"
-```
-{: codeblock}
+调用以下 API 来检测移动应用程序，以进入反馈方式。 
 
-<!--
-Add the following code for when the user logs out:
+- Android
 
-```
-Analytics.userIdentity = nil
-```
-{: codeblock}
--->
-
-
-### Cordova
-{: #cordova-tracking-users notoc}
-
-添加下列代码，以在用户登录时进行跟踪：
-
-```
-BMSAnalytics.setUserIdentity("username");
-```
-{: codeblock}
-
-
+    ```
+    ImageButton feedback =(ImageButton)findViewById(R.id.Feedback);
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Analytics.triggerFeedbackMode();
+            }
+        });
+    ```	
+	{: codeblock}
+	
 <!--## Configuring MobileFirst Platform Foundation servers to use the {{site.data.keyword.mobileanalytics_short}} service (optional)
 {: #configmfp notoc}
   If you are using MobileFirst Platform Foundation Server V7 and higher, you can configure it to use the {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.mobileanalytics_short}} service to store analytics and logged data. 

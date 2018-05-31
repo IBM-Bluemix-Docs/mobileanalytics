@@ -7,20 +7,47 @@ Mobile Analytics
     {: .navgroup id="learn"}
     index.md
     mobileanalytics_overview.md
-
+		
     {: .topicgroup}
-    関連リンク
-        [Android SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics)
-        [iOS SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics)
-        [Cordova Plugin Core SDK](https://www.npmjs.com/package/bms-core)
-    {: .navgroup-end}
-
-    {: .navgroup id="reference"}
-    [REST API](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
+    基本ステップ
+        app-prerequisites.md
+        app-instrument.md
+        [アプリ・データの取得](app-monitoring-metrics.html)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     install-client-sdk.md
     sdk.md
-    app-monitoring.md
+    
+    {: .topicgroup}
+    アプリケーションのモニター
+        app-monitoring-metrics.md
+        app-alerts.md
+        app-monitoring-crash.md
+        app-monitoring-network.md
+        app-monitoring-export.md
+        app-monitoring-inapp.md
+        app-monitoring-sentiment.md
+    {: .navgroup-end}	
+	
+    {: .navgroup id="reference"}
+    available-client-sdk.md
+    [REST API](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
+    upgrading.md
+		
+    {: .topicgroup}
+    チュートリアル
+        [Analytics と Push を使用した Swift アプリの作成](https://console.bluemix.net/docs/tutorials/ios-mobile-push-analytics.html#ios-mobile-application-with-push-and-analytics)
+        [Analytics と Push を使用した Android アプリの作成](https://console.bluemix.net/docs/tutorials/android-mobile-push-analytics.html#android-native-mobile-application-with-push-and-analytics)	
+        [Analytics と Push を使用したハイブリッド・アプリの作成](https://console.bluemix.net/docs/tutorials/hybrid-mobile-push-analytics.html#hybrid-mobile-application-with-push-and-analytics)		
     {: .navgroup-end}
+
+    {: .navgroup id="help"}	
+    relatedlinks.md
+	
+    {: .topicgroup} 
+    FAQ とサポート
+        app_faq.md
+        troubleshooting.md	
+    {: .navgroup-end}
+

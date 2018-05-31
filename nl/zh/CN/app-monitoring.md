@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-10"
+lastupdated: "2017-08-06"
 
 ---
 {:new_window: target="_blank"}
@@ -10,8 +10,10 @@ lastupdated: "2017-01-10"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# 使用 {{site.data.keyword.mobileanalytics_short}} 监视应用程序
+# 监视应用程序
 {: #monitoringapps}
+
+## 使用 {{site.data.keyword.mobileanalytics_short}} 监视应用程序
 
 {{site.data.keyword.mobileanalytics_full}} 可监视和分析移动应用程序。您可以使用 {{site.data.keyword.mobileanalytics_short}} 客户端 SDK 来记录应用程序日志并监视数据。开发者可以控制何时将这些数据发送到 {{site.data.keyword.mobileanalytics_short}} 服务。数据传递到 {{site.data.keyword.mobileanalytics_short}} 后，可以使用 {{site.data.keyword.mobileanalytics_short}} 控制台，来获取有关移动应用程序、设备和应用程序日志的分析洞察。
 {: shortdesc}
@@ -211,7 +213,7 @@ You can also export and import custom chart definitions programmatically by usin
 ### 应用程序崩溃故障诊断
 {: #app-crash-troubleshooting notoc}
 
-{{site.data.keyword.mobileanalytics_short}} 控制台中的**故障诊断**页面<!-- **Applications** section of the -->使用**崩溃摘要**表提供应用程序崩溃的详细视图。
+{{site.data.keyword.mobileanalytics_short}} 控制台<!-- **Applications** section of the -->中的**故障诊断**页面使用**崩溃摘要**表提供应用程序崩溃的详细视图。
 
 **崩溃摘要**表可进行排序，且包含下列数据列：
 
@@ -246,12 +248,12 @@ You can also export and import custom chart definitions programmatically by usin
 * 往返时间 - 定义应用程序发出网络请求花费的时间长度，以毫秒为单位。
 * 请求计数 - 显示应用程序发出网络请求的频率。数据还作为平均值显示。
 
-## 将数据导出到 dashDB
+## 将数据导出到 Db2 Warehouse 
 {: #dashdb}
 
-{{site.data.keyword.mobileanalytics_short}} 控制台中显示的度量仅为样本洞察，您可从移动数据进行收集。您可以将移动数据自动传递到 {{site.data.keyword.IBM}} dashDB 数据仓库，在其中定制分析、将您的数据与其他公共和专用数据源聚集以及应用前沿分析来获取深入、详细且复杂的洞察，以帮助您了解和推动业务发展。
+{{site.data.keyword.mobileanalytics_short}} 控制台中显示的度量仅为样本洞察，您可从移动数据进行收集。您可以将移动数据自动传递到 {{site.data.keyword.IBM}} Db2 Warehouse，在其中定制分析，将您的数据与其他公共和专用数据源聚集在一起，以及应用前沿分析来获得深入、详细且复杂的洞察，以帮助您了解和推动业务发展。
 
-在 {{site.data.keyword.mobileanalytics_short}} 控制台中，通过单击**导出**页面上的 **DashDB**，对 dashDB 进行设置。完成设置之后，发送到 {{site.data.keyword.mobileanalytics_short}} 的新数据也会在 1-2 小时内转发给 dashDB。 
+在 {{site.data.keyword.mobileanalytics_short}} 控制台中，通过单击**导出**页面上的 **Db2 Warehouse on Cloud** 来设置 IBM Db2 Warehouse。完成设置之后，发送到 {{site.data.keyword.mobileanalytics_short}} 的新数据也会在 1-2 小时内转发给 Db2 Warehouse。 
 
 <!--
 If you have existing DashDB instances, those instances will no longer accept new data because the incoming data no longer matches the schema. Manually add columns for the new data to resume incoming data. Modifying {{site.data.keyword.mobileanalytics_short}} collection tables by adding new columns also breaks the stream of incoming data.

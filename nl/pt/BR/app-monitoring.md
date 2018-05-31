@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-10"
+lastupdated: "2017-08-06"
 
 ---
 {:new_window: target="_blank"}
@@ -10,8 +10,10 @@ lastupdated: "2017-01-10"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Monitoramento de aplicativos com o {{site.data.keyword.mobileanalytics_short}}
+# Monitore os aplicativos
 {: #monitoringapps}
+
+## Monitoramento de aplicativos com o {{site.data.keyword.mobileanalytics_short}}
 
 O {{site.data.keyword.mobileanalytics_full}} fornece monitoramento e análise para seus aplicativos móveis. É possível registrar logs do aplicativo e monitorar dados com o SDK do cliente {{site.data.keyword.mobileanalytics_short}}. Os desenvolvedores podem controlar quando enviar esses dados para o serviço {{site.data.keyword.mobileanalytics_short}}. Quando os dados forem entregues para o {{site.data.keyword.mobileanalytics_short}}, será possível usar o console do {{site.data.keyword.mobileanalytics_short}} para obter insights analíticos sobre seus aplicativos, dispositivos e logs do aplicativo.
 {: shortdesc}
@@ -126,7 +128,7 @@ Neste exemplo, você usa os dados do log do aplicativo para criar uma definiçã
 		* URL para autoteste inicial da rede
         * Cabeçalhos
         * Tipo de Autenticação
-5. Clique em **Salvar (Save)**.
+5. Clique em **Salvar**.
 
 Você criou uma definição de alerta para acionar um alerta no término de cada intervalo de 5 minutos se o número de logs de app atingir seu limite de 3 ou mais logs de erro.
 
@@ -157,7 +159,7 @@ Neste exemplo, você usa os dados de travamento de aplicativo para criar uma def
       * URL de post de rede (obrigatório)
       * Cabeçalhos (opcional)
       * Tipo de autenticação (obrigatório)
-5. Clique em **Salvar (Save)**.
+5. Clique em **Salvar**.
 
 ### Gerenciando definições de alerta
 {: #managing-alert-definitions notoc}
@@ -245,12 +247,12 @@ Os dados estão disponíveis para as medidas a seguir:
 * Tempo de roundtrip - define o período de tempo, medido em ms, que é necessário para o seu app para fazer solicitações de rede.
 * Contagem de solicitações - exibe com que frequência um app faz solicitações de rede. Os dados também são exibidos como uma média.
 
-## Exportando dados para o dashDB
+## Exportando dados para o Db2 Warehouse 
 {: #dashdb}
 
-As métricas que você vê no console do {{site.data.keyword.mobileanalytics_short}} são apenas uma amostra dos insights que podem ser obtidos de seus dados móveis. É possível canalizar automaticamente seus dados móveis para o data warehouse do {{site.data.keyword.IBM}} dashDB, no qual é possível customizar suas análises, agregar seus dados com outras fontes de dados públicas e privadas e aplicar analítica de ponta para derivar insights profundos, detalhados e sofisticados para ajudá-lo a entender e impulsionar seus negócios.
+As métricas que você vê no console do {{site.data.keyword.mobileanalytics_short}} são apenas uma amostra dos insights que podem ser obtidos de seus dados móveis. É possível canalizar automaticamente seus dados móveis para o {{site.data.keyword.IBM}} Db2 Warehouse, onde é  possível customizar suas análises, agregar seus dados com outras origens de dados públicas e privadas e aplicar análises  avançadas para derivar insights profundos, detalhados e sofisticados para ajudá-lo a entender e conduzir seus negócios.
 
-Configure o dashDB no console do {{site.data.keyword.mobileanalytics_short}} clicando em **DashDB** na página **Exportar**. Após concluir a configuração, novos dados enviados para o {{site.data.keyword.mobileanalytics_short}} também serão encaminhados para o dashDB dentro de uma a duas horas. 
+Configure o IBM Db2 Warehouse no console do {{site.data.keyword.mobileanalytics_short}} clicando em **Db2 Warehouse on Cloud** na página **Exportar**. Após concluir a configuração, novos dados que são enviado para o {{site.data.keyword.mobileanalytics_short}} também são encaminhados para o Db2 Warehouse dentro de uma a duas horas. 
 
 <!--
 If you have existing DashDB instances, those instances will no longer accept new data because the incoming data no longer matches the schema. Manually add columns for the new data to resume incoming data. Modifying {{site.data.keyword.mobileanalytics_short}} collection tables by adding new columns also breaks the stream of incoming data.

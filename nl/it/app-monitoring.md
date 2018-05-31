@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-10"
+lastupdated: "2017-08-06"
 
 ---
 {:new_window: target="_blank"}
@@ -10,8 +10,10 @@ lastupdated: "2017-01-10"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Monitoraggio delle applicazioni con {{site.data.keyword.mobileanalytics_short}}
+# Monitora le applicazioni
 {: #monitoringapps}
+
+## Monitoraggio delle applicazioni con {{site.data.keyword.mobileanalytics_short}}
 
 {{site.data.keyword.mobileanalytics_full}} fornisce il monitoraggio e l'analisi per le tue applicazioni mobili. Puoi registrare i log applicazione e monitorare i dati con l'SDK client {{site.data.keyword.mobileanalytics_short}}. Gli sviluppatori possono controllare quando inviare questi dati al
 servizio {{site.data.keyword.mobileanalytics_short}}. Quando i dati vengono distribuiti a {{site.data.keyword.mobileanalytics_short}}, puoi utilizzare la console {{site.data.keyword.mobileanalytics_short}} per ottenere delle approfondite informazioni di analisi delle applicazioni mobili, dei dispositivi e dei log applicazione.
@@ -246,12 +248,12 @@ I dati sono disponibili per le seguenti misurazioni:
 * Tempo di round trip - definisce la durata, misurata in ms, che la tua applicazione impiega ad effettuare richieste di rete.
 * Conteggio richiesta - visualizza quando spesso un'applicazione effettua richieste di rete. I dati sono anche visualizzati come una media.
 
-## Esportazione dei dati a dashDB
+## Esportazione dei dati a Db2 Warehouse 
 {: #dashdb}
 
-Le metriche che visualizzi nella console {{site.data.keyword.mobileanalytics_short}} sono soltanto un esempio delle informazioni approfondite che puoi raccogliere dai dati del dispositivo mobile. Puoi automaticamente passare i dati del dispositivo mobile al data warehouse dashDB {{site.data.keyword.IBM}}, dove puoi personalizzare le tue analisi, aggregare i tuoi dati con altre origini dati pubbliche e private e applicare le analisi edge principali per ottenere informazioni approfondite, dettagliate e sofisticate per aiutarti nella comprensione e la gestione del tuo business.
+Le metriche che visualizzi nella console {{site.data.keyword.mobileanalytics_short}} sono soltanto un esempio delle informazioni approfondite che puoi raccogliere dai dati del dispositivo mobile. Puoi automaticamente passare i dati del dispositivo mobile al {{site.data.keyword.IBM}} Db2 Warehouse, dove puoi personalizzare le tue analisi, aggregare i tuoi dati con altre origini dati pubbliche e private e applicare le analisi edge principali per ottenere informazioni approfondite, dettagliate e sofisticate per aiutarti nella comprensione e la gestione del tuo business.
 
-Configura dashDB nella console {{site.data.keyword.mobileanalytics_short}} facendo clic su **DashDB** nella pagina **Esportazione**. Dopo aver completato la configurazione, i nuovi dati vengono inviati a {{site.data.keyword.mobileanalytics_short}} e anche inoltrati a dashDB in 1-2 ore. 
+Configura il IBM Db2 Warehouse nella console {{site.data.keyword.mobileanalytics_short}} facendo clic su **Db2 Warehouse on Cloud** nella pagina **Esporta**. Dopo aver completato la configurazione, i nuovi dati vengono inviati a {{site.data.keyword.mobileanalytics_short}} e inoltrati anche a Db2 Warehouse in 1-2 ore. 
 
 <!--
 If you have existing DashDB instances, those instances will no longer accept new data because the incoming data no longer matches the schema. Manually add columns for the new data to resume incoming data. Modifying {{site.data.keyword.mobileanalytics_short}} collection tables by adding new columns also breaks the stream of incoming data.

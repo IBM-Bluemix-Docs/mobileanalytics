@@ -7,20 +7,47 @@ Mobile Analytics
     {: .navgroup id="learn"}
     index.md
     mobileanalytics_overview.md
-
+		
     {: .topicgroup}
-    관련 링크
-        [Android SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics)
-        [iOS SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics)
-        [Cordova Plugin Core SDK](https://www.npmjs.com/package/bms-core)
-    {: .navgroup-end}
-
-    {: .navgroup id="reference"}
-    [REST API](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
+    기본 단계
+        app-prerequisites.md
+        app-instrument.md
+        [앱 데이터 가져오기](app-monitoring-metrics.html)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     install-client-sdk.md
     sdk.md
-    app-monitoring.md
+    
+    {: .topicgroup}
+    애플리케이션 모니터링
+        app-monitoring-metrics.md
+        app-alerts.md
+        app-monitoring-crash.md
+        app-monitoring-network.md
+        app-monitoring-export.md
+        app-monitoring-inapp.md
+        app-monitoring-sentiment.md
+    {: .navgroup-end}	
+	
+    {: .navgroup id="reference"}
+    available-client-sdk.md
+    [REST API](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
+    upgrading.md
+		
+    {: .topicgroup}
+    튜토리얼
+        [분석 및 푸시를 사용하여 Swift 앱 작성](https://console.bluemix.net/docs/tutorials/ios-mobile-push-analytics.html#ios-mobile-application-with-push-and-analytics)
+        [분석 및 푸시를 사용하여 Android 앱 작성](https://console.bluemix.net/docs/tutorials/android-mobile-push-analytics.html#android-native-mobile-application-with-push-and-analytics)	
+        [분석 및 푸시를 사용하여 Hybrid 앱 작성](https://console.bluemix.net/docs/tutorials/hybrid-mobile-push-analytics.html#hybrid-mobile-application-with-push-and-analytics)		
     {: .navgroup-end}
+
+    {: .navgroup id="help"}	
+    relatedlinks.md
+	
+    {: .topicgroup} 
+    FAQ 및 지원
+        app_faq.md
+        troubleshooting.md	
+    {: .navgroup-end}
+

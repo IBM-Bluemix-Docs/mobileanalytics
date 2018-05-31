@@ -7,20 +7,47 @@ Mobile Analytics
     {: .navgroup id="learn"}
     index.md
     mobileanalytics_overview.md
-
+		
     {: .topicgroup}
-    相关链接
-        [Android SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics)
-        [iOS SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics)
-        [Cordova 插件核心 SDK](https://www.npmjs.com/package/bms-core)
-    {: .navgroup-end}
-
-    {: .navgroup id="reference"}
-    [REST API](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
+    基本步骤
+        app-prerequisites.md
+        app-instrument.md
+        [获取应用程序数据](app-monitoring-metrics.html)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     install-client-sdk.md
     sdk.md
-    app-monitoring.md
+    
+    {: .topicgroup}
+    监视应用程序
+        app-monitoring-metrics.md
+        app-alerts.md
+        app-monitoring-crash.md
+        app-monitoring-network.md
+        app-monitoring-export.md
+        app-monitoring-inapp.md
+        app-monitoring-sentiment.md
+    {: .navgroup-end}	
+	
+    {: .navgroup id="reference"}
+    available-client-sdk.md
+    [REST API](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
+    upgrading.md
+		
+    {: .topicgroup}
+    教程
+        [使用 Analytics 和 Push 创建 Swift 应用程序](https://console.bluemix.net/docs/tutorials/ios-mobile-push-analytics.html#ios-mobile-application-with-push-and-analytics)
+        [使用 Analytics 和 Push 创建 Android 应用程序](https://console.bluemix.net/docs/tutorials/android-mobile-push-analytics.html#android-native-mobile-application-with-push-and-analytics)	
+        [使用 Analytics 和 Push 创建混合应用程序](https://console.bluemix.net/docs/tutorials/hybrid-mobile-push-analytics.html#hybrid-mobile-application-with-push-and-analytics)		
     {: .navgroup-end}
+
+    {: .navgroup id="help"}	
+    relatedlinks.md
+	
+    {: .topicgroup} 
+    常见问题和支持
+        app_faq.md
+        troubleshooting.md	
+    {: .navgroup-end}
+

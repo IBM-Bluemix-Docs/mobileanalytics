@@ -10,60 +10,80 @@ lastupdated: "2017-01-13"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# {{site.data.keyword.mobileanalytics_short}} クライアント SDK のインストール
+#SDK のインストール
 {: #mobileanalytics_sdk}
 
-{{site.data.keyword.mobileanalytics_short}} クライアント SDK は、現在 Android、iOS、WatchOS、Cordova で使用できます。
+## {{site.data.keyword.mobileanalytics_short}} クライアント SDK のインストール
 
-{: shortdesc}
+{{site.data.keyword.mobileanalytics_short}} クライアント SDK は、現在 Android、iOS、WatchOS、Cordova、Web で使用できます。{: shortdesc}
 
 ## Android クライアント SDK のインストール
 {: #install-sdk-android}
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.ibm.mobilefirstplatform.clientsdk.android/analytics/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.ibm.mobilefirstplatform.clientsdk.android/analytics)
 
-{{site.data.keyword.mobileanalytics_short}} クライアント SDK は、Gradle (Android プロジェクト用の依存関係マネージャー) で配布されています。Gradle は自動的に成果物をリポジトリーからダウンロードし、それらを Android アプリケーションで使用できるようにします。
+{{site.data.keyword.mobileanalytics_short}} クライアント SDK は、Gradle (Android プロジェクト用の依存関係マネージャー) で配布されています。 Gradle は自動的に成果物をリポジトリーからダウンロードし、それらを Android アプリケーションで使用できるようにします。
 
 1. Create an [Android Studio ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://developer.android.com/sdk/index.html){: new_window} プロジェクトを作成するか、既存のプロジェクトを開きます。
 
 2. ご使用の**アプリ・モジュール**にある `build.gradle` ファイルを開きます。
 
-  **ヒント**: ご使用の Android プロジェクトには、プロジェクト用とアプリ・モジュール用の 2 つの `build.gradle` ファイルがある場合があります。必ず**アプリ・モジュール**のファイルを使用してください。
+  **ヒント**: ご使用の Android プロジェクトには、プロジェクト用とアプリ・モジュール用の 2 つの `build.gradle` ファイルがある場合があります。 必ず**アプリ・モジュール**のファイルを使用してください。
 
-3. `build.gradle` ファイルの `Dependencies` セクションを探し、{{site.data.keyword.mobileanalytics_short}} クライアント SDK のコンパイル依存関係を追加します。リポジトリー・ステートメントは、以下のコード例のようにする必要があります。
+3. `build.gradle` ファイルの `Dependencies` セクションを探し、{{site.data.keyword.mobileanalytics_short}} クライアント SDK のコンパイル依存関係を追加します。 リポジトリー・ステートメントは、以下のコード例のようにする必要があります。
 
 	```
       dependencies {
         compile 'com.ibm.mobilefirstplatform.clientsdk.android:analytics:1.+'
+        compile 'com.google.android.gms:play-services-location:10.0.1'
     	// other dependencies  
       }
-  ```
+  	```
   	{: codeblock}
+	
+	最初の依存関係は Mobile Analytics Service clientsdk のためのもので、2 番目の依存関係はクライアント・サイドの位置情報ロギングのためのものです。2 番目の依存関係は、クライアント・サイドでの位置情報の収集を有効にする場合にのみ必要です。4. "「ツール」&gt;「Android」&gt;「プロジェクトを Gradle ファイルと同期 (Sync Project with Gradle Files)」" の順にクリックしてプロジェクトを Gradle と同期します。
 
-4. **「ツール」&gt;「Android」&gt;「プロジェクトを Gradle ファイルと同期 (Sync Project with Gradle Files)」**の順にクリックしてプロジェクトを Gradle と同期します。
-
-5. Android プロジェクト用の `AndroidManifest.xml` ファイルを開きます。このファイルは、**app > manifests** にあります。以下のインターネット・アクセス許可を `<manifest>` 要素の下に追加します。
+5. Android プロジェクト用の `AndroidManifest.xml` ファイルを開きます。 このファイルは、"app > manifests" にあります。 インターネット・アクセス許可と場所アクセス許可を `<manifest>` 要素の下に追加します:
 
 	```
 	 <uses-permission android:name="android.permission.INTERNET" />
-   ```
-   {: codeblock}
+	 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	```
+   SDK バージョン 1.2 以降を使用している場合、`AndroidManifest.xml` ファイルの `<application>` 要素の下の部分に以下を挿入する必要があります。
+
+```
+	 <activity
+            android:name="com.ibm.mobilefirstplatform.clientsdk.android.ui.UIActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+	```
+   	{: codeblock}
    
-6. これで Android Client SDK がインストールできました。次に、Analytics Client SDK の[インポートと初期設定](sdk.html#initalize-ma-sdk)を実行します。   
+
+これで Android Client SDK がインストールできました。 次に、Analytics Client SDK の[インポートと初期設定](sdk.html#initalize-ma-sdk)を実行します。   
 
 ## Swift SDK のインストール
 {: #installing-sdk-ios}
 
-![CocoaPods 対応](https://img.shields.io/cocoapods/v/BMSAnalytics.svg)
+![CocoaPods 互換](https://img.shields.io/cocoapods/v/BMSAnalytics.svg)
 
-{{site.data.keyword.mobileanalytics_full}} SDK によって、モバイル・アプリケーションを装備できるようになります。Swift SDK は iOS および watchOS で使用できます。
+{{site.data.keyword.mobileanalytics_full}} SDK によって、モバイル・アプリケーションを装備できるようになります。 Swift SDK は iOS および watchOS で使用できます。
 
-### 始める前に
+### 始めに
 {: #before-you-begin-ios notoc}
 
-Xcode が正しくセットアップされていることを確認します。iOS 開発環境のセットアップ方法について詳しくは、[Apple Developer Web サイト ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://developer.apple.com/support/xcode/){: new_window} を参照してください。Client SDK Swift Analytics の [Xcode の要件 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics/tree/development#requirements){: new_window} を参照してください。
+Xcode が正しくセットアップされていることを確認します。 iOS 開発環境のセットアップ方法について詳しくは、[Apple Developer Web サイト ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://developer.apple.com/support/xcode/){: new_window} を参照してください。 Client SDK Swift Analytics の [Xcode の要件 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics/tree/development#requirements){: new_window} を参照してください。
 
-{{site.data.keyword.mobileanalytics_short}} SDK は、[CocoaPods ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://cocoapods.org/){: new_window} および [Carthage ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/Carthage/Carthage#getting-started){: new_window} で配布されています。これらは、Cocoa プロジェクト用の依存関係管理プログラムです。CocoaPods および Carthage は、自動的に成果物をリポジトリーからダウンロードし、それらをアプリケーションで使用できるようにします。CocoaPods または Carthage を選択します。
+#### 位置情報 API の有効化 
+位置情報 API を正しく機能させるには、アプリのプロジェクト・フォルダーの Info.plist ファイルにプロパティー、つまり「`プライバシー - 位置情報の使用に関する説明 (Privacy - Location Usage Description)`」を追加する必要があります。値には、位置情報 API を追加する適切な理由付けを指定します。例えば、「このアプリでは、位置情報サービスを有効にする必要があります」などです。
+
+{{site.data.keyword.mobileanalytics_short}} SDK は、[CocoaPods ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://cocoapods.org/){: new_window} および [Carthage ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/Carthage/Carthage#getting-started){: new_window} で配布されています。これらは、Cocoa プロジェクト用の依存関係管理プログラムです。 CocoaPods および Carthage は、自動的に成果物をリポジトリーからダウンロードし、それらをアプリケーションで使用できるようにします。 CocoaPods または Carthage を選択します。
 
 #### CocoaPods
 {: #cocoapods notoc}
@@ -77,9 +97,10 @@ Xcode が正しくセットアップされていることを確認します。iO
 
 CocoaPods を使用していない場合、[Carthage ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos){: new_window} を使用してプロジェクトにフレームワークを追加することができます。
 
-1. GitHub の [Carthage のインストールの説明 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics/tree/development#carthage){: new_window} に従い、`BMSAnalytics` をインストールします。
+1. GitHub の [Carthage インストールの説明![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics/tree/development#carthage){: new_window}に従って、`BMSAnalytics` をインストールします。
 
 2. iOS Client SDK をインストールしたら、Analytics Client SDK の[インポートと初期設定](sdk.html#initalize-ma-sdk)を実行します。
+
 
 ## Cordova プラグインのインストール
 {: #installing-sdk-cordova}
@@ -88,13 +109,13 @@ CocoaPods を使用していない場合、[Carthage ![外部リンク・アイ�
 
 1. [Cordova ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://cordova.apache.org/#getstarted){: new_window} プロジェクトを作成するか、既存のプロジェクトを開きます。
 
-2. Android と iOS のプラットフォームを、Cordova アプリケーションに追加します。コマンド・ラインから、以下のコマンドのいずれかまたは両方を実行します。現在、Cordova-CLI V6.3.0 以前がサポートされています。
+2. Android と iOS のプラットフォームを、Cordova アプリケーションに追加します。 コマンド・ラインから、以下のコマンドのいずれかまたは両方を実行します。 現在、Cordova-CLI V6.3.0 以前がサポートされています。
    
    Android:
 
 	 ```
 	 cordova platform add android@5.2.2
-	```
+	 ```
 	 {: codeblock}
 	
    iOS:
@@ -104,18 +125,18 @@ CocoaPods を使用していない場合、[Carthage ![外部リンク・アイ�
 	```
    {: codeblock}
 	
-3. Android プラットフォームを追加した場合、サポートされる最小限の API レベルを、Cordova アプリケーションの `config.xml` ファイルに追加する必要があります。`config.xml` ファイルを開き、`<platform name="android">` 要素に以下の行を追加します。
+3. Android プラットフォームを追加した場合、サポートされる最小限の API レベルを、Cordova アプリケーションの `config.xml` ファイルに追加する必要があります。 `config.xml` ファイルを開き、`<platform name="android">` 要素に以下の行を追加します。
 
 	```
 	<platform name="android">  
-  	<preference name="android-minSdkVersion" value="15"/>
-  	<preference name="android-targetSdkVersion" value="23"/>
-  	<!-- add minimum and target Android API level declaration -->
+  	 <preference name="android-minSdkVersion" value="15"/>
+  	 <preference name="android-targetSdkVersion" value="23"/>
+  	 <!-- add minimum and target Android API level declaration -->
   	</platform>
 	```
    {: codeblock}
 
- *minSdkVersion* の値は、バージョン `15` 以上でなければなりません。Android SDK 用にサポートされる *targetSdkVersion* を最新の状態に保つ方法については、[Android プラットフォーム・ガイド (Android Platform Guide) ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://cordova.apache.org/docs/en/latest/guide/platforms/android/){: new_window} を参照してください。
+ *minSdkVersion* 値はバージョン `15` 以降である必要があります。Android SDK 用にサポートされる *targetSdkVersion* を最新の状態に保つ方法については、[Android プラットフォーム・ガイド (Android Platform Guide) ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://cordova.apache.org/docs/en/latest/guide/platforms/android/){: new_window} を参照してください。
 
 4. iOS オペレーティング・システムを追加した場合、ターゲット宣言で `<platform name="ios">` 要素を更新します。
 
@@ -141,9 +162,74 @@ CocoaPods を使用していない場合、[Carthage ![外部リンク・アイ�
 	```
 	{: codeblock}
 	
-7. [Android および iOS 環境の構成 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/bms-core#4-configuring-your-platform){: new_window} を実行します。
+7. [Android 環境および iOS 環境を構成します![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/bms-core#4-configuring-your-platform){: new_window}。
 
-8. これで、Cordova プラグインがインストールされ、環境が構成されました。次に、Analytics Client SDK の[インポートと初期設定](sdk.html#initalize-ma-sdk)を実行します。
+8. これで、Cordova プラグインがインストールされ、環境が構成されました。 次に、Analytics Client SDK の[インポートと初期設定](sdk.html#initalize-ma-sdk)を実行します。
+
+#### cordova bms-core プラグイン・バージョン (2.4 以降) より前の位置情報サービスの有効化
+9. Cordova-ios アプリで位置情報 API を正しく機能させるには、アプリのプロジェクト・フォルダーの Info.plist ファイルにプロパティー、つまり「`プライバシー - 位置情報の使用に関する説明 (Privacy - Location Usage Description)`」を追加する必要があります。値には、位置情報 API を追加する適切な理由付けを指定します。例えば、「このアプリでは、位置情報サービスを有効にする必要があります」などです。
+
+10. Cordova-android アプリで位置情報 API を正しく機能させるには、アプリの AndroidManifest.xml ファイルに以下を挿入します。
+	```
+	 <uses-permission android:name="android.permission.INTERNET" />
+	 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	```
+	{: codeblock}
+	
+   その後、`AndroidManifest.xml` ファイルの `<application>` 要素の下の部分にこれを挿入する必要があります。
+   	```
+	 <activity
+            android:name="com.ibm.mobilefirstplatform.clientsdk.android.ui.UIActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+	```
+	{: codeblock}
+
+## Installing the Web plugin
+{: #web-sdk-cordova}
+
+{{site.data.keyword.mobileanalytics_full}} SDK によって、ご使用の Web アプリケーションを装備できます。
+
+1. Web サーバーとブラウザー (例えば Chrome、Firefox) がセットアップされていることを確認します。
+2. 新規 Web アプリを作成するか、既存の Web アプリを使用してこの [WebSDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics/) をアプリ・コードがアクセスするプロジェクト内に挿入します。
+3. Web アプリの `index.html` ファイルに次のスクリプトを追加して Web プラグインを追加します。
+	
+	```Html
+  	<script src="bms-clientsdk-web-analytics/bmsanalytics.js"></script>
+	```
+	{: codeblock}
+あるいは、モジュール・ローダー requirejs を使用する方法もあります。参照 API として使用する名前は、使用している引数名 (BMSAnalytics) と同じです。
+	
+   ```Javascript
+	  require.config({
+	   'paths': {
+	   'bmsanalytics': 'bms-clientsdk-web-analytics/bmsanalytics'
+	}
+	});
+
+		<script src="bms-clientsdk-web-analytics/bmsanalytics.js"></script>
+    ```
+ 	    {: codeblock}
+
+	あるいは、モジュール・ローダー requirejs を使用する方法もあります。参照 API として使用する名前は、使用している引数名 (`BMSAnalytics`) と同じです。 
+	
+	  ```Javascript
+	 	require.config({
+	    'paths': {
+	        'bmsanalytics': 'bms-clientsdk-web-analytics/bmsanalytics'
+	    	}
+		});
+	  ```
+	{: codeblock}
+
+
+
 
 # 関連リンク
 {: #rellinks notoc}
@@ -152,8 +238,8 @@ CocoaPods を使用していない場合、[Carthage ![外部リンク・アイ�
 {: #sdk notoc}
 * [Android SDK ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics){: new_window}  
 * [iOS SDK ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics){: new_window}
-* [Cordova Plugin Core SDK ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/bms-core){: new_window}
-
+* [Cordova プラグインのコア SDK ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/bms-core){: new_window}
+* [Web SDK![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics/){: new_window}
 ## API リファレンス
 {: #api notoc}
 * [REST API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://mobile-analytics-dashboard.{DomainName}/analytics-service/){:new_window}

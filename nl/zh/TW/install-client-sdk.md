@@ -10,11 +10,12 @@ lastupdated: "2017-01-13"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# 安裝 {{site.data.keyword.mobileanalytics_short}} Client SDK
+#安裝 SDK
 {: #mobileanalytics_sdk}
 
-{{site.data.keyword.mobileanalytics_short}}
-Client SDK 目前適用於 Android、iOS、WatchOS 及 Cordova。
+## 安裝 {{site.data.keyword.mobileanalytics_short}} Client SDK
+
+{{site.data.keyword.mobileanalytics_short}} Client SDK 目前適用於 Android、iOS、WatchOS、Cordova 及 Web。
 {: shortdesc}
 
 ## 安裝 Android Client SDK
@@ -33,23 +34,46 @@ Client SDK 目前適用於 Android、iOS、WatchOS 及 Cordova。
 3. 找到 `build.gradle` 檔案的 `Dependencies` 區段，並新增 {{site.data.keyword.mobileanalytics_short}} Client SDK 的編譯相依關係。您的儲存庫陳述式應該類似於下列程式碼範例：
 
 	```
-      dependencies {
+            dependencies {
         compile 'com.ibm.mobilefirstplatform.clientsdk.android:analytics:1.+'
+    	compile 'com.google.android.gms:play-services-location:10.0.1'
     	// other dependencies  
       }
-  ```
-  	{: codeblock}
+	```
+	{: codeblock}
+	
+	第一個相依關係是針對 Mobile Analytics Service clientsdk，而第二個相依關係是針對用戶端位置記載。只有在您啟用用戶端位置集合時，才需要第二個相依關係。
+    	
+
+
+    	
 
 4. 按一下**工具 &gt; Android &gt; 將專案與 Gradle 檔案同步化**，以將專案與 Gradle 同步化。
 
-5. 開啟 Android 專案的 `AndroidManifest.xml` 檔案。您可以在**應用程式 > 資訊清單**中找到此檔案。在 `<manifest>` 元素下新增網際網路存取權：
+5. 開啟 Android 專案的 `AndroidManifest.xml` 檔案。您可以在**應用程式 > 資訊清單**中找到此檔案。在 `<manifest>` 元素下，新增網際網路存取及位置存取許可權：
 
 	```
 	 <uses-permission android:name="android.permission.INTERNET" />
-   ```
-   {: codeblock}
+	 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	```
+   如果您使用的 SDK 版本大於 >= 1.2，則需要將下面這個部分放在 `AndroidManifest.xml` 檔案的 `<application>` 元素下。
+   	
+	```
+	 <activity
+            android:name="com.ibm.mobilefirstplatform.clientsdk.android.ui.UIActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+	```
+	{: codeblock}
    
-6. 您現在已安裝 Android Client SDK。接下來，請[匯入並起始設定](sdk.html#initalize-ma-sdk) Analytics Client SDK。   
+
+您現在已安裝 Android Client SDK。接下來，請[匯入並起始設定](sdk.html#initalize-ma-sdk) Analytics Client SDK。   
 
 ## 安裝 Swift SDK
 {: #installing-sdk-ios}
@@ -63,7 +87,10 @@ Client SDK 目前適用於 Android、iOS、WatchOS 及 Cordova。
 
 請確定已正確設定 Xcode。若要瞭解如何設定 iOS 開發環境，請參閱 [Apple Developer 網站 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://developer.apple.com/support/xcode/){: new_window}。閱讀 Client SDK Swift Analytics 的 [Xcode 需求 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics/tree/development#requirements){: new_window}。
 
-{{site.data.keyword.mobileanalytics_short}} SDK 隨 [CocoaPods ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://cocoapods.org/){: new_window} 及 [Carthage ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/Carthage/Carthage#getting-started "外部鏈結圖示"){: new_window}（Cocoa 專案的相依關係管理員）一起配送。CocoaPods 及 Carthage 會從儲存庫自動下載構件，並讓它們可供應用程式使用。選取 CocoaPods 或 Carthage：
+#### 啟用位置 API 
+若要讓位置 API 正確運作，您需要在應用程式專案資料夾的 Info.plist 檔案中新增內容（亦即 `Privacy - Location Usage Description`），而值則是為新增位置 API 提供適當的理由，例如「應用程式需要啟用位置服務」這類內容。
+
+{{site.data.keyword.mobileanalytics_short}} SDK 隨 [CocoaPods ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://cocoapods.org/){: new_window} 及 [Carthage ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/Carthage/Carthage#getting-started){: new_window}（Cocoa 專案的相依關係管理程式）一起配送。CocoaPods 及 Carthage 會從儲存庫自動下載構件，並讓它們可供應用程式使用。選取 CocoaPods 或 Carthage：
 
 #### CocoaPods
 {: #cocoapods notoc}
@@ -81,6 +108,7 @@ Client SDK 目前適用於 Android、iOS、WatchOS 及 Cordova。
 
 2. 在安裝 iOS Client SDK 之後，請[匯入並起始設定](sdk.html#initalize-ma-sdk) Analytics Client SDK。
 
+
 ## 安裝 Cordova 外掛程式
 {: #installing-sdk-cordova}
 
@@ -92,28 +120,28 @@ Client SDK 目前適用於 Android、iOS、WatchOS 及 Cordova。
    
    Android：
 
-	 ```
-	 cordova platform add android@5.2.2
 	```
-	 {: codeblock}
+	cordova platform add android@5.2.2
+	```
+	{: codeblock}
 	
    iOS：
    	
 	```
 	cordova platform add ios
 ```
-   {: codeblock}
+	{: codeblock}
 	
 3. 如果您已新增 Android 平台，則必須將最低支援 API 層次新增至 Cordova 應用程式的 `config.xml` 檔案中。開啟 `config.xml` 檔案，並將下列這幾行新增至 `<platform name="android">` 元素：
 
 	```
-	<platform name="android">  
-  	<preference name="android-minSdkVersion" value="15"/>
+	<platform name="android">    
+  		<preference name="android-minSdkVersion" value="15"/>
   	<preference name="android-targetSdkVersion" value="23"/>
-  	<!-- add minimum and target Android API level declaration -->
-  	</platform>
+  		<!-- add minimum and target Android API level declaration -->
+	</platform>
 	```
-   {: codeblock}
+	{: codeblock}
 
  *minSdkVersion* 值必須是版本 `15` 或更高。請參閱 [Android 平台手冊![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://cordova.apache.org/docs/en/latest/guide/platforms/android/){: new_window}，讓 Android SDK 支援的 *targetSdkVersion* 保持最新。
 
@@ -122,17 +150,17 @@ Client SDK 目前適用於 Android、iOS、WatchOS 及 Cordova。
 	```
 	<platform name="ios">
     <preference name="deployment-target" value="8.0"/>
-     <!-- add deployment target declaration -->
-  	</platform>
+     	<!-- add deployment target declaration -->
+	</platform>
 	```
 	{: codeblock}
 
 5. 新增 `bms-core` 外掛程式。
  	
+	```
+	cordova plugin add bms-core
 	 ```
-	 cordova plugin add bms-core
-	 ```
-	 {: codeblock}
+	{: codeblock}
 
 6. 請執行下列指令來確認外掛程式已順利安裝：
 	
@@ -145,6 +173,71 @@ Client SDK 目前適用於 Android、iOS、WatchOS 及 Cordova。
 
 8. 您現在已安裝 Cordova 外掛程式並配置您的環境。接下來，請[匯入並起始設定](sdk.html#initalize-ma-sdk) Analytics Client SDK。
 
+#### cordova bms-core 外掛程式版本 (>2.4.+) 之前的「位置服務啟用」。
+9. 若要 Cordova-ios 應用程式讓位置 API 正確運作，您需要在應用程式專案資料夾（亦即 `Privacy - Location Usage Description`）的 Info.plist 檔案中新增內容，而值就像「應用程式需要啟用位置服務」這類內容一樣，提供新增位置 API 的適當地調整。
+
+10. 若要 Cordova-android 應用程式讓位置 API 正確運作，請在應用程式 AndroidManifest.xml 檔案中放置下列內容。
+	```
+	<uses-permission android:name="android.permission.INTERNET" />
+   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	```
+	{: codeblock}
+	
+   然後，您需要將下面這個部分放在 `AndroidManifest.xml` 檔案的 `<application>` 元素下。
+	```
+	<activity
+            android:name="com.ibm.mobilefirstplatform.clientsdk.android.ui.UIActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+	```
+	{: codeblock}
+
+## 安裝 Web 外掛程式
+{: #web-sdk-cordova}
+
+{{site.data.keyword.mobileanalytics_full}} SDK 可讓您檢測 Web 應用程式。
+
+1. 確定您已設定 Web 伺服器及瀏覽器（例如 Chrome、Firefox）。
+2. 建立新的 Web 應用程式，或使用現有 Web 應用程式，並將此 [WebSDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics/) 放置在可供應用程式碼存取的專案內。 
+3. 在 Web 應用程式的 `index.html` 檔案中新增此 Script，以新增 Web 外掛程式：
+
+	```Html
+  	<script src="bms-clientsdk-web-analytics/bmsanalytics.js"></script>
+	```
+	{: codeblock}
+
+	或者，使用模組載入器 requirejs。作為參照 API 使用的名稱會與使用的引數名稱 (`BMSAnalytics`) 相同。 
+
+	```Javascript
+	  require.config({
+	   'paths': {
+	   'bmsanalytics': 'bms-clientsdk-web-analytics/bmsanalytics'
+	}
+	});
+
+		<script src="bms-clientsdk-web-analytics/bmsanalytics.js"></script>
+	```
+	{: codeblock}
+
+	或者，使用模組載入器 requirejs。作為參照 API 使用的名稱會與使用的引數名稱 (`BMSAnalytics`) 相同。 
+	
+	```Javascript
+	  require.config({
+	   'paths': {
+	   'bmsanalytics': 'bms-clientsdk-web-analytics/bmsanalytics'
+	}
+	});
+	```
+	{: codeblock}
+
+
+
 # 相關鏈結
 {: #rellinks notoc}
 
@@ -153,7 +246,7 @@ Client SDK 目前適用於 Android、iOS、WatchOS 及 Cordova。
 * [Android SDK ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics){: new_window}  
 * [iOS SDK ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics){: new_window}
 * [Cordova 外掛程式核心 SDK ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.npmjs.com/package/bms-core){: new_window}
-
+* [Web SDK ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics/){: new_window}
 ## API 參考資料
 {: #api notoc}
 * [REST API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://mobile-analytics-dashboard.{DomainName}/analytics-service/){:new_window}

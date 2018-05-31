@@ -7,20 +7,47 @@ Mobile Analytics
     {: .navgroup id="learn"}
     index.md
     mobileanalytics_overview.md
-
+		
     {: .topicgroup}
-    Link correlati
-        [SDK Android](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics)
-        [SDK iOS](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics)
-        [SDK Cordova Plugin Core](https://www.npmjs.com/package/bms-core)
-    {: .navgroup-end}
-
-    {: .navgroup id="reference"}
-    [API REST](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
+    Passi di base
+        app-prerequisites.md
+        app-instrument.md
+        [Ottieni i dati dell'applicazione](app-monitoring-metrics.html)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     install-client-sdk.md
     sdk.md
-    app-monitoring.md
+    
+    {: .topicgroup}
+    Monitora le applicazioni
+        app-monitoring-metrics.md
+        app-alerts.md
+        app-monitoring-crash.md
+        app-monitoring-network.md
+        app-monitoring-export.md
+        app-monitoring-inapp.md
+        app-monitoring-sentiment.md
+    {: .navgroup-end}	
+	
+    {: .navgroup id="reference"}
+    available-client-sdk.md
+    [API REST](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)
+    upgrading.md
+		
+    {: .topicgroup}
+    Esercitazioni
+        [Create a Swift App with Analytics and Push](https://console.bluemix.net/docs/tutorials/ios-mobile-push-analytics.html#ios-mobile-application-with-push-and-analytics)
+        [Create an Android App with Analytics and Push](https://console.bluemix.net/docs/tutorials/android-mobile-push-analytics.html#android-native-mobile-application-with-push-and-analytics)	
+        [Create a Hybrid App with Analytics and Push](https://console.bluemix.net/docs/tutorials/hybrid-mobile-push-analytics.html#hybrid-mobile-application-with-push-and-analytics)		
     {: .navgroup-end}
+
+    {: .navgroup id="help"}	
+    relatedlinks.md
+	
+    {: .topicgroup} 
+    FAQ e supporto
+        app_faq.md
+        troubleshooting.md	
+    {: .navgroup-end}
+
