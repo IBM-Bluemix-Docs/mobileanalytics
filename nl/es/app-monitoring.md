@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-10"
+lastupdated: "2017-08-06"
 
 ---
 {:new_window: target="_blank"}
@@ -10,10 +10,12 @@ lastupdated: "2017-01-10"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Supervisión de aplicaciones con {{site.data.keyword.mobileanalytics_short}}
+# Supervisar las aplicaciones
 {: #monitoringapps}
 
-{{site.data.keyword.mobileanalytics_full}} proporciona funciones de supervisión y analíticas para sus aplicaciones móviles. Puede grabar registros de aplicaciones y supervisar datos con el SDK de cliente de {{site.data.keyword.mobileanalytics_short}}. Los desarrolladores pueden elegir cuándo desean enviar estos datos al servicio de {{site.data.keyword.mobileanalytics_short}}. Al entregar los datos a {{site.data.keyword.mobileanalytics_short}}, puede utilizar la consola de {{site.data.keyword.mobileanalytics_short}} para obtener información analítica sobre las aplicaciones móviles, los dispositivos y los registros de la aplicación.
+## Supervisión de aplicaciones con {{site.data.keyword.mobileanalytics_short}}
+
+{{site.data.keyword.mobileanalytics_full}} proporciona funciones de supervisión y analíticas para sus aplicaciones móviles. Puede grabar registros de aplicaciones y supervisar datos con el SDK de cliente de {{site.data.keyword.mobileanalytics_short}}. Los desarrolladores pueden elegir cuándo desean enviar estos datos al servicio {{site.data.keyword.mobileanalytics_short}}. Al entregar los datos a {{site.data.keyword.mobileanalytics_short}}, puede utilizar la consola de {{site.data.keyword.mobileanalytics_short}} para obtener información analítica sobre las aplicaciones móviles, los dispositivos y los registros de la aplicación.
 {: shortdesc}
 
 <!--
@@ -244,12 +246,12 @@ Dispone de datos para las siguientes medidas:
 * Tiempo de ida y vuelta - define el periodo de tiempo, en ms, que tarda la app en realizar solicitudes de red.
 * Recuento de solicitudes - muestra la frecuencia con la que la app realiza solicitudes. Los datos también se muestran como promedio.
 
-## Exportación de datos a dashDB
+## Exportación de datos a Db2 Warehouse 
 {: #dashdb}
 
-Las métricas que ve en la consola de {{site.data.keyword.mobileanalytics_short}} son sólo un ejemplo de la información que puede obtener a partir de los datos móviles. Puede transportar automáticamente los datos móviles al almacén de datos dashDB de {{site.data.keyword.IBM}}, donde puede personalizar los análisis, agregar los datos a otras fuentes de datos públicas y privadas, y aplicar análisis avanzados para obtener información completa, detallada y sofisticada que le ayudará a entender y conducir su negocio.
+Las métricas que ve en la consola de {{site.data.keyword.mobileanalytics_short}} son sólo un ejemplo de la información que puede obtener a partir de los datos móviles. Puede transportar automáticamente los datos móviles al almacén de datos de {{site.data.keyword.IBM}} Db2 Warehouse, donde puede personalizar los análisis, agregar los datos a otras fuentes de datos públicas y privadas, y aplicar análisis avanzados para obtener información completa, detallada y sofisticada que le ayudará a entender y conducir su negocio.
 
-Configure dashDB en la consola de {{site.data.keyword.mobileanalytics_short}} pulsando **DashDB** en la página **Exportar**. Una vez que finalice la configuración, también se reenviarán datos nuevos enviados a {{site.data.keyword.mobileanalytics_short}} a dashDB en las siguientes 2 horas. 
+Para configurar IBM Db2 Warehouse en la consola de {{site.data.keyword.mobileanalytics_short}}, pulse **Db2 Warehouse on Cloud** en la página **Exportar**. Una vez que finalice la configuración, los datos nuevos enviados a {{site.data.keyword.mobileanalytics_short}} también se reenviarán a Db2 Warehose en un plazo de entre 1 y 2 horas. 
 
 <!--
 If you have existing DashDB instances, those instances will no longer accept new data because the incoming data no longer matches the schema. Manually add columns for the new data to resume incoming data. Modifying {{site.data.keyword.mobileanalytics_short}} collection tables by adding new columns also breaks the stream of incoming data.

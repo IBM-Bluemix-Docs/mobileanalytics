@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-10"
+lastupdated: "2017-08-06"
 
 ---
 {:new_window: target="_blank"}
@@ -10,8 +10,10 @@ lastupdated: "2017-01-10"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Surveillance d'applications à l'aide de {{site.data.keyword.mobileanalytics_short}}
+# Surveillance des applications
 {: #monitoringapps}
+
+## Surveillance d'applications à l'aide de {{site.data.keyword.mobileanalytics_short}}
 
 {{site.data.keyword.mobileanalytics_full}} fournit des fonctions de surveillance et d'analyse pour vos applications mobiles. Le logiciel SDK
 du client {{site.data.keyword.mobileanalytics_short}} vous permet d'enregistrer des journaux d'application et de surveiller les données. Les développeurs peuvent contrôler le moment auquel ces données doivent être envoyées au service {{site.data.keyword.mobileanalytics_short}}. Lorsque
@@ -271,18 +273,16 @@ Les données sont disponibles pour les mesures suivantes :
 * Durée de la boucle - définit la durée, mesurée en ms, nécessaire pour que votre application effectue des demandes de réseau.
 * Nombre de demandes - affiche la fréquence à laquelle une application effectue des demandes de réseau. Les données sont également affichées en tant que moyenne.
 
-## Exportation de données dans dashDB
+## Exportation de données dans Db2 Warehouse 
 {: #dashdb}
 
 Les données que vous voyez dans la console {{site.data.keyword.mobileanalytics_short}} ne sont qu'un exemple des enseignements
 que vous pouvez glaner depuis vos données mobiles. Vous pouvez acheminer automatiquement vos données mobiles à l'entrepôt de données
-{{site.data.keyword.IBM}} dashDB dans lequel vous pouvez personnaliser vos analyses, agréger vos données avec celles
+{{site.data.keyword.IBM}} Db2 dans lequel vous pouvez personnaliser vos analyses, agréger vos données avec celles
 de sources de données publiques et privées, et procéder à des analyses de pointe afin de dégager des informations approfondies, détaillées et sophistiquées
 pour mieux comprendre et diriger votre activité.
 
-Installez dashDB dans la console {{site.data.keyword.mobileanalytics_short}} en cliquant sur **DashDB** sur la page
-**Exporter**. Une fois que vous l'avez configuré, les nouvelles données envoyées à
-{{site.data.keyword.mobileanalytics_short}} sont également acheminées à dashDB sous 1 à 2 heures. 
+Configurez IBM Db2 Warehouse dans la console {{site.data.keyword.mobileanalytics_short}} en cliquant sur **Db2 Warehouse on Cloud** sur la page**Exporter**. Une fois que vous l'avez configuré, les nouvelles données envoyées à {{site.data.keyword.mobileanalytics_short}} sont également acheminées à Db2 Warehouse sous 1 à 2 heures. 
 
 <!--
 If you have existing DashDB instances, those instances will no longer accept new data because the incoming data no longer matches the schema. Manually add columns for the new data to resume incoming data. Modifying {{site.data.keyword.mobileanalytics_short}} collection tables by adding new columns also breaks the stream of incoming data.

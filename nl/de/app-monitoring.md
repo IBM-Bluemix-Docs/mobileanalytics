@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-10"
+lastupdated: "2017-08-06"
 
 ---
 {:new_window: target="_blank"}
@@ -10,8 +10,10 @@ lastupdated: "2017-01-10"
 {:screen:.screen}
 {:codeblock:.codeblock}
 
-# Anwendungen mit {{site.data.keyword.mobileanalytics_short}} überwachen
+# Anwendungen überwachen
 {: #monitoringapps}
+
+## Anwendungen mit {{site.data.keyword.mobileanalytics_short}} überwachen
 
 Von {{site.data.keyword.mobileanalytics_full}} werden Überwachungs- und Analysefunktionen für mobile Anwendungen bereitgestellt. Mit dem {{site.data.keyword.mobileanalytics_short}}-Client-SDK können Sie Anwendungsprotokolle aufzeichnen und Daten überwachen. Entwickler können steuern, wann diese Daten an den {{site.data.keyword.mobileanalytics_short}}-Service gesendet werden sollen. Wenn die Daten an {{site.data.keyword.mobileanalytics_short}} übergeben werden, können Sie über die {{site.data.keyword.mobileanalytics_short}}-Konsole Erkenntnisse aus Analysen zu mobilen Anwendungen, Geräten und Anwendungsprotokollen erhalten.
 {: shortdesc}
@@ -199,7 +201,7 @@ Auf der Seite mit den Abstürzen sehen Sie in der Tabelle mit der Absturzübersi
 * Total Uses: total number of times a user opens and closes that app (Gesamte Verwendungen: Die Angabe, wie oft diese App geöffnet und geschlossen wurde)
 * Crash Rate: percentage of crashes per use (Absturzrate: Der Prozentsatz der Abstürze pro Verwendung)
 
-In der Tabelle für Abstürze werden umgehend Informationen zu Ihren Anwendungsabstürzen angezeigt.<!--In the **Overview** page of the **Dashboard** section,--> Das Balkendiagramm für Abstürze zeigt ein Histogramm der Abstürze im zeitlichen Verlauf an.
+In der Tabelle für Abstürze werden umgehend Informationen zu Ihren Anwendungsabstürzen angezeigt. <!--In the **Overview** page of the **Dashboard** section,--> Das Balkendiagramm für Abstürze zeigt ein Histogramm der Abstürze im zeitlichen Verlauf an.
 
 Sie können Absturzdaten auf zwei Arten anzeigen:
 
@@ -209,7 +211,7 @@ Sie können Absturzdaten auf zwei Arten anzeigen:
 ### Fehlerbehebung für App-Abstürze
 {: #app-crash-troubleshooting notoc}
 
-Die Seite Zur Fehlerbehebung in der <!-- **Applications** section of the --> {{site.data.keyword.mobileanalytics_short}}-Konsole bietet eine differenzierte Ansicht der App-Abstürze; hierfür wird die Tabelle mit der Zusammenfassung der Abstürze verwendet.
+Die Seite **Fehlerbehebung** im <!-- **Applications** section of the --> {{site.data.keyword.mobileanalytics_short}}-Konsole bietet eine differenzierte Ansicht der App-Abstürze; hierfür wird die Tabelle mit der Zusammenfassung der Abstürze verwendet.
 
 Die Tabelle für die Absturzzusammenfassung kann sortiert werden und besteht aus den folgenden Datenspalten:
 
@@ -244,12 +246,12 @@ Es stehen Daten für die folgenden Messungen zur Verfügung:
 * Umlaufzeit: Definiert die Zeitdauer (in Millisekunden) an, die Ihre App für Netzanforderungen benötigt.
 * Anzahl der Anforderungen: Zeigt an, wie häufig eine App Netzanforderungen absetzt. Daten werden auch als Durchschnitt angezeigt.
 
-## Daten nach dashDB exportieren
+## Daten nach Db2 Warehouse exportieren 
 {: #dashdb}
 
-Die in der {{site.data.keyword.mobileanalytics_short}}-Konsole sichtbaren Metriken sind nur ein Beispiel für die Erkenntnisse, die Sie aus Ihren mobilen Daten gewinnen können. Sie können Ihre mobilen Daten automatisch über eine Pipe an das {{site.data.keyword.IBM}} dashDB-Data-Warehouse leiten; dort können Sie Ihre Analysen anpassen, Ihre Daten mit anderen öffentlichen und privaten Datenquellen zusammenfassen und innovative Analysen für ausführliche und zukunftsweisende Einblicke anwenden, mit deren Hilfe Sie Ihr Geschäft lernen zu verstehen und zu betreiben.
+Die in der {{site.data.keyword.mobileanalytics_short}}-Konsole sichtbaren Metriken sind nur ein Beispiel für die Erkenntnisse, die Sie aus Ihren mobilen Daten gewinnen können. Sie können Ihre mobilen Daten automatisch über eine Pipe an das {{site.data.keyword.IBM}}-Db2-Warehouse leiten; dort können Sie Ihre Analysen anpassen, Ihre Daten mit anderen öffentlichen und privaten Datenquellen zusammenfassen und innovative Analysen für ausführliche und zukunftsweisende Einblicke anwenden, mit deren Hilfe Sie Ihr Geschäft lernen zu verstehen und zu betreiben.
 
-Richten Sie dashDB in der {{site.data.keyword.mobileanalytics_short}}-Konsole ein; klicken Sie hierfür auf der Seite für den **Export** auf **DashDB**. Nach dem Setup werden neue Daten, die an {{site.data.keyword.mobileanalytics_short}} gesendet werden, innerhalb von 1 bis 2 Stunden auch an dashDB weitergeleitet. 
+Richten Sie IBM Db2 Warehouse in der {{site.data.keyword.mobileanalytics_short}}-Konsole ein, indem Sie auf der Seite **Export** auf **Db2 Warehouse on Cloud** klicken. Nach dem Setup werden neue Daten, die an {{site.data.keyword.mobileanalytics_short}} gesendet werden, innerhalb von 1 bis 2 Stunden auch an Db2 Warehouse weitergeleitet. 
 
 <!--
 If you have existing DashDB instances, those instances will no longer accept new data because the incoming data no longer matches the schema. Manually add columns for the new data to resume incoming data. Modifying {{site.data.keyword.mobileanalytics_short}} collection tables by adding new columns also breaks the stream of incoming data.
