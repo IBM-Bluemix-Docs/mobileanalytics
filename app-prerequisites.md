@@ -30,14 +30,14 @@ You can choose to create either a bound service or an unbound service. Bound ser
 ## Initializing your app
 {: #prerequisites_app}
 
-[Import](/docs/services/mobileanalytics/available-client-sdk.html) and install the {{site.data.keyword.mobileanalytics_short}} [Client SDKs](/docs/services/mobileanalytics/install-client-sdk.html). You can optionally use the {{site.data.keyword.mobileanalytics_short}} [REST API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobile-analytics-dashboard.{DomainName}/analytics-service/){:new_window}.
+Import and install the {{site.data.keyword.mobileanalytics_short}} Client SDKs. You can optionally use the {{site.data.keyword.mobileanalytics_short}} [REST API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobile-analytics-dashboard.{DomainName}/analytics-service/){:new_window}.
 
 
 ###Import the Client SDKs
 
-Import the Client SDKs and initialize them with the following code snippet to record usage analytics:
+[Import the Client SDKs](/docs/services/mobileanalytics/available-client-sdk.html) and [initialize](/docs/services/mobileanalytics/install-client-sdk.html) them with the following code snippet to record usage analytics:
 
-- Android
+- **Android**
 	
     Add the following `import` statements to the beginning of your project file:
 		
@@ -48,7 +48,7 @@ Import the Client SDKs and initialize them with the following code snippet to re
 	```
     {: codeblock}
 
-- iOS
+- **iOS**
 
     The Swift SDK is available for iOS and watchOS.
 		
@@ -60,7 +60,7 @@ Import the Client SDKs and initialize them with the following code snippet to re
 	```
     {: codeblock}
    
-- Cordova
+- **Cordova**
 			
     Add the Cordova plugin by running the following command from your Cordova application root directory:
 	
@@ -69,7 +69,7 @@ Import the Client SDKs and initialize them with the following code snippet to re
 	```
     {: codeblock}
    
-- Web
+- **Web**
 	
     Add the web plugin by either adding this script in the `index.html` file of web app:
 	
