@@ -1,7 +1,7 @@
 {: navgroup: .navgroup}
 {: topicgroup: .topicgroup}
 
-{: .toc subcollection="mobile-analytics" audience="service" href="/docs/services/mobileanalytics/index.html"}
+{: .toc subcollection="mobile-analytics" audience="service" arm="3663369" href="/docs/services/mobileanalytics/index.html"}
 Mobile Analytics
 
     {: .navgroup id="learn"}
