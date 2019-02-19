@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2017
-lastupdated: "2017-07-14"
+  years: 2016, 2017, 2019
+lastupdated: "2019-02-17"
 
 ---
 {:new_window: target="_blank"}
@@ -179,7 +179,7 @@ To quickly get the {{site.data.keyword.mobileanalytics_short}} service up and ru
 	
 7. Compile and run the application on your emulator or device.
 
-8. Go to the {{site.data.keyword.mobileanalytics_short}} console to see usage analytics for your application. You can also monitor your application by <!--[creating custom charts](app-monitoring.html#custom-charts),-->[setting alerts](/docs/services/mobileanalytics/app-monitoring.html#alerts) and [monitoring app crashes](/docs/services/mobileanalytics/app-monitoring.html#monitor-app-crash).
+8. Go to the {{site.data.keyword.mobileanalytics_short}} console to see usage analytics for your application. You can also monitor your application by <!--[creating custom charts](/docs/services/mobileanalytics/app-monitoring.html#custom-charts),-->[setting alerts](/docs/services/mobileanalytics/app-monitoring.html#alerts) and [monitoring app crashes](/docs/services/mobileanalytics/app-monitoring.html#monitor-app-crash).
 
 # Related Links
 {: #rellinks notoc}

@@ -1,7 +1,7 @@
 ---
 
 copyright:
- years: 2018
+ years: 2018, 2019
 
 ---
 
@@ -13,7 +13,7 @@ copyright:
 {:tip: .tip}
 
 {: #upgrade-analytics}
-Last updated: 20 March 2018
+Last updated: 19 February 2019
 {: .last-updated}
 
 # Upgrading your plan
@@ -40,4 +40,4 @@ To upgrade your plan, complete these steps:
 1.  Click **Plan** from the navigation pane.
    From here, you can see your current plan and other available plan options, and make changes.
 
-For information about calculating costs, see the [{{site.data.keyword.Bluemix_notm}} Pricing Calculator ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/pricing/platform/mobile){: new_window}.
+For information about calculating costs, see the [{{site.data.keyword.Bluemix_notm}} Pricing Calculator ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/pricing/platform/mobile){: new_window}.

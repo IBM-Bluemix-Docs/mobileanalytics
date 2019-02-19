@@ -2,7 +2,7 @@
 {: navgroup: .navgroup}
 {: topicgroup: .topicgroup}
 
-{: .toc subcollection="mobile-analytics" audience="service" arm="3663369" href="/docs/services/mobileanalytics/index.html" path="services/mobileanalytics"}
+{: .toc subcollection="mobile-analytics" service-name="Mobile Analytics" audience="service" arm="3663369" href="/docs/services/mobileanalytics/index.html" path="services/mobileanalytics"}
 Mobile Analytics
 
     {: .navgroup id="learn"}
@@ -13,7 +13,7 @@ Mobile Analytics
     Basic steps
         app-prerequisites.md
         app-instrument.md
-        [Get the App Data](app-monitoring-metrics.html)
+        [Get the App Data](/docs/services/mobileanalytics/app-monitoring-metrics.html)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -38,9 +38,9 @@ Mobile Analytics
 		
     {: .topicgroup}
     Tutorials
-        [Create a Swift App with Analytics and Push](https://console.bluemix.net/docs/tutorials/ios-mobile-push-analytics.html#ios-mobile-application-with-push-and-analytics)
-        [Create an Android App with Analytics and Push](https://console.bluemix.net/docs/tutorials/android-mobile-push-analytics.html#android-native-mobile-application-with-push-and-analytics)	
-        [Create a Hybrid App with Analytics and Push](https://console.bluemix.net/docs/tutorials/hybrid-mobile-push-analytics.html#hybrid-mobile-application-with-push-and-analytics)		
+        [Create a Swift App with Analytics and Push](https://cloud.ibm.com/docs/tutorials/ios-mobile-push-analytics.html#ios-mobile-application-with-push-and-analytics)
+        [Create an Android App with Analytics and Push](https://cloud.ibm.com/docs/tutorials/android-mobile-push-analytics.html#android-native-mobile-application-with-push-and-analytics)	
+        [Create a Hybrid App with Analytics and Push](https://cloud.ibm.com/docs/tutorials/hybrid-mobile-push-analytics.html#hybrid-mobile-application-with-push-and-analytics)		
     {: .navgroup-end}
 
     {: .navgroup id="help"}	

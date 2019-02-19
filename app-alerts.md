@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-06"
+  years: 2015, 2017, 2019
+lastupdated: "2019-02-19"
 
 ---
 {:new_window: target="_blank"}
@@ -11,13 +11,14 @@ lastupdated: "2017-08-06"
 {:codeblock:.codeblock}
 
 # Setting alerts
-{: #alerts}
+{: #setting-alerts}
 
 ## Setting alerts with Mobile Analytics 
+{: #setting-alerts-with-mobile-analytics}
 
 You can set thresholds in alert definitions in the {{site.data.keyword.mobileanalytics_short}} console to better monitor your activities.
 
-You can configure thresholds, which if exceeded, trigger alerts to notify the {{site.data.keyword.mobileanalytics_short}} console monitor. The triggered alerts can be visualized on the console, or the alerts can be handled by a custom webhook. <!-- This feature provides a proactive means of detecting app log errors, server log errors, extended periods of network latency, and authentication failures.--> This feature provides a proactive means of detecting application log errors and application crashes server log errors. Reactive thresholds and alerts keep you from having to sift through your data and set thresholds at a wide spectrum of granularity.
+You can configure thresholds, which if exceeded, trigger alerts to notify the {{site.data.keyword.mobileanalytics_short}} console monitor. The triggered alerts can be visualized on the console, or the alerts can be handled by a custom webhook. This feature provides a proactive means of detecting application log errors and application crashes server log errors. Reactive thresholds and alerts keep you from having to sift through your data and set thresholds at a wide spectrum of granularity.
 
 ## Creating an alert definition for application logs
 {: #alert-def-client-logs notoc}
@@ -58,7 +59,7 @@ You created an alert definition to trigger an alert at the end of each 5 minute 
 
 You can create an alert definition based on application crashes.
 
-In this example, you use application crash data to create an alert definition. The alert monitors all application crashes in the last 2 minutes, and continues to check every 2 minutes, until the alert definition is disabled or deleted. An alert is triggered for each application that crashed 5 or more times. For more information about application crashes, see [Application crashes](#app_crash).
+In this example, you use application crash data to create an alert definition. The alert monitors all application crashes in the last 2 minutes, and continues to check every 2 minutes, until the alert definition is disabled or deleted. An alert is triggered for each application that crashed 5 or more times. For more information about application crashes, see [Application crashes](/docs/services/mobileanalytics/app-monitoring-crash.html).
 
 1. In the {{site.data.keyword.mobileanalytics_short}} console, click **Definitions** to display the Alerts Definitions page.
 2. Click **Create Alert**.

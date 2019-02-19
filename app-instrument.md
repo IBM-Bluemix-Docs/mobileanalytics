@@ -1,7 +1,7 @@
 ---
 
 copyright:
- years: 2017
+ years: 2017, 2018, 2019
 
 ---
 
@@ -11,8 +11,8 @@ copyright:
 {:codeblock:.codeblock}
 
 # Instrument your app
-{: #Instrument}
-Last updated: 18 January 2018
+{: #Instrument-your-app}
+Last updated: 19 February 2019
 {: .last-updated}
 
 ##Initialize the {{site.data.keyword.mobileanalytics_short}} Client SDK 

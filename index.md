@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2017
-lastupdated: "2017-07-14"
+  years: 2016, 2017, 2019
+lastupdated: "2019-02-19"
 
 ---
 {:new_window: target="_blank"}
@@ -11,8 +11,7 @@ lastupdated: "2017-07-14"
 {:codeblock:.codeblock}
 
 # Getting started tutorial
-
-{: #gettingstartedtemplate}
+{: #getting-started-tutorial}
 
 {{site.data.keyword.mobileanalytics_full}} helps developers, IT administrators, and business stakeholders to gain insight on how their mobile apps are performing and how they are being used. 
 

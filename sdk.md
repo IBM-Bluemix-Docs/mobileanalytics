@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2018-01-18"
+  years: 2015, 2017, 2018, 2019
+lastupdated: "2019-02-19"
 
 ---
 {:new_window: target="_blank"}
@@ -11,7 +11,7 @@ lastupdated: "2018-01-18"
 {:codeblock:.codeblock}
 
 # Instrument the application
-{: #mobileanalytics_sdk}
+{: #instrument-the-application}
 
 ## Instrument your application to use the {{site.data.keyword.mobileanalytics_short}} client SDKs
 
@@ -160,7 +160,7 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 	```
     {: codeblock}
 		
-	**Note:** Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`Analytics.setUserIdentity("username")`](sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+	**Note:** Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.setUserIdentity("username")`](#android-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`Analytics.setUserIdentity("username")`](#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
 	The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
 		
 		
@@ -181,7 +181,7 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 	 	
     An optional `deviceEvents` parameter automatically gathers analytics for device-level events.
 		
-    Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If `hasUserContext` is true, each use of [`Analytics.userIdentity = "username"`](sdk.html#ios-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+    Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`Analytics.userIdentity = "username"`](#ios-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If `hasUserContext` is true, each use of [`Analytics.userIdentity = "username"`](#ios-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
     The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
 
 - watchOS
@@ -209,7 +209,7 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 	```
     {: codeblock}	
 		
-    Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The `Analytics.setUserIdentity("username")` method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of `Analytics.setUserIdentity("username")`(sdk.html#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
+    Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The `Analytics.setUserIdentity("username")` method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of `Analytics.setUserIdentity("username")`(#android-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.
     The `Analytics.logLocation()` method , which enables the app to send the device location , will work if the `collectLocation` is set true. 
 	
 - Web
@@ -220,9 +220,9 @@ Initialize your application to enable sending logs to the {{site.data.keyword.mo
 	```
     {: codeblock}
 		
-    Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`BMSAnalytics.setUserIdentity("username")`](sdk.html#web-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`BMSAnalytics.setUserIdentity("username")`](sdk.html#web-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.	
+    Set the value for `hasUserContext` to **true** or **false**. If false (default value), each device is counted as an active user. The [`BMSAnalytics.setUserIdentity("username")`](#web-tracking-users) method, which enables you to track the number of users per device who are actively using your application, will not work when `hasUserContext` is false. If true, each use of [`BMSAnalytics.setUserIdentity("username")`](#web-tracking-users) counts as an active user. There is no default user identity when `hasUserContext` is true, and therefore must be set to populate the active user charts.	
 
-4. You have now initialized your application to collect analytics. Next, you can [send analytics data](sdk.html#app-monitoring-gathering-analytics) to the {{site.data.keyword.mobileanalytics_short}} service.
+4. You have now initialized your application to collect analytics. Next, you can [send analytics data](#app-monitoring-gathering-analytics) to the {{site.data.keyword.mobileanalytics_short}} service.
 
 
 ## Gathering usage analytics
@@ -373,7 +373,7 @@ When the logger level is configured to `FATAL`, the logger captures uncaught exc
 
 When the logger level is set `DEBUG`, you also get Mobile Analytics Client SDK logs, which are included when you send logs.
 
-<!-- **Note:** Find full Logger API references for each platform at [SDKs, samples, API reference](sdks-samples-apis.html). The Logger API is part of the--> <!--{{site.data.keyword.mobileanalytics_short}} Client SDK Core. -->
+<!-- **Note:** Find full Logger API references for each platform at [SDKs, samples, API reference](/docs/services/mobileanalytics/sdks-samples-apis.html). The Logger API is part of the--> <!--{{site.data.keyword.mobileanalytics_short}} Client SDK Core. -->
 
 
 ### Sample Logger usage
@@ -670,7 +670,7 @@ var success = function(data){
 ## Reporting crash analytics
 {: #report-crash-analytics}
 
-You can see [application crash data](app-monitoring.html#monitor-app-crash) by sending analytics and log information to {{site.data.keyword.mobileanalytics_short}}.
+You can see [application crash data](/docs/services/mobileanalytics/app-monitoring.html#monitor-app-crash) by sending analytics and log information to {{site.data.keyword.mobileanalytics_short}}.
 
 The `Analytics.send()` method populates the **Crash Overview** and **Crashes** tables on the **Crashes** page. Charts in this section are enabled by using the initialization and sending process for analytics; no special configuration is necessary.
 
@@ -682,7 +682,7 @@ The `Logger.send()` method populates the the **Crash Summary** and **Crash Detai
 	`Logger.storeLogs(true);`
 	<!-- * `Logger.setLogLevel(Logger.LEVEL.FATAL); // or greater` -->
 	
-	See the Android [sample logger usage](sdk.html##sample-logger-usage).
+	See the Android [sample logger usage](#sample-logger-usage).
 
 
 - iOS
@@ -690,7 +690,7 @@ The `Logger.send()` method populates the the **Crash Summary** and **Crash Detai
 	`Logger.isLogStorageEnabled = true`
 	<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
 	
-	See the iOS [sample logger usage](sdk.html##sample-logger-usage).
+	See the iOS [sample logger usage](#sample-logger-usage).
 
 
 - Cordova
@@ -698,7 +698,7 @@ The `Logger.send()` method populates the the **Crash Summary** and **Crash Detai
 	 `BMSLogger.storeLogs(true);`
 	<!-- * `Logger.logLevelFilter = LogLevel.Fatal // or greater` -->
 
-	See the Cordova [sample logger usage](sdk.html##sample-logger-usage).
+	See the Cordova [sample logger usage](#sample-logger-usage).
 
 - Web
 
@@ -902,13 +902,13 @@ The {{site.data.keyword.mobileanalytics_short}} service saves the following data
 ## What to do next
 {: #what-to-do-next notoc}
 
-You can now go to the {{site.data.keyword.mobileanalytics_short}} Console to see usage analytics, such as new devices and total devices using your application. You can also monitor your application by <!--[creating custom charts](app-monitoring.html#custom-charts),-->[setting alerts](app-monitoring.html#alerts) and [monitoring app crashes](app-monitoring.html#monitor-app-crash).
+You can now go to the {{site.data.keyword.mobileanalytics_short}} Console to see usage analytics, such as new devices and total devices using your application. You can also monitor your application by <!--[creating custom charts](/docs/services/mobileanalytics/app-monitoring.html#custom-charts),-->[setting alerts](/docs/services/mobileanalytics/app-monitoring.html#alerts) and [monitoring app crashes](/docs/services/mobileanalytics/app-monitoring.html#monitor-app-crash).
 
 
-# Related Links
+## Related Links
 {: #rellinks notoc}
 
-## API Reference
+### API Reference
 {: #api notoc}
 
-* [REST API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobile-analytics-dashboard.{DomainName}/analytics-service/){:new_window}
+* [REST API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/){:new_window}

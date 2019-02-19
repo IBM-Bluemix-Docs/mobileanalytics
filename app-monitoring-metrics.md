@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-06"
+  years: 2015, 2017, 2019
+lastupdated: "2019-02-19"
 
 ---
 {:new_window: target="_blank"}
@@ -11,7 +11,7 @@ lastupdated: "2017-08-06"
 {:codeblock:.codeblock}
 
 # Using metrics and events
-{: #usingmetrics}
+{: #using-metrics-and-events}
 
 ## Monitoring applications with Mobile Analytics
 
@@ -44,5 +44,5 @@ Client-side logs and usage data are gathered automatically and sent to the Mobil
 ## Data visualization
 {: data-visualization notoc}
 
-All data that is collected by the analytics service can be visualized through the {{site.data.keyword.mobileanalytics_short}} dashboard which is accessible from your {{site.data.keyword.Bluemix_notm}} dashboard by clicking your IBM {{site.data.keyword.mobileanalytics_short}} service tile instance. <!--You can also create custom charts, based on data that is collected by the analytics service in the dashboard.--> In addition to an at-a-glance view of your mobile analytics, the analytics feature includes the capability to perform a raw search against client logs, captured client crash data, and any extra data that you explicitly provide through client API function calls that feed into the {{site.data.keyword.mobileanalytics_short}} service. 
+All data that is collected by the analytics service can be visualized through the {{site.data.keyword.mobileanalytics_short}} dashboard which is accessible from your {{site.data.keyword.Bluemix_notm}} dashboard by clicking your IBM {{site.data.keyword.mobileanalytics_short}} service tile instance. In addition to an at-a-glance view of your mobile analytics, the analytics feature includes the capability to perform a raw search against client logs, captured client crash data, and any extra data that you explicitly provide through client API function calls that feed into the {{site.data.keyword.mobileanalytics_short}} service. 
 

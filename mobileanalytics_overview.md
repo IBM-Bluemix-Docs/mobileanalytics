@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-08"
+  years: 2015, 2017, 2019
+lastupdated: "2019-02-19"
 
 ---
 {:new_window: target="_blank"}
@@ -71,10 +71,10 @@ With the {{site.data.keyword.mobileanalytics_short}} service you can:
   </tr>  
 </table>
 
-# Related Links
+## Related Links
 {: #rellinks notoc}
 
-## SDK
+### SDK
 {: #sdk notoc}
 <!-- Links to SDK download and SDK Developer Guide -->
 * [Android SDK ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-core){: new_window} 

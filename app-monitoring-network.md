@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-06"
+  years: 2015, 2017, 2019
+lastupdated: "2019-02-19"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,6 @@ lastupdated: "2017-08-06"
 
 # Monitoring network requests
 {: #monitor-network-requests}
-
 
 View network request data for your applications in the {{site.data.keyword.mobileanalytics_short}} console. 
 

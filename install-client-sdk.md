@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-13"
+  years: 2015, 2017, 2019
+lastupdated: "2019-02-19"
 
 ---
 {:new_window: target="_blank"}
@@ -11,7 +11,7 @@ lastupdated: "2017-01-13"
 {:codeblock:.codeblock}
 
 #Install the SDK
-{: #mobileanalytics_sdk}
+{: #install-the-sdk}
 
 ## Install the {{site.data.keyword.mobileanalytics_short}} Client SDKs
 
@@ -71,7 +71,7 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with G
    	{: codeblock}
    
 
-You have now installed the Android Client SDK. Next, [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.   
+You have now installed the Android Client SDK. Next, [import and initialize](/docs/services/mobileanalytics/sdk.html#initalize-ma-sdk) the Analytics Client SDK.   
 
 ## Installing the Swift SDK
 {: #installing-sdk-ios}
@@ -95,7 +95,7 @@ The {{site.data.keyword.mobileanalytics_short}} SDK is distributed with [CocoaPo
 
 1. Follow the [{{site.data.keyword.Bluemix_notm}} Mobile Services Swift SDK instructions ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics/tree/development#cocoapods){: new_window} on GitHub to install `BMSAnalytics` using Cocoapods and add it to your Podfile. 
 	
-2. After you have installed the iOS Client SDK,  [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.   
+2. After you have installed the iOS Client SDK,  [import and initialize](/docs/services/mobileanalytics/sdk.html#initalize-ma-sdk) the Analytics Client SDK.   
 
 #### Carthage
 {: #carthage notoc}
@@ -104,7 +104,7 @@ If you are not using using CocoaPods, you can add frameworks to your project usi
 
 1. Follow the [Carthage installation instructions ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics/tree/development#carthage){: new_window} on GitHub to install `BMSAnalytics`.
 
-2. After you have installed the iOS Client SDK,  [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.
+2. After you have installed the iOS Client SDK, [import and initialize](/docs/services/mobileanalytics/sdk.html#initalize-ma-sdk) the Analytics Client SDK.
 
 
 ## Installing the Cordova plugin
@@ -169,7 +169,7 @@ The {{site.data.keyword.mobileanalytics_full}} Cordova plugin enables you to ins
 	
 7. [Configure your Android and iOS environment ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/bms-core#4-configuring-your-platform){: new_window}.
 
-8. You have now installed the Cordova plugin and configured your environments. Next, [import and initialize](sdk.html#initalize-ma-sdk) the Analytics Client SDK.
+8. You have now installed the Cordova plugin and configured your environments. Next, [import and initialize](/docs/services/mobileanalytics/sdk.html#initalize-ma-sdk) the Analytics Client SDK.
 
 #### Location Service Enablement ahead of cordova bms-core plugin version (>2.4.+).
 9. For Cordova-ios app to enable the location API correct working you need to add a property in Info.plist file in the project folder of your app i.e.  `Privacy - Location Usage Description`  and as value give proper justification to adding the location API as "The app requires location service to be enabled" or so .
@@ -237,15 +237,16 @@ Or by using module loader requirejs. The name used as reference API is same as t
 
 
 
-# Related Links
+## Related Links
 {: #rellinks notoc}
 
-## SDK
+### SDK
 {: #sdk notoc}
 * [Android SDK ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-android-analytics){: new_window}  
 * [iOS SDK ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics){: new_window}
 * [Cordova Plugin Core SDK ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/bms-core){: new_window}
 * [Web SDK![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics/){: new_window}
+
 ## API Reference
 {: #api notoc}
-* [REST API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobile-analytics-dashboard.{DomainName}/analytics-service/){:new_window}
+* [REST API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/){:new_window}

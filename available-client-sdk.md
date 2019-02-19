@@ -1,7 +1,7 @@
 ---
 
 copyright:
- years: 2018
+ years: 2018, 2019
 
 ---
 
@@ -12,12 +12,12 @@ copyright:
 
 # SDKs for Mobile Analytics
 {: #install-sdk}
-Last updated: 18 January 2018
+Last updated: 19 February 2019
 {: .last-updated}
 
 The {{site.data.keyword.mobileanalytics_short}} Client SDKs are currently available for Android, iOS, Cordova and Web. Below are the links to  platform specific SDKs.
 
-Refer the [document](install-client-sdk.html) for detailed information on installation and technical concepts.
+Refer the [document](/docs/services/mobileanalytics/install-client-sdk.html) for detailed information on installation and technical concepts.
 
 {: shortdesc}
 

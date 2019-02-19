@@ -1,7 +1,8 @@
 ---
 
 copyright:
- years: 2017
+  years: 2015, 2017, 2018, 2019
+lastupdated: "2019-02-19"
 
 ---
 
@@ -12,14 +13,12 @@ copyright:
 
 # Prerequisites
 {: #prerequisites}
-Last updated: 18 January 2018
-{: .last-updated}
 
 
 ## Creating a Mobile Analytics service instance
 {: #prerequisites_1}
 
-1. In the [IBM Cloud Catalog](https://console.ng.bluemix.net/catalog/), click **Mobile** > **Mobile Analytics**.
+1. In the [IBM Cloud Catalog](https://cloud.ibm.com/catalog/), click **Mobile** > **Mobile Analytics**.
 2. Provide a Service name.
 3. Click **Create**.
 4. Choose to connect to other existing apps, or leave it unbound.
@@ -30,7 +29,7 @@ You can choose to create either a bound service or an unbound service. Bound ser
 ## Initializing your app
 {: #prerequisites_app}
 
-Import and install the {{site.data.keyword.mobileanalytics_short}} Client SDKs. You can optionally use the {{site.data.keyword.mobileanalytics_short}} [REST API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobile-analytics-dashboard.{DomainName}/analytics-service/){:new_window}.
+Import and install the {{site.data.keyword.mobileanalytics_short}} Client SDKs. You can optionally use the {{site.data.keyword.mobileanalytics_short}} [REST API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/){:new_window}.
 
 
 ###Import the Client SDKs
@@ -93,6 +92,6 @@ Import and install the {{site.data.keyword.mobileanalytics_short}} Client SDKs. 
     {: codeblock}
 		
 		
-Your next step is to [Instrument your app](app-instrument.html) .
+Your next step is to [Instrument your app](/docs/services/mobileanalytics/app-instrument.html) .
 
 

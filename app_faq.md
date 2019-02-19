@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2018-02-19"
+  years: 2015, 2017, 2018, 2019
+lastupdated: "2019-02-19"
 
 ---
 {:new_window: target="_blank"}
@@ -40,7 +40,7 @@ lastupdated: "2018-02-19"
 	
 5. **How do I connect my application to {{site.data.keyword.mobileanalytics_short}}?**
 
-    [Download our open-source SDK for iOS or Android](install-client-sdk.html), or use the {{site.data.keyword.mobileanalytics_short}} [REST API](https://mobile-analytics-dashboard.{DomainName}/analytics-service/) for other platforms. 
+    [Download our open-source SDK for iOS or Android](/docs/services/mobileanalytics/install-client-sdk.html), or use the {{site.data.keyword.mobileanalytics_short}} [REST API](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/) for other platforms. 
 
 6. **In what IBM Cloud regions is Mobile Analytics available?**
 
@@ -78,4 +78,4 @@ lastupdated: "2018-02-19"
 	
 12. **I am using MobileFirst Platform Foundation on premises to develop my apps, but I don't want to host my own analytics cluster. Can I use {{site.data.keyword.mobileanalytics_full}} instead?**
 
-    Yes. You have a couple of options: If you are using MobileFirst Platform Foundation 7.x or 8.0 and your apps are instrumented with MobileFirst Platform SDKs, you can configure your MobileFirst server to report analtyics data to {{site.data.keyword.mobileanalytics_short}} for {{site.data.keyword.Bluemix_notm}}. Read the [Configuring Mobile Analytics and Mobile Foundation IBM Cloud services ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobilefirstplatform.ibmcloud.com/blog/2016/07/11/analytics-bm-service/){: new_window} blog post for details. Alternatively, you can instrument your apps using the {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.mobileanalytics_short}} SDK and report directly to the {{site.data.keyword.mobileanalytics_short}} service.
+    Yes. You have a couple of options: If you are using MobileFirst Platform Foundation 7.x or 8.0 and your apps are instrumented with MobileFirst Platform SDKs, you can configure your MobileFirst server to report analtyics data to {{site.data.keyword.mobileanalytics_short}} for {{site.data.keyword.Bluemix_notm}}. You can instrument your apps using the {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.mobileanalytics_short}} SDK and report directly to the {{site.data.keyword.mobileanalytics_short}} service.
